@@ -176,8 +176,10 @@ class FrontEnd(mp.Process):
             loss_tracking.backward()
 
             with torch.no_grad():
-                pose_optimizer.step()
-                converged = update_pose(viewpoint)
+                # pose_optimizer.step()
+                # converged = update_pose(viewpoint)
+                viewpoint.update_RT(viewpoint.R_gt, viewpoint.T_gt)
+                converged = True
 
             if tracking_itr % 10 == 0:
                 self.q_main2vis.put(
@@ -345,6 +347,7 @@ class FrontEnd(mp.Process):
             if self.frontend_queue.empty():
                 tic.record()
                 if cur_frame_idx >= len(self.dataset):
+                # if cur_frame_idx >= 100:
                     if self.save_results:
                         eval_ate(
                             self.cameras,
@@ -388,6 +391,7 @@ class FrontEnd(mp.Process):
                     len(self.current_window) == self.window_size
                 )
 
+                print ("cur_frame_idx_front: ", cur_frame_idx)
                 # Tracking
                 render_pkg = self.tracking(cur_frame_idx, viewpoint)
 
@@ -478,6 +482,7 @@ class FrontEnd(mp.Process):
                     # throttle at 3fps when keyframe is added
                     duration = tic.elapsed_time(toc)
                     time.sleep(max(0.01, 1.0 / 3.0 - duration / 1000))
+                print ("Frontend duration: ", tic.elapsed_time(toc))
             else:
                 data = self.frontend_queue.get()
                 if data[0] == "sync_backend":

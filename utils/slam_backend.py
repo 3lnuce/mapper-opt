@@ -153,6 +153,8 @@ class BackEnd(mp.Process):
                 continue
             random_viewpoint_stack.append(viewpoint)
 
+        # print ("iters: ", iters)
+        # print ("curr_window: ", len(current_window))
         for _ in range(iters):
             self.iteration_count += 1
             self.last_sent += 1
@@ -309,12 +311,13 @@ class BackEnd(mp.Process):
                 self.gaussians.update_learning_rate(self.iteration_count)
                 self.keyframe_optimizers.step()
                 self.keyframe_optimizers.zero_grad(set_to_none=True)
+
                 # Pose update
-                for cam_idx in range(min(frames_to_optimize, len(current_window))):
-                    viewpoint = viewpoint_stack[cam_idx]
-                    if viewpoint.uid == 0:
-                        continue
-                    update_pose(viewpoint)
+                # for cam_idx in range(min(frames_to_optimize, len(current_window))):
+                #     viewpoint = viewpoint_stack[cam_idx]
+                #     if viewpoint.uid == 0:
+                #         continue
+                #     update_pose(viewpoint)
         return gaussian_split
 
     def color_refinement(self):
@@ -365,6 +368,9 @@ class BackEnd(mp.Process):
         self.frontend_queue.put(msg)
 
     def run(self):
+        tic = torch.cuda.Event(enable_timing=True)
+        toc = torch.cuda.Event(enable_timing=True)
+
         while True:
             if self.backend_queue.empty():
                 if self.pause:
@@ -377,10 +383,14 @@ class BackEnd(mp.Process):
                 if self.single_thread:
                     time.sleep(0.01)
                     continue
+                # tic.record()
                 self.map(self.current_window)
                 if self.last_sent >= 10:
                     self.map(self.current_window, prune=True, iters=10)
                     self.push_to_frontend()
+                # toc.record()
+                # torch.cuda.synchronize()
+                # print("Backend duration: ", tic.elapsed_time(toc), " empty")
             else:
                 data = self.backend_queue.get()
                 if data[0] == "stop":
@@ -392,7 +402,10 @@ class BackEnd(mp.Process):
                 elif data[0] == "color_refinement":
                     self.color_refinement()
                     self.push_to_frontend()
+
                 elif data[0] == "init":
+                    print("cur_frame_idx_back: ", data[1])
+                    tic.record()
                     cur_frame_idx = data[1]
                     viewpoint = data[2]
                     depth_map = data[3]
@@ -406,7 +419,14 @@ class BackEnd(mp.Process):
                     self.initialize_map(cur_frame_idx, viewpoint)
                     self.push_to_frontend("init")
 
+                    toc.record()
+                    torch.cuda.synchronize()
+                    print("Backend duration: ", tic.elapsed_time(toc), " init")
+
                 elif data[0] == "keyframe":
+                    # print("cur_frame_idx_back: ", data[1])
+                    # print("cur_wind_len: ", len(self.current_window))
+                    tic.record()
                     cur_frame_idx = data[1]
                     viewpoint = data[2]
                     current_window = data[3]
@@ -436,6 +456,11 @@ class BackEnd(mp.Process):
                             continue
                         viewpoint = self.viewpoints[current_window[cam_idx]]
                         if cam_idx < frames_to_optimize:
+                            # print ("cam_rot_delta: ", viewpoint.cam_rot_delta)
+                            # print ("lr: ", self.config['Training']['lr']['cam_rot_delta'])
+                            # print ("cam_trans_delta: ", viewpoint.cam_trans_delta)
+                            # print ("lr: ", self.config['Training']['lr']['cam_trans_delta'])
+                            # print ("opt_params len: ", len(opt_params))
                             opt_params.append(
                                 {
                                     "params": [viewpoint.cam_rot_delta],
@@ -473,6 +498,11 @@ class BackEnd(mp.Process):
                     self.map(self.current_window, iters=iter_per_kf)
                     self.map(self.current_window, prune=True)
                     self.push_to_frontend("keyframe")
+
+                    toc.record()
+                    torch.cuda.synchronize()
+                    print("Backend duration: ", tic.elapsed_time(toc), " keyframe")
+
                 else:
                     raise Exception("Unprocessed data", data)
         while not self.backend_queue.empty():
