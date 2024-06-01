@@ -1,0 +1,869 @@
+MonoGS: Running MonoGS in Evaluation Mode
+MonoGS: Following config will be overriden
+MonoGS:         save_results=True
+MonoGS:         use_gui=False
+MonoGS:         eval_rendering=True
+MonoGS:         use_wandb=True
+MonoGS: saving results in results/tum_rgbd_dataset_freiburg1_desk/2024-05-31-15-47-33
+cur_frame_idx_back:  0
+MonoGS: Resetting the system
+MonoGS: Initialized map
+cur_frame_idx_front:  1
+Frontend duration:  173.05926513671875
+cur_frame_idx_front:  2
+Frontend duration:  18.42380714416504
+cur_frame_idx_front:  3
+Frontend duration:  16.628768920898438
+cur_frame_idx_front:  4
+Frontend duration:  16.825279235839844
+cur_frame_idx_front:  5
+Frontend duration:  18.84876823425293
+cur_frame_idx_front:  6
+Frontend duration:  21.740543365478516
+cur_frame_idx_front:  7
+Frontend duration:  21.479904174804688
+cur_frame_idx_front:  8
+Frontend duration:  20.6661434173584
+cur_frame_idx_front:  9
+Frontend duration:  20.7457275390625
+cur_frame_idx_front:  10
+Frontend duration:  25.14473533630371
+cur_frame_idx_front:  11
+Frontend duration:  21.310943603515625
+cur_frame_idx_front:  12
+Frontend duration:  22.403072357177734
+cur_frame_idx_front:  13
+Frontend duration:  20.78563117980957
+cur_frame_idx_front:  14
+Frontend duration:  18.84876823425293
+cur_frame_idx_front:  15
+Frontend duration:  24.174400329589844
+cur_frame_idx_front:  16
+Frontend duration:  26.102783203125
+cur_frame_idx_front:  17
+Frontend duration:  19.2860164642334
+cur_frame_idx_front:  18
+Frontend duration:  23.528287887573242
+cur_frame_idx_front:  19
+Frontend duration:  19.591039657592773
+cur_frame_idx_front:  20
+Frontend duration:  23.11859130859375
+cur_frame_idx_front:  21
+Frontend duration:  30.101503372192383
+cur_frame_idx_front:  22
+Frontend duration:  24.920671463012695
+cur_frame_idx_front:  23
+Frontend duration:  21.910207748413086
+cur_frame_idx_front:  24
+Frontend duration:  20.893632888793945
+cur_frame_idx_front:  25
+Frontend duration:  26.281152725219727
+cur_frame_idx_front:  26
+Frontend duration:  24.634368896484375
+cur_frame_idx_front:  27
+Frontend duration:  19.524991989135742
+cur_frame_idx_front:  28
+Frontend duration:  19.52956771850586
+cur_frame_idx_front:  29
+Frontend duration:  25.033727645874023
+cur_frame_idx_front:  30
+MonoGS: Keyframes lacks sufficient overlap to initialize the map, resetting.
+Backend duration:  4679.01806640625  init
+Backend duration:  1107.9495849609375  keyframe
+Backend duration:  1291.89892578125  keyframe
+Backend duration:  1717.61767578125  keyframe
+Backend duration:  2125.968505859375  keyframe
+Backend duration:  2563.08740234375  keyframe
+cur_frame_idx_back:  30
+MonoGS: Resetting the system
+MonoGS: Initialized map
+cur_frame_idx_front:  31
+Frontend duration:  22.46143913269043
+cur_frame_idx_front:  32
+Frontend duration:  16.456735610961914
+cur_frame_idx_front:  33
+Frontend duration:  17.274751663208008
+cur_frame_idx_front:  34
+Frontend duration:  17.348831176757812
+cur_frame_idx_front:  35
+Frontend duration:  18.35798454284668
+cur_frame_idx_front:  36
+Frontend duration:  23.580671310424805
+cur_frame_idx_front:  37
+Frontend duration:  18.918048858642578
+cur_frame_idx_front:  38
+Frontend duration:  19.411808013916016
+cur_frame_idx_front:  39
+Frontend duration:  19.343103408813477
+cur_frame_idx_front:  40
+Frontend duration:  20.2923526763916
+cur_frame_idx_front:  41
+Frontend duration:  33.86163330078125
+cur_frame_idx_front:  42
+Frontend duration:  17.915584564208984
+cur_frame_idx_front:  43
+Frontend duration:  20.712448120117188
+cur_frame_idx_front:  44
+Frontend duration:  18.149215698242188
+cur_frame_idx_front:  45
+Frontend duration:  30.071359634399414
+cur_frame_idx_front:  46
+Frontend duration:  20.625408172607422
+cur_frame_idx_front:  47
+Frontend duration:  25.070592880249023
+cur_frame_idx_front:  48
+Frontend duration:  22.48908805847168
+cur_frame_idx_front:  49
+Frontend duration:  20.195968627929688
+cur_frame_idx_front:  50
+Frontend duration:  29.708127975463867
+cur_frame_idx_front:  51
+Frontend duration:  20.44211196899414
+cur_frame_idx_front:  52
+Frontend duration:  22.04262351989746
+cur_frame_idx_front:  53
+Frontend duration:  22.567455291748047
+cur_frame_idx_front:  54
+Frontend duration:  21.814016342163086
+cur_frame_idx_front:  55
+Frontend duration:  26.915552139282227
+cur_frame_idx_front:  56
+Frontend duration:  31.38764762878418
+cur_frame_idx_front:  57
+Frontend duration:  26.271743774414062
+cur_frame_idx_front:  58
+Frontend duration:  26.303232192993164
+cur_frame_idx_front:  59
+Frontend duration:  26.11199951171875
+cur_frame_idx_front:  60
+MonoGS: Keyframes lacks sufficient overlap to initialize the map, resetting.
+Backend duration:  3919.6044921875  init
+Backend duration:  1103.9171142578125  keyframe
+Backend duration:  1545.0859375  keyframe
+Backend duration:  1992.8670654296875  keyframe
+Backend duration:  2422.717529296875  keyframe
+Backend duration:  2894.108642578125  keyframe
+cur_frame_idx_back:  60
+MonoGS: Resetting the system
+MonoGS: Initialized map
+Backend duration:  4047.150146484375  init
+Backend duration:  1194.497802734375  keyframe
+Backend duration:  1530.57177734375  keyframe
+Backend duration:  2008.9713134765625  keyframe
+Backend duration:  2388.950927734375  keyframe
+Backend duration:  2896.11572265625  keyframe
+Backend duration:  3331.95068359375  keyframe
+MonoGS: Performing initial BA for initialization
+MonoGS: Initialized SLAM
+cur_frame_idx_front:  61
+Frontend duration:  22.730527877807617
+cur_frame_idx_front:  62
+Frontend duration:  15.447263717651367
+cur_frame_idx_front:  63
+Frontend duration:  16.20070457458496
+cur_frame_idx_front:  64
+Frontend duration:  15.942879676818848
+cur_frame_idx_front:  65
+Frontend duration:  17.937023162841797
+cur_frame_idx_front:  66
+Frontend duration:  30.147584915161133
+cur_frame_idx_front:  67
+Frontend duration:  22.11814308166504
+cur_frame_idx_front:  68
+Frontend duration:  22.07948875427246
+cur_frame_idx_front:  69
+Frontend duration:  18.257343292236328
+cur_frame_idx_front:  70
+Frontend duration:  25.562368392944336
+cur_frame_idx_front:  71
+Frontend duration:  27.626495361328125
+cur_frame_idx_front:  72
+Frontend duration:  20.546560287475586
+cur_frame_idx_front:  73
+Frontend duration:  23.295520782470703
+cur_frame_idx_front:  74
+Frontend duration:  23.828256607055664
+cur_frame_idx_front:  75
+Frontend duration:  28.11996841430664
+cur_frame_idx_front:  76
+Frontend duration:  29.78816032409668
+cur_frame_idx_front:  77
+Frontend duration:  18.975263595581055
+cur_frame_idx_front:  78
+Frontend duration:  18.773887634277344
+cur_frame_idx_front:  79
+Frontend duration:  19.135360717773438
+cur_frame_idx_front:  80
+Frontend duration:  23.458303451538086
+cur_frame_idx_front:  81
+Frontend duration:  34.385921478271484
+cur_frame_idx_front:  82
+Frontend duration:  23.190528869628906
+cur_frame_idx_front:  83
+Frontend duration:  22.734848022460938
+cur_frame_idx_front:  84
+Frontend duration:  23.012351989746094
+cur_frame_idx_front:  85
+Frontend duration:  26.8472957611084
+cur_frame_idx_front:  86
+Frontend duration:  35.09657669067383
+cur_frame_idx_front:  87
+Frontend duration:  26.250240325927734
+cur_frame_idx_front:  88
+Frontend duration:  26.167007446289062
+cur_frame_idx_front:  89
+Frontend duration:  26.599424362182617
+cur_frame_idx_front:  90
+Frontend duration:  30.974720001220703
+cur_frame_idx_front:  91
+Frontend duration:  28.302335739135742
+cur_frame_idx_front:  92
+Frontend duration:  22.401023864746094
+cur_frame_idx_front:  93
+Frontend duration:  28.292095184326172
+cur_frame_idx_front:  94
+Frontend duration:  28.74367904663086
+cur_frame_idx_front:  95
+Frontend duration:  32.709503173828125
+cur_frame_idx_front:  96
+Frontend duration:  31.14214324951172
+cur_frame_idx_front:  97
+Frontend duration:  21.086496353149414
+cur_frame_idx_front:  98
+Frontend duration:  21.49888038635254
+cur_frame_idx_front:  99
+Frontend duration:  89.36863708496094
+cur_frame_idx_front:  100
+cur_frame_idx_front:  101
+cur_frame_idx_front:  102
+cur_frame_idx_front:  103
+cur_frame_idx_front:  104
+cur_frame_idx_front:  105
+MonoGS: Evaluating ATE at frame:  106
+Eval: RMSE ATE [m] 1.5814361837925518e-16
+Frontend duration:  287.59832763671875
+cur_frame_idx_front:  106
+cur_frame_idx_front:  107
+cur_frame_idx_front:  108
+cur_frame_idx_front:  109
+cur_frame_idx_front:  110
+cur_frame_idx_front:  111
+cur_frame_idx_front:  112
+cur_frame_idx_front:  113
+cur_frame_idx_front:  114
+Frontend duration:  92.55123138427734
+cur_frame_idx_front:  115
+cur_frame_idx_front:  116
+cur_frame_idx_front:  117
+cur_frame_idx_front:  118
+cur_frame_idx_front:  119
+cur_frame_idx_front:  120
+cur_frame_idx_front:  121
+cur_frame_idx_front:  122
+Frontend duration:  94.64470672607422
+cur_frame_idx_front:  123
+cur_frame_idx_front:  124
+cur_frame_idx_front:  125
+cur_frame_idx_front:  126
+cur_frame_idx_front:  127
+cur_frame_idx_front:  128
+cur_frame_idx_front:  129
+cur_frame_idx_front:  130
+Frontend duration:  95.53449249267578
+cur_frame_idx_front:  131
+cur_frame_idx_front:  132
+cur_frame_idx_front:  133
+cur_frame_idx_front:  134
+cur_frame_idx_front:  135
+cur_frame_idx_front:  136
+cur_frame_idx_front:  137
+cur_frame_idx_front:  138
+cur_frame_idx_front:  139
+Frontend duration:  90.84598541259766
+cur_frame_idx_front:  140
+cur_frame_idx_front:  141
+cur_frame_idx_front:  142
+cur_frame_idx_front:  143
+cur_frame_idx_front:  144
+cur_frame_idx_front:  145
+cur_frame_idx_front:  146
+cur_frame_idx_front:  147
+Frontend duration:  89.8280029296875
+cur_frame_idx_front:  148
+cur_frame_idx_front:  149
+cur_frame_idx_front:  150
+cur_frame_idx_front:  151
+cur_frame_idx_front:  152
+cur_frame_idx_front:  153
+cur_frame_idx_front:  154
+cur_frame_idx_front:  155
+cur_frame_idx_front:  156
+Frontend duration:  93.95942687988281
+cur_frame_idx_front:  157
+cur_frame_idx_front:  158
+cur_frame_idx_front:  159
+cur_frame_idx_front:  160
+cur_frame_idx_front:  161
+cur_frame_idx_front:  162
+cur_frame_idx_front:  163
+cur_frame_idx_front:  164
+Frontend duration:  98.67388916015625
+cur_frame_idx_front:  165
+cur_frame_idx_front:  166
+cur_frame_idx_front:  167
+cur_frame_idx_front:  168
+cur_frame_idx_front:  169
+cur_frame_idx_front:  170
+cur_frame_idx_front:  171
+cur_frame_idx_front:  172
+cur_frame_idx_front:  173
+Frontend duration:  96.24972534179688
+cur_frame_idx_front:  174
+cur_frame_idx_front:  175
+cur_frame_idx_front:  176
+cur_frame_idx_front:  177
+cur_frame_idx_front:  178
+cur_frame_idx_front:  179
+cur_frame_idx_front:  180
+cur_frame_idx_front:  181
+cur_frame_idx_front:  182
+Frontend duration:  92.16575622558594
+cur_frame_idx_front:  183
+cur_frame_idx_front:  184
+cur_frame_idx_front:  185
+cur_frame_idx_front:  186
+cur_frame_idx_front:  187
+cur_frame_idx_front:  188
+cur_frame_idx_front:  189
+cur_frame_idx_front:  190
+MonoGS: Evaluating ATE at frame:  191
+Eval: RMSE ATE [m] 1.4830617592672888e-16
+Frontend duration:  211.97132873535156
+cur_frame_idx_front:  191
+cur_frame_idx_front:  192
+cur_frame_idx_front:  193
+cur_frame_idx_front:  194
+cur_frame_idx_front:  195
+cur_frame_idx_front:  196
+cur_frame_idx_front:  197
+cur_frame_idx_front:  198
+cur_frame_idx_front:  199
+cur_frame_idx_front:  200
+Frontend duration:  95.39344024658203
+cur_frame_idx_front:  201
+cur_frame_idx_front:  202
+cur_frame_idx_front:  203
+cur_frame_idx_front:  204
+cur_frame_idx_front:  205
+cur_frame_idx_front:  206
+cur_frame_idx_front:  207
+cur_frame_idx_front:  208
+cur_frame_idx_front:  209
+Frontend duration:  98.09423828125
+cur_frame_idx_front:  210
+cur_frame_idx_front:  211
+cur_frame_idx_front:  212
+cur_frame_idx_front:  213
+cur_frame_idx_front:  214
+cur_frame_idx_front:  215
+cur_frame_idx_front:  216
+cur_frame_idx_front:  217
+cur_frame_idx_front:  218
+cur_frame_idx_front:  219
+Frontend duration:  94.45155334472656
+cur_frame_idx_front:  220
+cur_frame_idx_front:  221
+cur_frame_idx_front:  222
+cur_frame_idx_front:  223
+cur_frame_idx_front:  224
+cur_frame_idx_front:  225
+cur_frame_idx_front:  226
+cur_frame_idx_front:  227
+cur_frame_idx_front:  228
+Frontend duration:  97.84419250488281
+cur_frame_idx_front:  229
+cur_frame_idx_front:  230
+cur_frame_idx_front:  231
+cur_frame_idx_front:  232
+cur_frame_idx_front:  233
+cur_frame_idx_front:  234
+cur_frame_idx_front:  235
+cur_frame_idx_front:  236
+cur_frame_idx_front:  237
+cur_frame_idx_front:  238
+Frontend duration:  92.336669921875
+cur_frame_idx_front:  239
+cur_frame_idx_front:  240
+cur_frame_idx_front:  241
+cur_frame_idx_front:  242
+cur_frame_idx_front:  243
+cur_frame_idx_front:  244
+cur_frame_idx_front:  245
+cur_frame_idx_front:  246
+cur_frame_idx_front:  247
+Frontend duration:  94.66886138916016
+cur_frame_idx_front:  248
+cur_frame_idx_front:  249
+cur_frame_idx_front:  250
+cur_frame_idx_front:  251
+cur_frame_idx_front:  252
+cur_frame_idx_front:  253
+cur_frame_idx_front:  254
+cur_frame_idx_front:  255
+cur_frame_idx_front:  256
+cur_frame_idx_front:  257
+Frontend duration:  94.63465881347656
+cur_frame_idx_front:  258
+cur_frame_idx_front:  259
+cur_frame_idx_front:  260
+cur_frame_idx_front:  261
+cur_frame_idx_front:  262
+cur_frame_idx_front:  263
+cur_frame_idx_front:  264
+cur_frame_idx_front:  265
+cur_frame_idx_front:  266
+cur_frame_idx_front:  267
+cur_frame_idx_front:  268
+Frontend duration:  94.96047973632812
+cur_frame_idx_front:  269
+cur_frame_idx_front:  270
+cur_frame_idx_front:  271
+cur_frame_idx_front:  272
+cur_frame_idx_front:  273
+cur_frame_idx_front:  274
+cur_frame_idx_front:  275
+cur_frame_idx_front:  276
+Frontend duration:  98.18582153320312
+cur_frame_idx_front:  277
+cur_frame_idx_front:  278
+cur_frame_idx_front:  279
+MonoGS: Evaluating ATE at frame:  280
+Eval: RMSE ATE [m] 2.2090876500391487e-16
+Frontend duration:  205.58274841308594
+cur_frame_idx_front:  280
+cur_frame_idx_front:  281
+cur_frame_idx_front:  282
+cur_frame_idx_front:  283
+cur_frame_idx_front:  284
+cur_frame_idx_front:  285
+cur_frame_idx_front:  286
+cur_frame_idx_front:  287
+Frontend duration:  91.7804183959961
+cur_frame_idx_front:  288
+cur_frame_idx_front:  289
+cur_frame_idx_front:  290
+cur_frame_idx_front:  291
+cur_frame_idx_front:  292
+cur_frame_idx_front:  293
+cur_frame_idx_front:  294
+cur_frame_idx_front:  295
+cur_frame_idx_front:  296
+Frontend duration:  93.96803283691406
+cur_frame_idx_front:  297
+cur_frame_idx_front:  298
+cur_frame_idx_front:  299
+cur_frame_idx_front:  300
+cur_frame_idx_front:  301
+cur_frame_idx_front:  302
+cur_frame_idx_front:  303
+cur_frame_idx_front:  304
+cur_frame_idx_front:  305
+Frontend duration:  90.33638763427734
+cur_frame_idx_front:  306
+cur_frame_idx_front:  307
+cur_frame_idx_front:  308
+cur_frame_idx_front:  309
+cur_frame_idx_front:  310
+cur_frame_idx_front:  311
+cur_frame_idx_front:  312
+cur_frame_idx_front:  313
+cur_frame_idx_front:  314
+Frontend duration:  94.08464050292969
+cur_frame_idx_front:  315
+cur_frame_idx_front:  316
+cur_frame_idx_front:  317
+cur_frame_idx_front:  318
+cur_frame_idx_front:  319
+cur_frame_idx_front:  320
+cur_frame_idx_front:  321
+cur_frame_idx_front:  322
+cur_frame_idx_front:  323
+Frontend duration:  93.07379150390625
+cur_frame_idx_front:  324
+cur_frame_idx_front:  325
+cur_frame_idx_front:  326
+cur_frame_idx_front:  327
+cur_frame_idx_front:  328
+cur_frame_idx_front:  329
+cur_frame_idx_front:  330
+cur_frame_idx_front:  331
+cur_frame_idx_front:  332
+Frontend duration:  92.31529235839844
+cur_frame_idx_front:  333
+cur_frame_idx_front:  334
+cur_frame_idx_front:  335
+cur_frame_idx_front:  336
+cur_frame_idx_front:  337
+cur_frame_idx_front:  338
+cur_frame_idx_front:  339
+cur_frame_idx_front:  340
+cur_frame_idx_front:  341
+Frontend duration:  93.76825714111328
+cur_frame_idx_front:  342
+cur_frame_idx_front:  343
+cur_frame_idx_front:  344
+cur_frame_idx_front:  345
+cur_frame_idx_front:  346
+cur_frame_idx_front:  347
+cur_frame_idx_front:  348
+cur_frame_idx_front:  349
+cur_frame_idx_front:  350
+Frontend duration:  96.1082534790039
+cur_frame_idx_front:  351
+cur_frame_idx_front:  352
+cur_frame_idx_front:  353
+cur_frame_idx_front:  354
+cur_frame_idx_front:  355
+cur_frame_idx_front:  356
+cur_frame_idx_front:  357
+cur_frame_idx_front:  358
+cur_frame_idx_front:  359
+cur_frame_idx_front:  360
+Frontend duration:  96.77216339111328
+cur_frame_idx_front:  361
+cur_frame_idx_front:  362
+cur_frame_idx_front:  363
+cur_frame_idx_front:  364
+cur_frame_idx_front:  365
+cur_frame_idx_front:  366
+cur_frame_idx_front:  367
+cur_frame_idx_front:  368
+cur_frame_idx_front:  369
+cur_frame_idx_front:  370
+MonoGS: Evaluating ATE at frame:  371
+Eval: RMSE ATE [m] 4.773272387061545e-16
+Frontend duration:  225.22166442871094
+cur_frame_idx_front:  371
+cur_frame_idx_front:  372
+cur_frame_idx_front:  373
+cur_frame_idx_front:  374
+cur_frame_idx_front:  375
+cur_frame_idx_front:  376
+cur_frame_idx_front:  377
+cur_frame_idx_front:  378
+cur_frame_idx_front:  379
+cur_frame_idx_front:  380
+Frontend duration:  92.48729705810547
+cur_frame_idx_front:  381
+cur_frame_idx_front:  382
+cur_frame_idx_front:  383
+cur_frame_idx_front:  384
+cur_frame_idx_front:  385
+cur_frame_idx_front:  386
+cur_frame_idx_front:  387
+cur_frame_idx_front:  388
+cur_frame_idx_front:  389
+Frontend duration:  95.98540496826172
+cur_frame_idx_front:  390
+cur_frame_idx_front:  391
+cur_frame_idx_front:  392
+cur_frame_idx_front:  393
+cur_frame_idx_front:  394
+cur_frame_idx_front:  395
+cur_frame_idx_front:  396
+cur_frame_idx_front:  397
+Frontend duration:  98.56681823730469
+cur_frame_idx_front:  398
+cur_frame_idx_front:  399
+cur_frame_idx_front:  400
+cur_frame_idx_front:  401
+cur_frame_idx_front:  402
+cur_frame_idx_front:  403
+cur_frame_idx_front:  404
+cur_frame_idx_front:  405
+cur_frame_idx_front:  406
+cur_frame_idx_front:  407
+Frontend duration:  101.12416076660156
+cur_frame_idx_front:  408
+cur_frame_idx_front:  409
+cur_frame_idx_front:  410
+cur_frame_idx_front:  411
+cur_frame_idx_front:  412
+cur_frame_idx_front:  413
+cur_frame_idx_front:  414
+cur_frame_idx_front:  415
+cur_frame_idx_front:  416
+cur_frame_idx_front:  417
+Frontend duration:  96.10546875
+cur_frame_idx_front:  418
+cur_frame_idx_front:  419
+cur_frame_idx_front:  420
+cur_frame_idx_front:  421
+cur_frame_idx_front:  422
+cur_frame_idx_front:  423
+cur_frame_idx_front:  424
+cur_frame_idx_front:  425
+cur_frame_idx_front:  426
+cur_frame_idx_front:  427
+Frontend duration:  103.45231628417969
+cur_frame_idx_front:  428
+cur_frame_idx_front:  429
+cur_frame_idx_front:  430
+cur_frame_idx_front:  431
+cur_frame_idx_front:  432
+cur_frame_idx_front:  433
+cur_frame_idx_front:  434
+cur_frame_idx_front:  435
+cur_frame_idx_front:  436
+cur_frame_idx_front:  437
+Frontend duration:  94.64832305908203
+cur_frame_idx_front:  438
+cur_frame_idx_front:  439
+cur_frame_idx_front:  440
+cur_frame_idx_front:  441
+cur_frame_idx_front:  442
+cur_frame_idx_front:  443
+cur_frame_idx_front:  444
+cur_frame_idx_front:  445
+cur_frame_idx_front:  446
+Frontend duration:  103.08342742919922
+cur_frame_idx_front:  447
+cur_frame_idx_front:  448
+cur_frame_idx_front:  449
+cur_frame_idx_front:  450
+cur_frame_idx_front:  451
+cur_frame_idx_front:  452
+cur_frame_idx_front:  453
+cur_frame_idx_front:  454
+cur_frame_idx_front:  455
+cur_frame_idx_front:  456
+cur_frame_idx_front:  457
+cur_frame_idx_front:  458
+Frontend duration:  96.14720153808594
+cur_frame_idx_front:  459
+cur_frame_idx_front:  460
+cur_frame_idx_front:  461
+cur_frame_idx_front:  462
+cur_frame_idx_front:  463
+cur_frame_idx_front:  464
+cur_frame_idx_front:  465
+cur_frame_idx_front:  466
+cur_frame_idx_front:  467
+cur_frame_idx_front:  468
+MonoGS: Evaluating ATE at frame:  469
+Eval: RMSE ATE [m] 6.022706214929155e-16
+Frontend duration:  233.14976501464844
+cur_frame_idx_front:  469
+cur_frame_idx_front:  470
+cur_frame_idx_front:  471
+cur_frame_idx_front:  472
+cur_frame_idx_front:  473
+cur_frame_idx_front:  474
+cur_frame_idx_front:  475
+cur_frame_idx_front:  476
+cur_frame_idx_front:  477
+cur_frame_idx_front:  478
+cur_frame_idx_front:  479
+cur_frame_idx_front:  480
+Frontend duration:  103.68873596191406
+cur_frame_idx_front:  481
+cur_frame_idx_front:  482
+cur_frame_idx_front:  483
+cur_frame_idx_front:  484
+cur_frame_idx_front:  485
+cur_frame_idx_front:  486
+cur_frame_idx_front:  487
+cur_frame_idx_front:  488
+Frontend duration:  97.16690826416016
+cur_frame_idx_front:  489
+cur_frame_idx_front:  490
+cur_frame_idx_front:  491
+cur_frame_idx_front:  492
+cur_frame_idx_front:  493
+cur_frame_idx_front:  494
+cur_frame_idx_front:  495
+cur_frame_idx_front:  496
+cur_frame_idx_front:  497
+Frontend duration:  27.347423553466797
+cur_frame_idx_front:  498
+cur_frame_idx_front:  499
+cur_frame_idx_front:  500
+Frontend duration:  97.7492446899414
+cur_frame_idx_front:  501
+cur_frame_idx_front:  502
+cur_frame_idx_front:  503
+cur_frame_idx_front:  504
+cur_frame_idx_front:  505
+cur_frame_idx_front:  506
+cur_frame_idx_front:  507
+cur_frame_idx_front:  508
+cur_frame_idx_front:  509
+Frontend duration:  27.24412727355957
+cur_frame_idx_front:  510
+cur_frame_idx_front:  511
+cur_frame_idx_front:  512
+Frontend duration:  93.66185760498047
+cur_frame_idx_front:  513
+cur_frame_idx_front:  514
+cur_frame_idx_front:  515
+cur_frame_idx_front:  516
+cur_frame_idx_front:  517
+cur_frame_idx_front:  518
+cur_frame_idx_front:  519
+cur_frame_idx_front:  520
+cur_frame_idx_front:  521
+cur_frame_idx_front:  522
+Frontend duration:  100.97615814208984
+cur_frame_idx_front:  523
+cur_frame_idx_front:  524
+cur_frame_idx_front:  525
+cur_frame_idx_front:  526
+cur_frame_idx_front:  527
+cur_frame_idx_front:  528
+cur_frame_idx_front:  529
+cur_frame_idx_front:  530
+cur_frame_idx_front:  531
+Frontend duration:  95.46009826660156
+cur_frame_idx_front:  532
+cur_frame_idx_front:  533
+cur_frame_idx_front:  534
+cur_frame_idx_front:  535
+cur_frame_idx_front:  536
+cur_frame_idx_front:  537
+cur_frame_idx_front:  538
+cur_frame_idx_front:  539
+cur_frame_idx_front:  540
+Frontend duration:  99.85804748535156
+cur_frame_idx_front:  541
+cur_frame_idx_front:  542
+cur_frame_idx_front:  543
+cur_frame_idx_front:  544
+cur_frame_idx_front:  545
+cur_frame_idx_front:  546
+cur_frame_idx_front:  547
+cur_frame_idx_front:  548
+cur_frame_idx_front:  549
+cur_frame_idx_front:  550
+MonoGS: Evaluating ATE at frame:  551
+Eval: RMSE ATE [m] 3.854576975984635e-16
+Frontend duration:  242.37513732910156
+cur_frame_idx_front:  551
+cur_frame_idx_front:  552
+cur_frame_idx_front:  553
+cur_frame_idx_front:  554
+cur_frame_idx_front:  555
+cur_frame_idx_front:  556
+cur_frame_idx_front:  557
+cur_frame_idx_front:  558
+cur_frame_idx_front:  559
+cur_frame_idx_front:  560
+cur_frame_idx_front:  561
+Frontend duration:  97.60966491699219
+cur_frame_idx_front:  562
+cur_frame_idx_front:  563
+cur_frame_idx_front:  564
+cur_frame_idx_front:  565
+cur_frame_idx_front:  566
+cur_frame_idx_front:  567
+cur_frame_idx_front:  568
+cur_frame_idx_front:  569
+cur_frame_idx_front:  570
+cur_frame_idx_front:  571
+Frontend duration:  28.32102394104004
+cur_frame_idx_front:  572
+Frontend duration:  21.600927352905273
+cur_frame_idx_front:  573
+Frontend duration:  21.353824615478516
+cur_frame_idx_front:  574
+Frontend duration:  20.079679489135742
+cur_frame_idx_front:  575
+Frontend duration:  22.015775680541992
+cur_frame_idx_front:  576
+Frontend duration:  23.142208099365234
+cur_frame_idx_front:  577
+Frontend duration:  26.78505516052246
+cur_frame_idx_front:  578
+Frontend duration:  106.44012451171875
+cur_frame_idx_front:  579
+cur_frame_idx_front:  580
+cur_frame_idx_front:  581
+cur_frame_idx_front:  582
+cur_frame_idx_front:  583
+cur_frame_idx_front:  584
+cur_frame_idx_front:  585
+cur_frame_idx_front:  586
+cur_frame_idx_front:  587
+Frontend duration:  24.02787208557129
+cur_frame_idx_front:  588
+Frontend duration:  19.687007904052734
+cur_frame_idx_front:  589
+Frontend duration:  21.388864517211914
+cur_frame_idx_front:  590
+Frontend duration:  20.197311401367188
+cur_frame_idx_front:  591
+Frontend duration:  20.336639404296875
+Eval: RMSE ATE [m] 6.354774617811753e-17
+Eval: Total time 86.179046875
+Eval: Total FPS 6.869419208809276
+Eval: RMSE ATE [m] 6.354774617811753e-17
+Eval: mean psnr: 16.721367213190817, ssim: 0.5470029939802326, lpips: 0.5675667661185168
+Backend duration:  7650.50146484375  keyframe
+Backend duration:  302.302978515625  keyframe
+Backend duration:  350.5278625488281  keyframe
+Backend duration:  333.7584533691406  keyframe
+Backend duration:  336.6543273925781  keyframe
+Backend duration:  338.9264221191406  keyframe
+Backend duration:  343.5920104980469  keyframe
+Backend duration:  348.2285461425781  keyframe
+Backend duration:  335.7164306640625  keyframe
+Backend duration:  349.1389465332031  keyframe
+Backend duration:  347.27606201171875  keyframe
+Backend duration:  346.2765808105469  keyframe
+Backend duration:  371.03424072265625  keyframe
+Backend duration:  355.974365234375  keyframe
+Backend duration:  365.4256591796875  keyframe
+Backend duration:  357.90643310546875  keyframe
+Backend duration:  370.3620910644531  keyframe
+Backend duration:  367.6119079589844  keyframe
+Backend duration:  384.08294677734375  keyframe
+Backend duration:  389.3155822753906  keyframe
+Backend duration:  366.2919616699219  keyframe
+Backend duration:  335.56378173828125  keyframe
+Backend duration:  345.5674133300781  keyframe
+Backend duration:  341.8716125488281  keyframe
+Backend duration:  355.84820556640625  keyframe
+Backend duration:  356.9890441894531  keyframe
+Backend duration:  355.816650390625  keyframe
+Backend duration:  356.50762939453125  keyframe
+Backend duration:  361.0849304199219  keyframe
+Backend duration:  360.8954772949219  keyframe
+Backend duration:  365.191162109375  keyframe
+Backend duration:  369.5644226074219  keyframe
+Backend duration:  370.0746154785156  keyframe
+Backend duration:  348.4978332519531  keyframe
+Backend duration:  347.0302734375  keyframe
+Backend duration:  371.6065368652344  keyframe
+Backend duration:  364.23065185546875  keyframe
+Backend duration:  377.49041748046875  keyframe
+Backend duration:  361.97784423828125  keyframe
+Backend duration:  369.3229064941406  keyframe
+Backend duration:  404.599853515625  keyframe
+Backend duration:  379.1265563964844  keyframe
+Backend duration:  409.1548767089844  keyframe
+Backend duration:  355.81134033203125  keyframe
+Backend duration:  357.7569274902344  keyframe
+Backend duration:  329.55596923828125  keyframe
+Backend duration:  363.0602111816406  keyframe
+Backend duration:  334.7663269042969  keyframe
+Backend duration:  367.9918212890625  keyframe
+Backend duration:  359.16058349609375  keyframe
+Backend duration:  357.80999755859375  keyframe
+Backend duration:  375.0860900878906  keyframe
+Backend duration:  385.8216857910156  keyframe
+Backend duration:  373.0638427734375  keyframe
+Backend duration:  366.9073791503906  keyframe
+MonoGS: Starting color refinement
+MonoGS: Map refinement done
+Eval: mean psnr: 18.57710732245932, ssim: 0.6277998770986285, lpips: 0.45203564087955317
+MonoGS: Backend stopped and joined the main thread
+MonoGS: Done.

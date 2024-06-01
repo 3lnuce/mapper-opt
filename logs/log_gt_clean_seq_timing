@@ -1,0 +1,4296 @@
+MonoGS: Running MonoGS in Evaluation Mode
+MonoGS: Following config will be overriden
+MonoGS:         save_results=True
+MonoGS:         use_gui=False
+MonoGS:         eval_rendering=True
+MonoGS:         use_wandb=True
+MonoGS: saving results in results/tum_rgbd_dataset_freiburg1_desk/2024-05-31-17-52-36
+cur_frame_idx_back:  0
+MonoGS: Resetting the system
+MonoGS: Initialized map
+Frontend [preprocess]:  0.047359999269247055
+Frontend [preprocess]:  0.002047999994829297
+Frontend [before tracking]:  13.4399995803833
+cur_frame_idx_front:  1
+Frontend [tracking]:  189.81478881835938
+Frontend [keyframe logic]:  195.4377899169922
+Frontend [visibility]:  195.54229736328125
+Frontend duration:  195.59117126464844
+Frontend [preprocess]:  0.01235199999064207
+Frontend [before tracking]:  16.41980743408203
+cur_frame_idx_front:  2
+Frontend [tracking]:  18.876384735107422
+Frontend [keyframe logic]:  22.189023971557617
+Frontend [visibility]:  22.3088321685791
+Frontend duration:  22.36412811279297
+Frontend [preprocess]:  0.015359999611973763
+Frontend [before tracking]:  12.677120208740234
+cur_frame_idx_front:  3
+Frontend [tracking]:  14.673184394836426
+Frontend [keyframe logic]:  18.491743087768555
+Frontend [visibility]:  18.580703735351562
+Frontend duration:  18.62246322631836
+Frontend [preprocess]:  0.010143999941647053
+Frontend [before tracking]:  11.37440013885498
+cur_frame_idx_front:  4
+Frontend [tracking]:  13.836095809936523
+Frontend [keyframe logic]:  17.04524803161621
+Frontend [visibility]:  17.12931251525879
+Frontend duration:  17.170303344726562
+Frontend [preprocess]:  0.010239999741315842
+Frontend [before tracking]:  11.660287857055664
+cur_frame_idx_front:  5
+Frontend [tracking]:  14.3689603805542
+Frontend [keyframe logic]:  17.36172866821289
+Frontend [visibility]:  17.453407287597656
+Frontend duration:  18.49920082092285
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  17.21855926513672
+cur_frame_idx_front:  6
+Frontend [tracking]:  21.113855361938477
+Frontend [keyframe logic]:  25.425983428955078
+Frontend [visibility]:  25.605119705200195
+Frontend duration:  25.650175094604492
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  12.33407974243164
+cur_frame_idx_front:  7
+Frontend [tracking]:  16.355327606201172
+Frontend [keyframe logic]:  22.002592086791992
+Frontend [visibility]:  22.153215408325195
+Frontend duration:  22.323360443115234
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  13.343040466308594
+cur_frame_idx_front:  8
+Frontend [tracking]:  17.04243278503418
+Frontend [keyframe logic]:  20.863136291503906
+Frontend [visibility]:  21.02579116821289
+Frontend duration:  21.213184356689453
+Frontend [preprocess]:  0.0009599999757483602
+Frontend [before tracking]:  11.409343719482422
+cur_frame_idx_front:  9
+Frontend [tracking]:  15.60364818572998
+Frontend [keyframe logic]:  19.248031616210938
+Frontend [visibility]:  19.3504638671875
+Frontend duration:  19.397567749023438
+Frontend [preprocess]:  0.011327999643981457
+Frontend [before tracking]:  12.6494722366333
+cur_frame_idx_front:  10
+Frontend [tracking]:  18.171903610229492
+Frontend [keyframe logic]:  23.605375289916992
+Frontend [visibility]:  23.773183822631836
+Frontend duration:  26.887039184570312
+Frontend [preprocess]:  0.0018560000462457538
+Frontend [before tracking]:  19.425312042236328
+cur_frame_idx_front:  11
+Frontend [tracking]:  26.176319122314453
+Frontend [keyframe logic]:  33.717857360839844
+Frontend [visibility]:  33.893184661865234
+Frontend duration:  34.076480865478516
+Frontend [preprocess]:  0.0008960000122897327
+Frontend [before tracking]:  13.306015968322754
+cur_frame_idx_front:  12
+Frontend [tracking]:  17.135488510131836
+Frontend [keyframe logic]:  22.896448135375977
+Frontend [visibility]:  23.065471649169922
+Frontend duration:  23.25324821472168
+Frontend [preprocess]:  0.0007999999797903001
+Frontend [before tracking]:  13.737759590148926
+cur_frame_idx_front:  13
+Frontend [tracking]:  17.565471649169922
+Frontend [keyframe logic]:  27.715551376342773
+Frontend [visibility]:  27.864864349365234
+Frontend duration:  28.029888153076172
+Frontend [preprocess]:  0.002047999994829297
+Frontend [before tracking]:  11.315199851989746
+cur_frame_idx_front:  14
+Frontend [tracking]:  15.529984474182129
+Frontend [keyframe logic]:  19.343263626098633
+Frontend [visibility]:  19.508224487304688
+Frontend duration:  19.695999145507812
+Frontend [preprocess]:  0.0013760000001639128
+Frontend [before tracking]:  15.297247886657715
+cur_frame_idx_front:  15
+Frontend [tracking]:  21.797216415405273
+Frontend [keyframe logic]:  27.80518341064453
+Frontend [visibility]:  27.94428825378418
+Frontend duration:  30.889856338500977
+Frontend [preprocess]:  0.002047999994829297
+Frontend [before tracking]:  14.261247634887695
+cur_frame_idx_front:  16
+Frontend [tracking]:  18.512895584106445
+Frontend [keyframe logic]:  23.649856567382812
+Frontend [visibility]:  23.828479766845703
+Frontend duration:  23.979488372802734
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  11.805695533752441
+cur_frame_idx_front:  17
+Frontend [tracking]:  16.077823638916016
+Frontend [keyframe logic]:  23.321216583251953
+Frontend [visibility]:  23.47724723815918
+Frontend duration:  23.642112731933594
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  12.844032287597656
+cur_frame_idx_front:  18
+Frontend [tracking]:  16.632831573486328
+Frontend [keyframe logic]:  21.39299201965332
+Frontend [visibility]:  21.567487716674805
+Frontend duration:  21.76416015625
+Frontend [preprocess]:  0.0013439999893307686
+Frontend [before tracking]:  12.136768341064453
+cur_frame_idx_front:  19
+Frontend [tracking]:  16.380224227905273
+Frontend [keyframe logic]:  21.067615509033203
+Frontend [visibility]:  21.239103317260742
+Frontend duration:  21.427520751953125
+Frontend [preprocess]:  0.0008960000122897327
+Frontend [before tracking]:  11.914112091064453
+cur_frame_idx_front:  20
+Frontend [tracking]:  18.532224655151367
+Frontend [keyframe logic]:  22.164352416992188
+Frontend [visibility]:  22.3240966796875
+Frontend duration:  25.24470329284668
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  22.837247848510742
+cur_frame_idx_front:  21
+Frontend [tracking]:  27.11347198486328
+Frontend [keyframe logic]:  36.78361511230469
+Frontend [visibility]:  36.933631896972656
+Frontend duration:  37.096702575683594
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  16.20684814453125
+cur_frame_idx_front:  22
+Frontend [tracking]:  20.001792907714844
+Frontend [keyframe logic]:  24.105472564697266
+Frontend [visibility]:  24.249343872070312
+Frontend duration:  24.432640075683594
+Frontend [preprocess]:  0.0007040000054985285
+Frontend [before tracking]:  13.080256462097168
+cur_frame_idx_front:  23
+Frontend [tracking]:  16.709312438964844
+Frontend [keyframe logic]:  20.635360717773438
+Frontend [visibility]:  20.7838077545166
+Frontend duration:  20.938623428344727
+Frontend [preprocess]:  0.0013439999893307686
+Frontend [before tracking]:  13.238592147827148
+cur_frame_idx_front:  24
+Frontend [tracking]:  17.02227210998535
+Frontend [keyframe logic]:  22.573984146118164
+Frontend [visibility]:  22.73004722595215
+Frontend duration:  23.20479965209961
+Frontend [preprocess]:  0.0015999999595806003
+Frontend [before tracking]:  12.181056022644043
+cur_frame_idx_front:  25
+Frontend [tracking]:  15.961664199829102
+Frontend [keyframe logic]:  19.756032943725586
+Frontend [visibility]:  19.900991439819336
+Frontend duration:  24.866079330444336
+Frontend [preprocess]:  0.002047999994829297
+Frontend [before tracking]:  14.625791549682617
+cur_frame_idx_front:  26
+Frontend [tracking]:  18.860031127929688
+Frontend [keyframe logic]:  27.19487953186035
+Frontend [visibility]:  27.36742401123047
+Frontend duration:  27.55072021484375
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  11.530240058898926
+cur_frame_idx_front:  27
+Frontend [tracking]:  15.418368339538574
+Frontend [keyframe logic]:  29.94063949584961
+Frontend [visibility]:  30.047231674194336
+Frontend duration:  30.093311309814453
+Frontend [preprocess]:  0.011327999643981457
+Frontend [before tracking]:  12.426239967346191
+cur_frame_idx_front:  28
+Frontend [tracking]:  22.957056045532227
+Frontend [keyframe logic]:  26.630464553833008
+Frontend [visibility]:  26.781696319580078
+Frontend duration:  26.94495964050293
+Frontend [preprocess]:  0.0019839999731630087
+Frontend [before tracking]:  14.034879684448242
+cur_frame_idx_front:  29
+Frontend [tracking]:  21.7957763671875
+Frontend [keyframe logic]:  25.534719467163086
+Frontend [visibility]:  25.685951232910156
+Frontend duration:  25.84979248046875
+Frontend [preprocess]:  0.002047999994829297
+Frontend [before tracking]:  17.949695587158203
+cur_frame_idx_front:  30
+Frontend [tracking]:  21.740543365478516
+Frontend [keyframe logic]:  27.02422332763672
+Frontend [visibility]:  27.17286491394043
+MonoGS: Keyframes lacks sufficient overlap to initialize the map, resetting.
+Backend duration:  4886.4482421875  init
+Backend duration:  1149.4615478515625  keyframe
+Backend duration:  1426.1688232421875  keyframe
+Backend duration:  1896.7276611328125  keyframe
+Backend duration:  2355.00537109375  keyframe
+Backend duration:  2688.864013671875  keyframe
+cur_frame_idx_back:  30
+MonoGS: Resetting the system
+MonoGS: Initialized map
+Frontend [preprocess]:  0.012256000190973282
+Frontend [preprocess]:  0.01945599913597107
+Frontend [before tracking]:  17.439903259277344
+cur_frame_idx_front:  31
+Frontend [tracking]:  20.000768661499023
+Frontend [keyframe logic]:  23.54924774169922
+Frontend [visibility]:  23.634944915771484
+Frontend duration:  23.67692756652832
+Frontend [preprocess]:  0.010239999741315842
+Frontend [before tracking]:  10.84108829498291
+cur_frame_idx_front:  32
+Frontend [tracking]:  12.606656074523926
+Frontend [keyframe logic]:  15.573504447937012
+Frontend [visibility]:  15.660096168518066
+Frontend duration:  15.701120376586914
+Frontend [preprocess]:  0.011008000001311302
+Frontend [before tracking]:  10.80294418334961
+cur_frame_idx_front:  33
+Frontend [tracking]:  12.60927963256836
+Frontend [keyframe logic]:  15.827520370483398
+Frontend [visibility]:  15.936575889587402
+Frontend duration:  15.987744331359863
+Frontend [preprocess]:  0.013311999849975109
+Frontend [before tracking]:  10.996735572814941
+cur_frame_idx_front:  34
+Frontend [tracking]:  12.717056274414062
+Frontend [keyframe logic]:  15.699263572692871
+Frontend [visibility]:  15.78598403930664
+Frontend duration:  15.827967643737793
+Frontend [preprocess]:  0.010239999741315842
+Frontend [before tracking]:  11.084799766540527
+cur_frame_idx_front:  35
+Frontend [tracking]:  12.816512107849121
+Frontend [keyframe logic]:  15.758079528808594
+Frontend [visibility]:  15.850848197937012
+Frontend duration:  17.431007385253906
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  22.196224212646484
+cur_frame_idx_front:  36
+Frontend [tracking]:  29.20345687866211
+Frontend [keyframe logic]:  33.515071868896484
+Frontend [visibility]:  34.01420974731445
+Frontend duration:  34.173057556152344
+Frontend [preprocess]:  0.0018240000354126096
+Frontend [before tracking]:  12.281632423400879
+cur_frame_idx_front:  37
+Frontend [tracking]:  16.263967514038086
+Frontend [keyframe logic]:  20.507455825805664
+Frontend [visibility]:  20.65692710876465
+Frontend duration:  20.84227180480957
+Frontend [preprocess]:  0.0018240000354126096
+Frontend [before tracking]:  11.52182388305664
+cur_frame_idx_front:  38
+Frontend [tracking]:  15.357728004455566
+Frontend [keyframe logic]:  29.254560470581055
+Frontend [visibility]:  29.357887268066406
+Frontend duration:  29.415199279785156
+Frontend [preprocess]:  0.012223999947309494
+Frontend [before tracking]:  12.453824043273926
+cur_frame_idx_front:  39
+Frontend [tracking]:  18.78009605407715
+Frontend [keyframe logic]:  24.175743103027344
+Frontend [visibility]:  24.321983337402344
+Frontend duration:  24.50796890258789
+Frontend [preprocess]:  0.002047999994829297
+Frontend [before tracking]:  11.552767753601074
+cur_frame_idx_front:  40
+Frontend [tracking]:  18.386943817138672
+Frontend [keyframe logic]:  23.232736587524414
+Frontend [visibility]:  23.408639907836914
+Frontend duration:  26.769535064697266
+Frontend [preprocess]:  0.0017600000137463212
+Frontend [before tracking]:  19.430112838745117
+cur_frame_idx_front:  41
+Frontend [tracking]:  23.422687530517578
+Frontend [keyframe logic]:  36.0013427734375
+Frontend [visibility]:  36.17660903930664
+Frontend duration:  36.332672119140625
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  11.922431945800781
+cur_frame_idx_front:  42
+Frontend [tracking]:  16.18329620361328
+Frontend [keyframe logic]:  39.951393127441406
+Frontend [visibility]:  40.10291290283203
+Frontend duration:  40.26777648925781
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  11.92959976196289
+cur_frame_idx_front:  43
+Frontend [tracking]:  16.16281509399414
+Frontend [keyframe logic]:  19.930335998535156
+Frontend [visibility]:  20.105215072631836
+Frontend duration:  20.25779151916504
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  13.815808296203613
+cur_frame_idx_front:  44
+Frontend [tracking]:  19.473407745361328
+Frontend [keyframe logic]:  23.912799835205078
+Frontend [visibility]:  24.10188865661621
+Frontend duration:  24.6243839263916
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  20.610048294067383
+cur_frame_idx_front:  45
+Frontend [tracking]:  28.612607955932617
+Frontend [keyframe logic]:  41.81177520751953
+Frontend [visibility]:  41.96761703491211
+Frontend duration:  45.648990631103516
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  24.218624114990234
+cur_frame_idx_front:  46
+Frontend [tracking]:  28.082176208496094
+Frontend [keyframe logic]:  43.22982406616211
+Frontend [visibility]:  43.3889274597168
+Frontend duration:  43.55379104614258
+Frontend [preprocess]:  0.002015999983996153
+Frontend [before tracking]:  14.120927810668945
+cur_frame_idx_front:  47
+Frontend [tracking]:  17.705951690673828
+Frontend [keyframe logic]:  22.54560089111328
+Frontend [visibility]:  22.73788833618164
+Frontend duration:  23.269344329833984
+Frontend [preprocess]:  0.0009280000231228769
+Frontend [before tracking]:  12.742560386657715
+cur_frame_idx_front:  48
+Frontend [tracking]:  16.78531265258789
+Frontend [keyframe logic]:  22.239328384399414
+Frontend [visibility]:  22.416288375854492
+Frontend duration:  22.60678482055664
+Frontend [preprocess]:  0.0013119999784976244
+Frontend [before tracking]:  12.534048080444336
+cur_frame_idx_front:  49
+Frontend [tracking]:  19.28118324279785
+Frontend [keyframe logic]:  24.194303512573242
+Frontend [visibility]:  24.352031707763672
+Frontend duration:  24.52003288269043
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  13.764608383178711
+cur_frame_idx_front:  50
+Frontend [tracking]:  17.514495849609375
+Frontend [keyframe logic]:  21.3417911529541
+Frontend [visibility]:  21.48966407775879
+Frontend duration:  24.942399978637695
+Frontend [preprocess]:  0.002047999994829297
+Frontend [before tracking]:  18.101247787475586
+cur_frame_idx_front:  51
+Frontend [tracking]:  29.546688079833984
+Frontend [keyframe logic]:  34.283870697021484
+Frontend [visibility]:  34.43097686767578
+Frontend duration:  34.615745544433594
+Frontend [preprocess]:  0.0013439999893307686
+Frontend [before tracking]:  14.129471778869629
+cur_frame_idx_front:  52
+Frontend [tracking]:  18.002239227294922
+Frontend [keyframe logic]:  24.273696899414062
+Frontend [visibility]:  24.421695709228516
+Frontend duration:  24.608064651489258
+Frontend [preprocess]:  0.0016639999812468886
+Frontend [before tracking]:  13.131391525268555
+cur_frame_idx_front:  53
+Frontend [tracking]:  16.833152770996094
+Frontend [keyframe logic]:  24.118656158447266
+Frontend [visibility]:  24.256128311157227
+Frontend duration:  24.417919158935547
+Frontend [preprocess]:  0.0019839999731630087
+Frontend [before tracking]:  13.151167869567871
+cur_frame_idx_front:  54
+Frontend [tracking]:  17.247167587280273
+Frontend [keyframe logic]:  26.88819122314453
+Frontend [visibility]:  27.04377555847168
+Frontend duration:  27.207616806030273
+Frontend [preprocess]:  0.002015999983996153
+Frontend [before tracking]:  17.28611183166504
+cur_frame_idx_front:  55
+Frontend [tracking]:  20.997087478637695
+Frontend [keyframe logic]:  27.750751495361328
+Frontend [visibility]:  27.923423767089844
+Frontend duration:  32.739871978759766
+Frontend [preprocess]:  0.0012799999676644802
+Frontend [before tracking]:  20.253952026367188
+cur_frame_idx_front:  56
+Frontend [tracking]:  30.693632125854492
+Frontend [keyframe logic]:  34.68035125732422
+Frontend [visibility]:  34.83571243286133
+Frontend duration:  35.00067138671875
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  14.205951690673828
+cur_frame_idx_front:  57
+Frontend [tracking]:  23.984128952026367
+Frontend [keyframe logic]:  28.862016677856445
+Frontend [visibility]:  29.014015197753906
+Frontend duration:  29.1727352142334
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  17.302528381347656
+cur_frame_idx_front:  58
+Frontend [tracking]:  21.03603172302246
+Frontend [keyframe logic]:  43.66012954711914
+Frontend [visibility]:  43.81388854980469
+Frontend duration:  43.9818229675293
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  16.342016220092773
+cur_frame_idx_front:  59
+Backend duration:  3964.8427734375  init
+Backend duration:  1110.054931640625  keyframe
+Backend duration:  1455.8565673828125  keyframe
+Backend duration:  1917.744873046875  keyframe
+Backend duration:  2388.6396484375  keyframe
+Backend duration:  2858.524658203125  keyframe
+MonoGS: Resetting the opacity of non-visible Gaussians
+Frontend [tracking]:  24.26367950439453
+Frontend [keyframe logic]:  46.97382354736328
+Frontend [visibility]:  47.1275520324707
+Frontend duration:  47.29344177246094
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  20.242431640625
+cur_frame_idx_front:  60
+Frontend [tracking]:  23.964672088623047
+Frontend [keyframe logic]:  46.36217498779297
+Frontend [visibility]:  46.51724624633789
+Frontend duration:  51.29359817504883
+Frontend [preprocess]:  0.0015360000543296337
+Frontend [before tracking]:  31.799808502197266
+cur_frame_idx_front:  61
+Frontend [tracking]:  35.683841705322266
+Frontend [keyframe logic]:  43.10588836669922
+Frontend [visibility]:  43.25222396850586
+Frontend duration:  43.437950134277344
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  18.766847610473633
+cur_frame_idx_front:  62
+Frontend [tracking]:  22.64678382873535
+Frontend [keyframe logic]:  26.960607528686523
+Frontend [visibility]:  27.176959991455078
+Frontend duration:  27.394208908081055
+Frontend [preprocess]:  0.0012799999676644802
+Frontend [before tracking]:  20.642047882080078
+cur_frame_idx_front:  63
+Frontend [tracking]:  24.349952697753906
+Frontend [keyframe logic]:  28.749727249145508
+Frontend [visibility]:  28.94259262084961
+Frontend duration:  29.131488800048828
+Frontend [preprocess]:  0.0009280000231228769
+Frontend [before tracking]:  17.918880462646484
+cur_frame_idx_front:  64
+Frontend [tracking]:  24.927135467529297
+Frontend [keyframe logic]:  30.124128341674805
+Frontend [visibility]:  30.300064086914062
+Frontend duration:  30.4902400970459
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  20.107263565063477
+cur_frame_idx_front:  65
+Frontend [tracking]:  23.821311950683594
+Frontend [keyframe logic]:  28.035648345947266
+Frontend [visibility]:  28.198911666870117
+MonoGS: Keyframes lacks sufficient overlap to initialize the map, resetting.
+Backend duration:  3316.7021484375  keyframe
+cur_frame_idx_back:  65
+MonoGS: Resetting the system
+MonoGS: Initialized map
+Frontend [preprocess]:  0.011359999887645245
+Frontend [preprocess]:  0.027648000046610832
+Frontend [before tracking]:  20.01945686340332
+cur_frame_idx_front:  66
+Frontend [tracking]:  22.68569564819336
+Frontend [keyframe logic]:  25.448383331298828
+Frontend [visibility]:  25.55392074584961
+Frontend duration:  25.603071212768555
+Frontend [preprocess]:  0.012095999903976917
+Frontend [before tracking]:  11.045568466186523
+cur_frame_idx_front:  67
+Frontend [tracking]:  12.926655769348145
+Frontend [keyframe logic]:  15.814623832702637
+Frontend [visibility]:  15.931103706359863
+Frontend duration:  15.986368179321289
+Frontend [preprocess]:  0.01398400031030178
+Frontend [before tracking]:  10.817184448242188
+cur_frame_idx_front:  68
+Frontend [tracking]:  12.648096084594727
+Frontend [keyframe logic]:  15.11622428894043
+Frontend [visibility]:  15.20195198059082
+Frontend duration:  15.243040084838867
+Frontend [preprocess]:  0.010208000428974628
+Frontend [before tracking]:  10.968031883239746
+cur_frame_idx_front:  69
+Frontend [tracking]:  12.798944473266602
+Frontend [keyframe logic]:  15.689760208129883
+Frontend [visibility]:  15.805407524108887
+Frontend duration:  15.859935760498047
+Frontend [preprocess]:  0.014047999866306782
+Frontend [before tracking]:  11.507424354553223
+cur_frame_idx_front:  70
+Frontend [tracking]:  13.329119682312012
+Frontend [keyframe logic]:  16.622943878173828
+Frontend [visibility]:  16.715551376342773
+Frontend duration:  18.578720092773438
+Frontend [preprocess]:  0.0018240000354126096
+Frontend [before tracking]:  23.05308723449707
+cur_frame_idx_front:  71
+Frontend [tracking]:  26.94940757751465
+Frontend [keyframe logic]:  31.03331184387207
+Frontend [visibility]:  31.21334457397461
+Frontend duration:  31.396352767944336
+Frontend [preprocess]:  0.0018240000354126096
+Frontend [before tracking]:  12.370719909667969
+cur_frame_idx_front:  72
+Frontend [tracking]:  16.138015747070312
+Frontend [keyframe logic]:  20.358783721923828
+Frontend [visibility]:  20.529951095581055
+Frontend duration:  20.71686363220215
+Frontend [preprocess]:  0.0013760000001639128
+Frontend [before tracking]:  12.210528373718262
+cur_frame_idx_front:  73
+Frontend [tracking]:  16.00035285949707
+Frontend [keyframe logic]:  23.982528686523438
+Frontend [visibility]:  24.138080596923828
+Frontend duration:  24.307039260864258
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  15.90783977508545
+cur_frame_idx_front:  74
+Frontend [tracking]:  18.317312240600586
+Frontend [keyframe logic]:  29.958431243896484
+Frontend [visibility]:  30.108671188354492
+Frontend duration:  30.29327964782715
+Frontend [preprocess]:  0.002047999994829297
+Frontend [before tracking]:  11.932671546936035
+cur_frame_idx_front:  75
+Frontend [tracking]:  19.161088943481445
+Frontend [keyframe logic]:  24.453855514526367
+Frontend [visibility]:  24.631296157836914
+Frontend duration:  28.330528259277344
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  21.86956787109375
+cur_frame_idx_front:  76
+Frontend [tracking]:  25.753599166870117
+Frontend [keyframe logic]:  31.761632919311523
+Frontend [visibility]:  31.925247192382812
+Frontend duration:  32.11296081542969
+Frontend [preprocess]:  0.001408000010997057
+Frontend [before tracking]:  11.880831718444824
+cur_frame_idx_front:  77
+Frontend [tracking]:  20.420991897583008
+Frontend [keyframe logic]:  34.720638275146484
+Frontend [visibility]:  34.871681213378906
+Frontend duration:  35.0346565246582
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  12.03609561920166
+cur_frame_idx_front:  78
+Frontend [tracking]:  16.01638412475586
+Frontend [keyframe logic]:  19.703519821166992
+Frontend [visibility]:  19.87174415588379
+Frontend duration:  20.06015968322754
+Frontend [preprocess]:  0.0016959999920800328
+Frontend [before tracking]:  12.067487716674805
+cur_frame_idx_front:  79
+Frontend [tracking]:  20.800159454345703
+Frontend [keyframe logic]:  24.3450870513916
+Frontend [visibility]:  24.492704391479492
+Frontend duration:  24.662687301635742
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  11.669504165649414
+cur_frame_idx_front:  80
+Frontend [tracking]:  15.590399742126465
+Frontend [keyframe logic]:  25.92246437072754
+Frontend [visibility]:  26.035200119018555
+Frontend duration:  27.30531120300293
+Frontend [preprocess]:  0.16383999586105347
+Frontend [before tracking]:  28.4006404876709
+cur_frame_idx_front:  81
+Frontend [tracking]:  32.72499084472656
+Frontend [keyframe logic]:  36.63430404663086
+Frontend [visibility]:  36.8087043762207
+Frontend duration:  36.9931526184082
+Frontend [preprocess]:  0.0009599999757483602
+Frontend [before tracking]:  12.116928100585938
+cur_frame_idx_front:  82
+Frontend [tracking]:  16.017343521118164
+Frontend [keyframe logic]:  32.0643196105957
+Frontend [visibility]:  32.222145080566406
+Frontend duration:  32.385982513427734
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  14.851072311401367
+cur_frame_idx_front:  83
+Frontend [tracking]:  18.737152099609375
+Frontend [keyframe logic]:  23.365983963012695
+Frontend [visibility]:  23.542783737182617
+Frontend duration:  24.089599609375
+Frontend [preprocess]:  0.0009599999757483602
+Frontend [before tracking]:  11.68172836303711
+cur_frame_idx_front:  84
+Frontend [tracking]:  15.544256210327148
+Frontend [keyframe logic]:  21.12873649597168
+Frontend [visibility]:  21.303232192993164
+Frontend duration:  21.487775802612305
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  11.593728065490723
+cur_frame_idx_front:  85
+Frontend [tracking]:  15.567872047424316
+Frontend [keyframe logic]:  29.047840118408203
+Frontend [visibility]:  29.20470428466797
+Frontend duration:  33.198272705078125
+Frontend [preprocess]:  0.002047999994829297
+Frontend [before tracking]:  19.066879272460938
+cur_frame_idx_front:  86
+Frontend [tracking]:  22.940671920776367
+Frontend [keyframe logic]:  27.519519805908203
+Frontend [visibility]:  27.689983367919922
+Frontend duration:  27.878559112548828
+Frontend [preprocess]:  0.0014720000326633453
+Frontend [before tracking]:  15.416768074035645
+cur_frame_idx_front:  87
+Frontend [tracking]:  19.171775817871094
+Frontend [keyframe logic]:  38.23542404174805
+Frontend [visibility]:  38.382015228271484
+Frontend duration:  38.544830322265625
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  18.83647918701172
+cur_frame_idx_front:  88
+Frontend [tracking]:  22.72870445251465
+Frontend [keyframe logic]:  28.561504364013672
+Frontend [visibility]:  29.096960067749023
+Frontend duration:  29.255680084228516
+Frontend [preprocess]:  0.001567999948747456
+Frontend [before tracking]:  14.377504348754883
+cur_frame_idx_front:  89
+Frontend [tracking]:  18.24822425842285
+Frontend [keyframe logic]:  24.424415588378906
+Frontend [visibility]:  24.56425666809082
+Frontend duration:  24.748960494995117
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  14.36467170715332
+cur_frame_idx_front:  90
+Frontend [tracking]:  18.21286392211914
+Frontend [keyframe logic]:  38.21468734741211
+Frontend [visibility]:  38.36742401123047
+Frontend duration:  42.5211181640625
+Frontend [preprocess]:  0.0007360000163316727
+Frontend [before tracking]:  29.546207427978516
+cur_frame_idx_front:  91
+Frontend [tracking]:  33.40873718261719
+Frontend [keyframe logic]:  57.00227355957031
+Frontend [visibility]:  57.15119934082031
+Frontend duration:  57.31708908081055
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  11.83948802947998
+cur_frame_idx_front:  92
+Frontend [tracking]:  24.910079956054688
+Frontend [keyframe logic]:  48.00572967529297
+Frontend [visibility]:  48.910335540771484
+Frontend duration:  49.07632064819336
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  11.85587215423584
+cur_frame_idx_front:  93
+Frontend [tracking]:  25.074687957763672
+Frontend [keyframe logic]:  49.747711181640625
+Frontend [visibility]:  49.91078567504883
+Frontend duration:  50.074623107910156
+Frontend [preprocess]:  0.0019839999731630087
+Frontend [before tracking]:  12.000191688537598
+cur_frame_idx_front:  94
+Backend duration:  4028.873779296875  init
+Backend duration:  1222.443115234375  keyframe
+Backend duration:  1559.1279296875  keyframe
+Backend duration:  2084.589599609375  keyframe
+Backend duration:  2496.26123046875  keyframe
+Backend duration:  2986.517333984375  keyframe
+MonoGS: Resetting the opacity of non-visible Gaussians
+Backend duration:  3611.535400390625  keyframe
+MonoGS: Performing initial BA for initialization
+MonoGS: Initialized SLAM
+Frontend [tracking]:  25.279712677001953
+Frontend [keyframe logic]:  29.21183967590332
+Frontend [visibility]:  29.356992721557617
+Frontend duration:  29.5218563079834
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  20.329471588134766
+cur_frame_idx_front:  95
+Frontend [tracking]:  25.013248443603516
+Frontend [keyframe logic]:  48.85865783691406
+Frontend [visibility]:  49.01683044433594
+Frontend duration:  52.69424057006836
+Frontend [preprocess]:  0.0015360000543296337
+Frontend [before tracking]:  33.27027130126953
+cur_frame_idx_front:  96
+Frontend [tracking]:  37.13587188720703
+Frontend [keyframe logic]:  43.27318572998047
+Frontend [visibility]:  43.44268798828125
+Frontend duration:  43.62636947631836
+Frontend [preprocess]:  0.002047999994829297
+Frontend [before tracking]:  20.725759506225586
+cur_frame_idx_front:  97
+Frontend [tracking]:  24.600576400756836
+Frontend [keyframe logic]:  30.077280044555664
+Frontend [visibility]:  30.21721649169922
+Frontend duration:  30.37343978881836
+Frontend [preprocess]:  0.0006719999946653843
+Frontend [before tracking]:  20.8503360748291
+cur_frame_idx_front:  98
+Frontend [tracking]:  24.54902458190918
+Frontend [keyframe logic]:  51.61635208129883
+Frontend [visibility]:  51.764896392822266
+Frontend duration:  51.92873764038086
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  12.14361572265625
+cur_frame_idx_front:  99
+Frontend [tracking]:  16.22015953063965
+Frontend [keyframe logic]:  29.288415908813477
+Frontend [visibility]:  29.446144104003906
+Frontend duration:  29.610048294067383
+Frontend [preprocess]:  0.0017920000245794654
+Frontend [before tracking]:  11.957247734069824
+cur_frame_idx_front:  100
+Frontend [tracking]:  16.05299186706543
+Frontend [keyframe logic]:  31.42243194580078
+Frontend [visibility]:  31.573759078979492
+Frontend duration:  36.787841796875
+Frontend [preprocess]:  0.0015040000434964895
+Frontend [before tracking]:  23.65488052368164
+cur_frame_idx_front:  101
+Frontend [tracking]:  27.429344177246094
+Frontend [keyframe logic]:  31.57481575012207
+Frontend [visibility]:  31.608896255493164
+Frontend duration:  31.671072006225586
+Frontend [preprocess]:  0.015200000256299973
+Frontend [before tracking]:  12.868000030517578
+cur_frame_idx_front:  102
+Frontend [tracking]:  22.119840621948242
+Frontend [keyframe logic]:  25.65430450439453
+Frontend [visibility]:  25.675743103027344
+Frontend duration:  25.7139835357666
+Frontend [preprocess]:  0.009920000098645687
+Frontend [before tracking]:  12.064767837524414
+cur_frame_idx_front:  103
+Frontend [tracking]:  16.24166488647461
+Frontend [keyframe logic]:  24.172576904296875
+Frontend [visibility]:  24.194623947143555
+Frontend duration:  24.232255935668945
+Frontend [preprocess]:  0.010432000271975994
+Frontend [before tracking]:  12.011808395385742
+cur_frame_idx_front:  104
+Frontend [tracking]:  16.25116729736328
+Frontend [keyframe logic]:  20.073631286621094
+Frontend [visibility]:  20.100799560546875
+Frontend duration:  20.15328025817871
+Frontend [preprocess]:  0.014240000396966934
+Frontend [before tracking]:  12.531744003295898
+cur_frame_idx_front:  105
+Frontend [tracking]:  16.724000930786133
+Frontend [keyframe logic]:  20.42291259765625
+Frontend [visibility]:  20.44598388671875
+Frontend duration:  93.0907211303711
+Frontend [preprocess]:  0.002047999994829297
+Frontend [before tracking]:  24.037376403808594
+cur_frame_idx_front:  106
+Frontend [tracking]:  28.448768615722656
+Frontend [keyframe logic]:  37.8034553527832
+Frontend [visibility]:  37.836734771728516
+Frontend duration:  37.89699172973633
+Frontend [preprocess]:  0.01500799972563982
+Frontend [before tracking]:  11.826208114624023
+cur_frame_idx_front:  107
+Frontend [tracking]:  15.903776168823242
+Frontend [keyframe logic]:  20.02182388305664
+Frontend [visibility]:  20.0435848236084
+Frontend duration:  20.081344604492188
+Frontend [preprocess]:  0.009855999611318111
+Frontend [before tracking]:  12.515616416931152
+cur_frame_idx_front:  108
+Frontend [tracking]:  16.763168334960938
+Frontend [keyframe logic]:  20.496192932128906
+Frontend [visibility]:  20.517791748046875
+Frontend duration:  20.564672470092773
+Frontend [preprocess]:  0.009344000369310379
+Frontend [before tracking]:  16.187519073486328
+cur_frame_idx_front:  109
+Frontend [tracking]:  19.906688690185547
+Frontend [keyframe logic]:  23.582048416137695
+Frontend [visibility]:  23.604000091552734
+Frontend duration:  23.642175674438477
+Frontend [preprocess]:  0.010080000385642052
+Frontend [before tracking]:  11.77791976928711
+cur_frame_idx_front:  110
+Frontend [tracking]:  16.062335968017578
+Frontend [keyframe logic]:  21.648000717163086
+Frontend [visibility]:  21.671039581298828
+MonoGS: Evaluating ATE at frame:  111
+Eval: RMSE ATE [m] 3.821119782326345e-17
+Frontend duration:  321.5516357421875
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  20.992000579833984
+cur_frame_idx_front:  111
+Frontend [tracking]:  29.462528228759766
+Frontend [keyframe logic]:  34.877376556396484
+Frontend [visibility]:  34.89948654174805
+Frontend duration:  34.94099044799805
+Frontend [preprocess]:  0.008960000239312649
+Frontend [before tracking]:  12.3787841796875
+cur_frame_idx_front:  112
+Frontend [tracking]:  16.67344093322754
+Frontend [keyframe logic]:  20.798208236694336
+Frontend [visibility]:  20.820575714111328
+Frontend duration:  20.858015060424805
+Frontend [preprocess]:  0.01017600018531084
+Frontend [before tracking]:  12.1725435256958
+cur_frame_idx_front:  113
+Frontend [tracking]:  16.017663955688477
+Frontend [keyframe logic]:  19.29635238647461
+Frontend [visibility]:  19.318111419677734
+Frontend duration:  19.355968475341797
+Frontend [preprocess]:  0.007679999805986881
+Frontend [before tracking]:  12.595328330993652
+cur_frame_idx_front:  114
+Frontend [tracking]:  16.68694305419922
+Frontend [keyframe logic]:  20.23379135131836
+Frontend [visibility]:  20.255775451660156
+Frontend duration:  20.294015884399414
+Frontend [preprocess]:  0.009119999594986439
+Frontend [before tracking]:  12.11308765411377
+cur_frame_idx_front:  115
+Frontend [tracking]:  15.984831809997559
+Frontend [keyframe logic]:  19.440576553344727
+Frontend [visibility]:  19.47052764892578
+Frontend duration:  91.73484802246094
+Frontend [preprocess]:  0.002047999994829297
+Frontend [before tracking]:  13.56492805480957
+cur_frame_idx_front:  116
+Frontend [tracking]:  17.375232696533203
+Frontend [keyframe logic]:  21.21436882019043
+Frontend [visibility]:  21.239776611328125
+Frontend duration:  21.284255981445312
+Frontend [preprocess]:  0.013151999562978745
+Frontend [before tracking]:  12.57801628112793
+cur_frame_idx_front:  117
+Frontend [tracking]:  16.8255672454834
+Frontend [keyframe logic]:  31.823776245117188
+Frontend [visibility]:  31.849279403686523
+Frontend duration:  31.893535614013672
+Frontend [preprocess]:  0.011807999573647976
+Frontend [before tracking]:  12.607999801635742
+cur_frame_idx_front:  118
+Frontend [tracking]:  17.162752151489258
+Frontend [keyframe logic]:  21.182720184326172
+Frontend [visibility]:  21.207807540893555
+Frontend duration:  21.251264572143555
+Frontend [preprocess]:  0.012384000234305859
+Frontend [before tracking]:  11.979935646057129
+cur_frame_idx_front:  119
+Frontend [tracking]:  15.776927947998047
+Frontend [keyframe logic]:  30.717472076416016
+Frontend [visibility]:  30.742015838623047
+Frontend duration:  30.786815643310547
+Frontend [preprocess]:  0.011615999974310398
+Frontend [before tracking]:  12.142784118652344
+cur_frame_idx_front:  120
+Frontend [tracking]:  15.939776420593262
+Frontend [keyframe logic]:  19.91948890686035
+Frontend [visibility]:  19.94175910949707
+Frontend duration:  92.29730987548828
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  21.65452766418457
+cur_frame_idx_front:  121
+Frontend [tracking]:  26.27788734436035
+Frontend [keyframe logic]:  31.110944747924805
+Frontend [visibility]:  31.138303756713867
+Frontend duration:  31.18502426147461
+Frontend [preprocess]:  0.011487999930977821
+Frontend [before tracking]:  16.12131118774414
+cur_frame_idx_front:  122
+Frontend [tracking]:  20.088287353515625
+Frontend [keyframe logic]:  24.661088943481445
+Frontend [visibility]:  24.683103561401367
+Frontend duration:  24.721248626708984
+Frontend [preprocess]:  0.010591999627649784
+Frontend [before tracking]:  12.89356803894043
+cur_frame_idx_front:  123
+Frontend [tracking]:  17.14316749572754
+Frontend [keyframe logic]:  29.54172706604004
+Frontend [visibility]:  29.564159393310547
+Frontend duration:  29.602272033691406
+Frontend [preprocess]:  0.01759999990463257
+Frontend [before tracking]:  12.738847732543945
+cur_frame_idx_front:  124
+Frontend [tracking]:  16.815584182739258
+Frontend [keyframe logic]:  31.49679946899414
+Frontend [visibility]:  31.51875114440918
+Frontend duration:  31.556640625
+Frontend [preprocess]:  0.010111999697983265
+Frontend [before tracking]:  11.95907211303711
+cur_frame_idx_front:  125
+Frontend [tracking]:  16.02947235107422
+Frontend [keyframe logic]:  19.737407684326172
+Frontend [visibility]:  19.759103775024414
+Frontend duration:  102.79347229003906
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  20.494335174560547
+cur_frame_idx_front:  126
+Frontend [tracking]:  24.32204818725586
+Frontend [keyframe logic]:  28.646272659301758
+Frontend [visibility]:  28.671232223510742
+Frontend duration:  28.717439651489258
+Frontend [preprocess]:  0.012000000104308128
+Frontend [before tracking]:  12.792320251464844
+cur_frame_idx_front:  127
+Frontend [tracking]:  16.88422393798828
+Frontend [keyframe logic]:  31.003551483154297
+Frontend [visibility]:  31.025728225708008
+Frontend duration:  31.065759658813477
+Frontend [preprocess]:  0.009279999881982803
+Frontend [before tracking]:  12.096575736999512
+cur_frame_idx_front:  128
+Frontend [tracking]:  16.27961540222168
+Frontend [keyframe logic]:  20.735807418823242
+Frontend [visibility]:  20.761184692382812
+Frontend duration:  20.805952072143555
+Frontend [preprocess]:  0.012864000163972378
+Frontend [before tracking]:  12.674847602844238
+cur_frame_idx_front:  129
+Frontend [tracking]:  16.446239471435547
+Frontend [keyframe logic]:  21.650367736816406
+Frontend [visibility]:  21.680416107177734
+Frontend duration:  21.718528747558594
+Frontend [preprocess]:  0.010784000158309937
+Frontend [before tracking]:  12.095071792602539
+cur_frame_idx_front:  130
+Frontend [tracking]:  16.146015167236328
+Frontend [keyframe logic]:  28.741535186767578
+Frontend [visibility]:  28.76367950439453
+Frontend duration:  97.8799057006836
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  18.937856674194336
+cur_frame_idx_front:  131
+Frontend [tracking]:  22.815744400024414
+Frontend [keyframe logic]:  28.1430721282959
+Frontend [visibility]:  28.16752052307129
+Frontend duration:  28.21388816833496
+Frontend [preprocess]:  0.01190400030463934
+Frontend [before tracking]:  12.692864418029785
+cur_frame_idx_front:  132
+Frontend [tracking]:  16.95884895324707
+Frontend [keyframe logic]:  29.993247985839844
+Frontend [visibility]:  30.02003288269043
+Frontend duration:  30.067359924316406
+Frontend [preprocess]:  0.011615999974310398
+Frontend [before tracking]:  12.484607696533203
+cur_frame_idx_front:  133
+Frontend [tracking]:  16.699392318725586
+Frontend [keyframe logic]:  20.718175888061523
+Frontend [visibility]:  20.74336051940918
+Frontend duration:  20.78838348388672
+Frontend [preprocess]:  0.011615999974310398
+Frontend [before tracking]:  13.344256401062012
+cur_frame_idx_front:  134
+Frontend [tracking]:  16.94976043701172
+Frontend [keyframe logic]:  21.230783462524414
+Frontend [visibility]:  21.255615234375
+Frontend duration:  21.299488067626953
+Frontend [preprocess]:  0.011552000418305397
+Frontend [before tracking]:  12.620096206665039
+cur_frame_idx_front:  135
+Frontend [tracking]:  16.672000885009766
+Frontend [keyframe logic]:  21.98080062866211
+Frontend [visibility]:  22.006528854370117
+Frontend duration:  99.607421875
+Frontend [preprocess]:  0.159743994474411
+Frontend [before tracking]:  22.616064071655273
+cur_frame_idx_front:  136
+Frontend [tracking]:  26.419200897216797
+Frontend [keyframe logic]:  33.17887878417969
+Frontend [visibility]:  33.201473236083984
+Frontend duration:  33.24143981933594
+Frontend [preprocess]:  0.009631999768316746
+Frontend [before tracking]:  18.012447357177734
+cur_frame_idx_front:  137
+Frontend [tracking]:  21.81865692138672
+Frontend [keyframe logic]:  36.5689582824707
+Frontend [visibility]:  36.591392517089844
+Frontend duration:  36.63139343261719
+Frontend [preprocess]:  0.009952000342309475
+Frontend [before tracking]:  16.702592849731445
+cur_frame_idx_front:  138
+Frontend [tracking]:  20.495487213134766
+Frontend [keyframe logic]:  35.89603042602539
+Frontend [visibility]:  35.92067337036133
+Frontend duration:  35.96636962890625
+Frontend [preprocess]:  0.011327999643981457
+Frontend [before tracking]:  15.52518367767334
+cur_frame_idx_front:  139
+Frontend [tracking]:  19.1375675201416
+Frontend [keyframe logic]:  35.18592071533203
+Frontend [visibility]:  35.2108154296875
+Frontend duration:  35.25475311279297
+Frontend [preprocess]:  0.011776000261306763
+Frontend [before tracking]:  15.34943962097168
+cur_frame_idx_front:  140
+Frontend [tracking]:  18.96620750427246
+Frontend [keyframe logic]:  23.297279357910156
+Frontend [visibility]:  23.32271957397461
+Frontend duration:  24.85740852355957
+Frontend [preprocess]:  0.010304000228643417
+Frontend [before tracking]:  12.535136222839355
+cur_frame_idx_front:  141
+Frontend [tracking]:  16.77039909362793
+Frontend [keyframe logic]:  29.174911499023438
+Frontend [visibility]:  29.19740867614746
+Frontend duration:  99.45648193359375
+Frontend [preprocess]:  0.0019519999623298645
+Frontend [before tracking]:  22.83919906616211
+cur_frame_idx_front:  142
+Frontend [tracking]:  27.045791625976562
+Frontend [keyframe logic]:  38.539710998535156
+Frontend [visibility]:  38.56351852416992
+Frontend duration:  38.60201644897461
+Frontend [preprocess]:  0.009983999654650688
+Frontend [before tracking]:  12.57750415802002
+cur_frame_idx_front:  143
+Frontend [tracking]:  16.597824096679688
+Frontend [keyframe logic]:  20.193056106567383
+Frontend [visibility]:  20.214815139770508
+Frontend duration:  20.252063751220703
+Frontend [preprocess]:  0.010623999871313572
+Frontend [before tracking]:  13.152640342712402
+cur_frame_idx_front:  144
+Frontend [tracking]:  16.877952575683594
+Frontend [keyframe logic]:  20.1428165435791
+Frontend [visibility]:  20.16454315185547
+Frontend duration:  20.203168869018555
+Frontend [preprocess]:  0.009983999654650688
+Frontend [before tracking]:  12.557536125183105
+cur_frame_idx_front:  145
+Frontend [tracking]:  17.116384506225586
+Frontend [keyframe logic]:  20.713855743408203
+Frontend [visibility]:  20.735136032104492
+Frontend duration:  20.774431228637695
+Frontend [preprocess]:  0.009312000125646591
+Frontend [before tracking]:  11.969951629638672
+cur_frame_idx_front:  146
+Frontend [tracking]:  15.804832458496094
+Frontend [keyframe logic]:  18.986047744750977
+Frontend [visibility]:  19.008127212524414
+Frontend duration:  90.12995147705078
+Frontend [preprocess]:  0.0017600000137463212
+Frontend [before tracking]:  23.539424896240234
+cur_frame_idx_front:  147
+Frontend [tracking]:  28.931808471679688
+Frontend [keyframe logic]:  32.90176010131836
+Frontend [visibility]:  32.925537109375
+Frontend duration:  32.964576721191406
+Frontend [preprocess]:  0.009088000282645226
+Frontend [before tracking]:  18.674848556518555
+cur_frame_idx_front:  148
+Frontend [tracking]:  22.301855087280273
+Frontend [keyframe logic]:  25.991071701049805
+Frontend [visibility]:  26.014175415039062
+Frontend duration:  26.053823471069336
+Frontend [preprocess]:  0.009503999724984169
+Frontend [before tracking]:  12.831808090209961
+cur_frame_idx_front:  149
+Frontend [tracking]:  16.949312210083008
+Frontend [keyframe logic]:  20.70403289794922
+Frontend [visibility]:  20.72969627380371
+Frontend duration:  20.76803207397461
+Frontend [preprocess]:  0.008960000239312649
+Frontend [before tracking]:  12.855839729309082
+cur_frame_idx_front:  150
+Frontend [tracking]:  16.46031951904297
+Frontend [keyframe logic]:  19.945119857788086
+Frontend [visibility]:  19.966815948486328
+Frontend duration:  20.011615753173828
+Frontend [preprocess]:  0.010111999697983265
+Frontend [before tracking]:  11.795328140258789
+cur_frame_idx_front:  151
+Frontend [tracking]:  16.03878402709961
+Frontend [keyframe logic]:  19.676576614379883
+Frontend [visibility]:  19.698688507080078
+Frontend duration:  98.95967864990234
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  20.48476791381836
+cur_frame_idx_front:  152
+Frontend [tracking]:  24.975360870361328
+Frontend [keyframe logic]:  30.099712371826172
+Frontend [visibility]:  30.122175216674805
+Frontend duration:  30.161983489990234
+Frontend [preprocess]:  0.010015999898314476
+Frontend [before tracking]:  14.142911911010742
+cur_frame_idx_front:  153
+Frontend [tracking]:  17.926591873168945
+Frontend [keyframe logic]:  21.392383575439453
+Frontend [visibility]:  21.41417694091797
+Frontend duration:  21.45257568359375
+Frontend [preprocess]:  0.009824000298976898
+Frontend [before tracking]:  12.627584457397461
+cur_frame_idx_front:  154
+Frontend [tracking]:  17.26323127746582
+Frontend [keyframe logic]:  21.466655731201172
+Frontend [visibility]:  21.488447189331055
+Frontend duration:  21.52614402770996
+Frontend [preprocess]:  0.009759999811649323
+Frontend [before tracking]:  12.552160263061523
+cur_frame_idx_front:  155
+Frontend [tracking]:  16.33852767944336
+Frontend [keyframe logic]:  20.29030418395996
+Frontend [visibility]:  20.312959671020508
+Frontend duration:  20.350112915039062
+Frontend [preprocess]:  0.010111999697983265
+Frontend [before tracking]:  13.016575813293457
+cur_frame_idx_front:  156
+Frontend [tracking]:  24.921600341796875
+Frontend [keyframe logic]:  28.173120498657227
+Frontend [visibility]:  28.1942081451416
+Frontend duration:  98.2938232421875
+Frontend [preprocess]:  0.002047999994829297
+Frontend [before tracking]:  21.65760040283203
+cur_frame_idx_front:  157
+Frontend [tracking]:  25.989120483398438
+Frontend [keyframe logic]:  36.2806396484375
+Frontend [visibility]:  36.30223846435547
+Frontend duration:  36.340545654296875
+Frontend [preprocess]:  0.010048000141978264
+Frontend [before tracking]:  13.589664459228516
+cur_frame_idx_front:  158
+Frontend [tracking]:  17.700000762939453
+Frontend [keyframe logic]:  22.148319244384766
+Frontend [visibility]:  22.176223754882812
+Frontend duration:  22.230144500732422
+Frontend [preprocess]:  0.014303999952971935
+Frontend [before tracking]:  13.903743743896484
+cur_frame_idx_front:  159
+Frontend [tracking]:  17.703807830810547
+Frontend [keyframe logic]:  22.041536331176758
+Frontend [visibility]:  22.07097625732422
+Frontend duration:  22.122272491455078
+Frontend [preprocess]:  0.01321600005030632
+Frontend [before tracking]:  14.015520095825195
+cur_frame_idx_front:  160
+Frontend [tracking]:  18.114591598510742
+Frontend [keyframe logic]:  33.21526336669922
+Frontend [visibility]:  33.237823486328125
+Frontend duration:  33.45939254760742
+Frontend [preprocess]:  0.010528000071644783
+Frontend [before tracking]:  22.53830337524414
+cur_frame_idx_front:  161
+Frontend [tracking]:  26.333248138427734
+Frontend [keyframe logic]:  35.98467254638672
+Frontend [visibility]:  36.00627136230469
+MonoGS: Evaluating ATE at frame:  162
+Eval: RMSE ATE [m] 1.6356899358375858e-16
+Frontend duration:  230.56378173828125
+Frontend [preprocess]:  0.002047999994829297
+Frontend [before tracking]:  21.11078453063965
+cur_frame_idx_front:  162
+Frontend [tracking]:  25.32249641418457
+Frontend [keyframe logic]:  40.54265594482422
+Frontend [visibility]:  40.56595230102539
+Frontend duration:  40.60559844970703
+Frontend [preprocess]:  0.009952000342309475
+Frontend [before tracking]:  16.0262393951416
+cur_frame_idx_front:  163
+Frontend [tracking]:  19.852928161621094
+Frontend [keyframe logic]:  35.04249572753906
+Frontend [visibility]:  35.067264556884766
+Frontend duration:  35.11088180541992
+Frontend [preprocess]:  0.011136000044643879
+Frontend [before tracking]:  16.091968536376953
+cur_frame_idx_front:  164
+Frontend [tracking]:  19.920703887939453
+Frontend [keyframe logic]:  35.073951721191406
+Frontend [visibility]:  35.09894561767578
+Frontend duration:  35.14255905151367
+Frontend [preprocess]:  0.011455999687314034
+Frontend [before tracking]:  16.093856811523438
+cur_frame_idx_front:  165
+Frontend [tracking]:  19.914400100708008
+Frontend [keyframe logic]:  25.132160186767578
+Frontend [visibility]:  25.156415939331055
+Frontend duration:  25.2030086517334
+Frontend [preprocess]:  0.012095999903976917
+Frontend [before tracking]:  12.112128257751465
+cur_frame_idx_front:  166
+Frontend [tracking]:  16.205055236816406
+Frontend [keyframe logic]:  31.3701114654541
+Frontend [visibility]:  31.39507293701172
+Frontend duration:  102.01641845703125
+Frontend [preprocess]:  0.1987839937210083
+Frontend [before tracking]:  20.825088500976562
+cur_frame_idx_front:  167
+Frontend [tracking]:  24.679424285888672
+Frontend [keyframe logic]:  29.220256805419922
+Frontend [visibility]:  29.2457275390625
+Frontend duration:  29.29145622253418
+Frontend [preprocess]:  0.012480000033974648
+Frontend [before tracking]:  12.806303977966309
+cur_frame_idx_front:  168
+Frontend [tracking]:  17.086624145507812
+Frontend [keyframe logic]:  20.797119140625
+Frontend [visibility]:  20.824480056762695
+Frontend duration:  20.873632431030273
+Frontend [preprocess]:  0.012415999546647072
+Frontend [before tracking]:  12.70479965209961
+cur_frame_idx_front:  169
+Frontend [tracking]:  16.702495574951172
+Frontend [keyframe logic]:  32.33647918701172
+Frontend [visibility]:  32.35948944091797
+Frontend duration:  32.397377014160156
+Frontend [preprocess]:  0.01071999967098236
+Frontend [before tracking]:  15.41756820678711
+cur_frame_idx_front:  170
+Frontend [tracking]:  19.41219139099121
+Frontend [keyframe logic]:  33.6835823059082
+Frontend [visibility]:  33.70547103881836
+Frontend duration:  33.917823791503906
+Frontend [preprocess]:  0.01158399973064661
+Frontend [before tracking]:  17.193056106567383
+cur_frame_idx_front:  171
+Frontend [tracking]:  21.04431915283203
+Frontend [keyframe logic]:  25.00182342529297
+Frontend [visibility]:  25.024255752563477
+Frontend duration:  25.08038330078125
+Frontend [preprocess]:  0.010975999757647514
+Frontend [before tracking]:  11.905759811401367
+cur_frame_idx_front:  172
+Frontend [tracking]:  16.187904357910156
+Frontend [keyframe logic]:  19.983583450317383
+Frontend [visibility]:  20.0067195892334
+Frontend duration:  101.0814437866211
+Frontend [preprocess]:  0.002047999994829297
+Frontend [before tracking]:  17.2042236328125
+cur_frame_idx_front:  173
+Frontend [tracking]:  21.07596778869629
+Frontend [keyframe logic]:  26.590688705444336
+Frontend [visibility]:  26.615936279296875
+Frontend duration:  26.660863876342773
+Frontend [preprocess]:  0.012543999589979649
+Frontend [before tracking]:  12.689311981201172
+cur_frame_idx_front:  174
+Frontend [tracking]:  16.98601531982422
+Frontend [keyframe logic]:  30.307680130004883
+Frontend [visibility]:  30.333599090576172
+Frontend duration:  30.380319595336914
+Frontend [preprocess]:  0.010367999784648418
+Frontend [before tracking]:  12.918208122253418
+cur_frame_idx_front:  175
+Frontend [tracking]:  17.289663314819336
+Frontend [keyframe logic]:  33.88140869140625
+Frontend [visibility]:  33.91072082519531
+Frontend duration:  33.96137619018555
+Frontend [preprocess]:  0.012768000364303589
+Frontend [before tracking]:  28.663232803344727
+cur_frame_idx_front:  176
+Frontend [tracking]:  32.494110107421875
+Frontend [keyframe logic]:  39.184383392333984
+Frontend [visibility]:  39.20956802368164
+Frontend duration:  39.25459289550781
+Frontend [preprocess]:  0.012992000207304955
+Frontend [before tracking]:  11.787872314453125
+cur_frame_idx_front:  177
+Frontend [tracking]:  18.38243293762207
+Frontend [keyframe logic]:  26.653120040893555
+Frontend [visibility]:  26.67523193359375
+Frontend duration:  31.98486328125
+Frontend [preprocess]:  0.18486399948596954
+Frontend [before tracking]:  19.969024658203125
+cur_frame_idx_front:  178
+Frontend [tracking]:  23.834623336791992
+Frontend [keyframe logic]:  32.15430450439453
+Frontend [visibility]:  32.17939376831055
+Frontend duration:  32.227840423583984
+Frontend [preprocess]:  0.012223999947309494
+Frontend [before tracking]:  12.610591888427734
+cur_frame_idx_front:  179
+Frontend [tracking]:  24.88812828063965
+Frontend [keyframe logic]:  28.44588851928711
+Frontend [visibility]:  28.471263885498047
+Frontend duration:  28.514848709106445
+Frontend [preprocess]:  0.012608000077307224
+Frontend [before tracking]:  12.697216033935547
+cur_frame_idx_front:  180
+Frontend [tracking]:  16.914047241210938
+Frontend [keyframe logic]:  21.341920852661133
+Frontend [visibility]:  21.364032745361328
+Frontend duration:  21.56540870666504
+Frontend [preprocess]:  0.01065600011497736
+Frontend [before tracking]:  12.197504043579102
+cur_frame_idx_front:  181
+Frontend [tracking]:  16.036479949951172
+Frontend [keyframe logic]:  19.514944076538086
+Frontend [visibility]:  19.536352157592773
+Frontend duration:  19.574399948120117
+Frontend [preprocess]:  0.009568000212311745
+Frontend [before tracking]:  11.832351684570312
+cur_frame_idx_front:  182
+Frontend [tracking]:  16.1812801361084
+Frontend [keyframe logic]:  19.512128829956055
+Frontend [visibility]:  19.53455924987793
+Frontend duration:  100.76687622070312
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  17.478656768798828
+cur_frame_idx_front:  183
+Frontend [tracking]:  21.436416625976562
+Frontend [keyframe logic]:  25.942655563354492
+Frontend [visibility]:  25.965599060058594
+Frontend duration:  26.006879806518555
+Frontend [preprocess]:  0.01071999967098236
+Frontend [before tracking]:  20.777536392211914
+cur_frame_idx_front:  184
+Frontend [tracking]:  24.642112731933594
+Frontend [keyframe logic]:  39.942047119140625
+Frontend [visibility]:  39.96409606933594
+Frontend duration:  40.00630569458008
+Frontend [preprocess]:  0.0098879998549819
+Frontend [before tracking]:  16.24073600769043
+cur_frame_idx_front:  185
+Frontend [tracking]:  20.10531234741211
+Frontend [keyframe logic]:  35.408512115478516
+Frontend [visibility]:  35.42931365966797
+Frontend duration:  35.46700668334961
+Frontend [preprocess]:  0.0098879998549819
+Frontend [before tracking]:  16.292224884033203
+cur_frame_idx_front:  186
+Frontend [tracking]:  20.15167999267578
+Frontend [keyframe logic]:  35.384864807128906
+Frontend [visibility]:  35.40668869018555
+Frontend duration:  35.44607925415039
+Frontend [preprocess]:  0.009983999654650688
+Frontend [before tracking]:  16.602848052978516
+cur_frame_idx_front:  187
+Frontend [tracking]:  20.298463821411133
+Frontend [keyframe logic]:  35.108543395996094
+Frontend [visibility]:  35.129825592041016
+Frontend duration:  106.01567840576172
+Frontend [preprocess]:  0.002047999994829297
+Frontend [before tracking]:  19.65363121032715
+cur_frame_idx_front:  188
+Frontend [tracking]:  23.553024291992188
+Frontend [keyframe logic]:  36.84601593017578
+Frontend [visibility]:  36.8682861328125
+Frontend duration:  36.90809631347656
+Frontend [preprocess]:  0.009920000098645687
+Frontend [before tracking]:  18.531232833862305
+cur_frame_idx_front:  189
+Frontend [tracking]:  22.418336868286133
+Frontend [keyframe logic]:  27.384544372558594
+Frontend [visibility]:  27.412607192993164
+Frontend duration:  27.464128494262695
+Frontend [preprocess]:  0.013055999763309956
+Frontend [before tracking]:  13.972895622253418
+cur_frame_idx_front:  190
+Frontend [tracking]:  18.396575927734375
+Frontend [keyframe logic]:  32.007102966308594
+Frontend [visibility]:  32.02924728393555
+Frontend duration:  32.154945373535156
+Frontend [preprocess]:  0.010816000401973724
+Frontend [before tracking]:  13.39078426361084
+cur_frame_idx_front:  191
+Frontend [tracking]:  17.665983200073242
+Frontend [keyframe logic]:  24.254207611083984
+Frontend [visibility]:  24.276416778564453
+Frontend duration:  24.315776824951172
+Frontend [preprocess]:  0.0098879998549819
+Frontend [before tracking]:  13.03331184387207
+cur_frame_idx_front:  192
+Frontend [tracking]:  16.763744354248047
+Frontend [keyframe logic]:  20.611007690429688
+Frontend [visibility]:  20.63324737548828
+Frontend duration:  95.21209716796875
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  21.953535079956055
+cur_frame_idx_front:  193
+Frontend [tracking]:  26.20275115966797
+Frontend [keyframe logic]:  41.278846740722656
+Frontend [visibility]:  41.301055908203125
+Frontend duration:  41.34147262573242
+Frontend [preprocess]:  0.01033599954098463
+Frontend [before tracking]:  16.880863189697266
+cur_frame_idx_front:  194
+Frontend [tracking]:  20.739295959472656
+Frontend [keyframe logic]:  25.047903060913086
+Frontend [visibility]:  25.072736740112305
+Frontend duration:  25.116928100585938
+Frontend [preprocess]:  0.01158399973064661
+Frontend [before tracking]:  12.644384384155273
+cur_frame_idx_front:  195
+Frontend [tracking]:  16.674848556518555
+Frontend [keyframe logic]:  20.604352951049805
+Frontend [visibility]:  20.629535675048828
+Frontend duration:  20.672895431518555
+Frontend [preprocess]:  0.011711999773979187
+Frontend [before tracking]:  12.330528259277344
+cur_frame_idx_front:  196
+Frontend [tracking]:  16.08246421813965
+Frontend [keyframe logic]:  30.572351455688477
+Frontend [visibility]:  30.594911575317383
+Frontend duration:  30.633119583129883
+Frontend [preprocess]:  0.017152000218629837
+Frontend [before tracking]:  15.137120246887207
+cur_frame_idx_front:  197
+Frontend [tracking]:  18.83135986328125
+Frontend [keyframe logic]:  22.51203155517578
+Frontend [visibility]:  22.537248611450195
+Frontend duration:  94.39667510986328
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  18.734079360961914
+cur_frame_idx_front:  198
+Frontend [tracking]:  23.029760360717773
+Frontend [keyframe logic]:  27.510303497314453
+Frontend [visibility]:  27.540159225463867
+Frontend duration:  27.600191116333008
+Frontend [preprocess]:  0.018559999763965607
+Frontend [before tracking]:  17.21196746826172
+cur_frame_idx_front:  199
+Frontend [tracking]:  21.67353630065918
+Frontend [keyframe logic]:  36.49862289428711
+Frontend [visibility]:  36.52204895019531
+Frontend duration:  36.56300735473633
+Frontend [preprocess]:  0.011103999800980091
+Frontend [before tracking]:  12.095968246459961
+cur_frame_idx_front:  200
+Frontend [tracking]:  16.432607650756836
+Frontend [keyframe logic]:  34.51094436645508
+Frontend [visibility]:  34.53424072265625
+Frontend duration:  34.75129699707031
+Frontend [preprocess]:  0.010111999697983265
+Frontend [before tracking]:  12.485568046569824
+cur_frame_idx_front:  201
+Frontend [tracking]:  16.647104263305664
+Frontend [keyframe logic]:  20.275999069213867
+Frontend [visibility]:  20.299968719482422
+Frontend duration:  20.343711853027344
+Frontend [preprocess]:  0.01142400037497282
+Frontend [before tracking]:  14.118656158447266
+cur_frame_idx_front:  202
+Frontend [tracking]:  17.987327575683594
+Frontend [keyframe logic]:  32.66611099243164
+Frontend [visibility]:  32.69036865234375
+Frontend duration:  115.39900970458984
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  21.164031982421875
+cur_frame_idx_front:  203
+Frontend [tracking]:  25.52627182006836
+Frontend [keyframe logic]:  29.84819221496582
+Frontend [visibility]:  29.872671127319336
+Frontend duration:  29.918048858642578
+Frontend [preprocess]:  0.011711999773979187
+Frontend [before tracking]:  16.004255294799805
+cur_frame_idx_front:  204
+Frontend [tracking]:  19.695775985717773
+Frontend [keyframe logic]:  35.008575439453125
+Frontend [visibility]:  35.03324890136719
+Frontend duration:  35.07676696777344
+Frontend [preprocess]:  0.011615999974310398
+Frontend [before tracking]:  16.39148712158203
+cur_frame_idx_front:  205
+Frontend [tracking]:  20.113727569580078
+Frontend [keyframe logic]:  35.27104187011719
+Frontend [visibility]:  35.29539108276367
+Frontend duration:  35.338687896728516
+Frontend [preprocess]:  0.012223999947309494
+Frontend [before tracking]:  17.061695098876953
+cur_frame_idx_front:  206
+Frontend [tracking]:  20.75833511352539
+Frontend [keyframe logic]:  35.4299201965332
+Frontend [visibility]:  35.45417785644531
+Frontend duration:  35.49705505371094
+Frontend [preprocess]:  0.011807999573647976
+Frontend [before tracking]:  16.909887313842773
+cur_frame_idx_front:  207
+Frontend [tracking]:  20.604480743408203
+Frontend [keyframe logic]:  26.794815063476562
+Frontend [visibility]:  26.81670379638672
+Frontend duration:  103.30016326904297
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  22.71436882019043
+cur_frame_idx_front:  208
+Frontend [tracking]:  26.8984317779541
+Frontend [keyframe logic]:  47.460609436035156
+Frontend [visibility]:  47.4857292175293
+Frontend duration:  47.531455993652344
+Frontend [preprocess]:  0.011776000261306763
+Frontend [before tracking]:  12.131775856018066
+cur_frame_idx_front:  209
+Frontend [tracking]:  16.231552124023438
+Frontend [keyframe logic]:  21.035999298095703
+Frontend [visibility]:  21.057504653930664
+Frontend duration:  21.098207473754883
+Frontend [preprocess]:  0.009855999611318111
+Frontend [before tracking]:  13.292032241821289
+cur_frame_idx_front:  210
+Frontend [tracking]:  16.89036750793457
+Frontend [keyframe logic]:  31.491167068481445
+Frontend [visibility]:  31.512351989746094
+Frontend duration:  31.556352615356445
+Frontend [preprocess]:  0.009983999654650688
+Frontend [before tracking]:  14.915936470031738
+cur_frame_idx_front:  211
+Frontend [tracking]:  18.60438346862793
+Frontend [keyframe logic]:  30.56617546081543
+Frontend [visibility]:  30.588031768798828
+Frontend duration:  30.626495361328125
+Frontend [preprocess]:  0.010111999697983265
+Frontend [before tracking]:  19.208608627319336
+cur_frame_idx_front:  212
+Frontend [tracking]:  23.094688415527344
+Frontend [keyframe logic]:  28.614303588867188
+Frontend [visibility]:  28.636192321777344
+MonoGS: Evaluating ATE at frame:  213
+Eval: RMSE ATE [m] 2.823164305449138e-16
+Frontend duration:  336.5339660644531
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  22.021120071411133
+cur_frame_idx_front:  213
+Frontend [tracking]:  26.30963134765625
+Frontend [keyframe logic]:  49.31520080566406
+Frontend [visibility]:  49.337406158447266
+Frontend duration:  49.37945556640625
+Frontend [preprocess]:  0.01104000024497509
+Frontend [before tracking]:  13.588704109191895
+cur_frame_idx_front:  214
+Frontend [tracking]:  17.63555145263672
+Frontend [keyframe logic]:  33.59494400024414
+Frontend [visibility]:  33.61686325073242
+Frontend duration:  33.65654373168945
+Frontend [preprocess]:  0.010495999827980995
+Frontend [before tracking]:  12.915616035461426
+cur_frame_idx_front:  215
+Frontend [tracking]:  16.941984176635742
+Frontend [keyframe logic]:  33.777278900146484
+Frontend [visibility]:  33.799903869628906
+Frontend duration:  33.839263916015625
+Frontend [preprocess]:  0.008383999578654766
+Frontend [before tracking]:  12.735039710998535
+cur_frame_idx_front:  216
+Frontend [tracking]:  16.950847625732422
+Frontend [keyframe logic]:  21.891551971435547
+Frontend [visibility]:  21.91315269470215
+Frontend duration:  21.95305633544922
+Frontend [preprocess]:  0.010432000271975994
+Frontend [before tracking]:  13.065119743347168
+cur_frame_idx_front:  217
+Frontend [tracking]:  16.813983917236328
+Frontend [keyframe logic]:  31.585023880004883
+Frontend [visibility]:  31.60678482055664
+Frontend duration:  115.70073699951172
+Frontend [preprocess]:  0.002047999994829297
+Frontend [before tracking]:  22.467647552490234
+cur_frame_idx_front:  218
+Frontend [tracking]:  26.825727462768555
+Frontend [keyframe logic]:  31.395008087158203
+Frontend [visibility]:  31.42393684387207
+Frontend duration:  31.47750473022461
+Frontend [preprocess]:  0.01375999953597784
+Frontend [before tracking]:  16.241727828979492
+cur_frame_idx_front:  219
+Frontend [tracking]:  20.12063980102539
+Frontend [keyframe logic]:  24.68067169189453
+Frontend [visibility]:  24.702144622802734
+Frontend duration:  24.73993682861328
+Frontend [preprocess]:  0.00902399979531765
+Frontend [before tracking]:  12.248895645141602
+cur_frame_idx_front:  220
+Frontend [tracking]:  16.496448516845703
+Frontend [keyframe logic]:  21.061439514160156
+Frontend [visibility]:  21.08246421813965
+Frontend duration:  21.12656021118164
+Frontend [preprocess]:  0.009920000098645687
+Frontend [before tracking]:  13.17801570892334
+cur_frame_idx_front:  221
+Frontend [tracking]:  16.832672119140625
+Frontend [keyframe logic]:  23.22425651550293
+Frontend [visibility]:  23.24550437927246
+Frontend duration:  23.283647537231445
+Frontend [preprocess]:  0.009216000325977802
+Frontend [before tracking]:  12.850879669189453
+cur_frame_idx_front:  222
+Frontend [tracking]:  26.4967041015625
+Frontend [keyframe logic]:  29.74118423461914
+Frontend [visibility]:  29.762271881103516
+Frontend duration:  29.818784713745117
+Frontend [preprocess]:  0.009600000455975533
+Frontend [before tracking]:  12.202879905700684
+cur_frame_idx_front:  223
+Frontend [tracking]:  16.4401912689209
+Frontend [keyframe logic]:  20.03276824951172
+Frontend [visibility]:  20.05414390563965
+Frontend duration:  104.54617309570312
+Frontend [preprocess]:  0.18467199802398682
+Frontend [before tracking]:  18.555904388427734
+cur_frame_idx_front:  224
+Frontend [tracking]:  22.426624298095703
+Frontend [keyframe logic]:  27.777952194213867
+Frontend [visibility]:  27.80303955078125
+Frontend duration:  27.85923194885254
+Frontend [preprocess]:  0.012160000391304493
+Frontend [before tracking]:  12.462335586547852
+cur_frame_idx_front:  225
+Frontend [tracking]:  16.77952003479004
+Frontend [keyframe logic]:  32.32115173339844
+Frontend [visibility]:  32.343936920166016
+Frontend duration:  32.38364791870117
+Frontend [preprocess]:  0.009920000098645687
+Frontend [before tracking]:  12.326687812805176
+cur_frame_idx_front:  226
+Frontend [tracking]:  16.703264236450195
+Frontend [keyframe logic]:  35.43484878540039
+Frontend [visibility]:  35.45721435546875
+Frontend duration:  35.50409698486328
+Frontend [preprocess]:  0.009855999611318111
+Frontend [before tracking]:  12.44809627532959
+cur_frame_idx_front:  227
+Frontend [tracking]:  16.744800567626953
+Frontend [keyframe logic]:  34.978721618652344
+Frontend [visibility]:  35.000736236572266
+Frontend duration:  35.03974533081055
+Frontend [preprocess]:  0.009503999724984169
+Frontend [before tracking]:  12.167231559753418
+cur_frame_idx_front:  228
+Frontend [tracking]:  16.2857608795166
+Frontend [keyframe logic]:  20.051136016845703
+Frontend [visibility]:  20.07561683654785
+Frontend duration:  104.97948455810547
+Frontend [preprocess]:  0.002047999994829297
+Frontend [before tracking]:  17.364992141723633
+cur_frame_idx_front:  229
+Frontend [tracking]:  21.559295654296875
+Frontend [keyframe logic]:  25.967487335205078
+Frontend [visibility]:  25.9902400970459
+Frontend duration:  26.033599853515625
+Frontend [preprocess]:  0.009824000298976898
+Frontend [before tracking]:  21.65795135498047
+cur_frame_idx_front:  230
+Frontend [tracking]:  25.548128128051758
+Frontend [keyframe logic]:  41.4205436706543
+Frontend [visibility]:  41.445438385009766
+Frontend duration:  41.49728012084961
+Frontend [preprocess]:  0.011680000461637974
+Frontend [before tracking]:  17.62166404724121
+cur_frame_idx_front:  231
+Frontend [tracking]:  21.49135971069336
+Frontend [keyframe logic]:  36.76287841796875
+Frontend [visibility]:  36.789215087890625
+Frontend duration:  36.83321762084961
+Frontend [preprocess]:  0.01158399973064661
+Frontend [before tracking]:  17.56540870666504
+cur_frame_idx_front:  232
+Frontend [tracking]:  21.449440002441406
+Frontend [keyframe logic]:  25.70262336730957
+Frontend [visibility]:  25.727392196655273
+Frontend duration:  25.772319793701172
+Frontend [preprocess]:  0.012032000347971916
+Frontend [before tracking]:  12.950655937194824
+cur_frame_idx_front:  233
+Frontend [tracking]:  17.18387222290039
+Frontend [keyframe logic]:  32.77167892456055
+Frontend [visibility]:  32.793216705322266
+Frontend duration:  104.57222747802734
+Frontend [preprocess]:  0.002047999994829297
+Frontend [before tracking]:  19.24608039855957
+cur_frame_idx_front:  234
+Frontend [tracking]:  23.260160446166992
+Frontend [keyframe logic]:  29.21001625061035
+Frontend [visibility]:  29.236896514892578
+Frontend duration:  29.291072845458984
+Frontend [preprocess]:  0.013183999806642532
+Frontend [before tracking]:  13.381312370300293
+cur_frame_idx_front:  235
+Frontend [tracking]:  17.832639694213867
+Frontend [keyframe logic]:  29.99964714050293
+Frontend [visibility]:  30.02230453491211
+Frontend duration:  30.065216064453125
+Frontend [preprocess]:  0.011231999844312668
+Frontend [before tracking]:  13.156000137329102
+cur_frame_idx_front:  236
+Frontend [tracking]:  17.564096450805664
+Frontend [keyframe logic]:  23.186784744262695
+Frontend [visibility]:  23.20854377746582
+Frontend duration:  23.248031616210938
+Frontend [preprocess]:  0.010143999941647053
+Frontend [before tracking]:  13.816767692565918
+cur_frame_idx_front:  237
+Frontend [tracking]:  17.69977569580078
+Frontend [keyframe logic]:  22.7490234375
+Frontend [visibility]:  22.771039962768555
+Frontend duration:  22.810815811157227
+Frontend [preprocess]:  0.010367999784648418
+Frontend [before tracking]:  11.851391792297363
+cur_frame_idx_front:  238
+Frontend [tracking]:  16.182815551757812
+Frontend [keyframe logic]:  22.478559494018555
+Frontend [visibility]:  22.504480361938477
+Frontend duration:  105.60173034667969
+Frontend [preprocess]:  0.002047999994829297
+Frontend [before tracking]:  24.877056121826172
+cur_frame_idx_front:  239
+Frontend [tracking]:  29.16147232055664
+Frontend [keyframe logic]:  45.22585678100586
+Frontend [visibility]:  45.27167892456055
+Frontend duration:  45.34406280517578
+Frontend [preprocess]:  0.01881599985063076
+Frontend [before tracking]:  18.293088912963867
+cur_frame_idx_front:  240
+Frontend [tracking]:  22.368608474731445
+Frontend [keyframe logic]:  33.90697479248047
+Frontend [visibility]:  33.9378547668457
+Frontend duration:  34.20604705810547
+Frontend [preprocess]:  0.018880000337958336
+Frontend [before tracking]:  23.26416015625
+cur_frame_idx_front:  241
+Frontend [tracking]:  27.3222713470459
+Frontend [keyframe logic]:  31.745567321777344
+Frontend [visibility]:  31.775680541992188
+Frontend duration:  31.83568000793457
+Frontend [preprocess]:  0.01849599927663803
+Frontend [before tracking]:  17.533632278442383
+cur_frame_idx_front:  242
+Frontend [tracking]:  21.98374366760254
+Frontend [keyframe logic]:  37.406654357910156
+Frontend [visibility]:  37.43715286254883
+Frontend duration:  37.50163269042969
+Frontend [preprocess]:  0.018880000337958336
+Frontend [before tracking]:  17.427295684814453
+cur_frame_idx_front:  243
+Frontend [tracking]:  21.898080825805664
+Frontend [keyframe logic]:  27.32111930847168
+Frontend [visibility]:  27.353567123413086
+Frontend duration:  27.440319061279297
+Frontend [preprocess]:  0.019840000197291374
+Frontend [before tracking]:  12.624608039855957
+cur_frame_idx_front:  244
+Frontend [tracking]:  16.5830078125
+Frontend [keyframe logic]:  33.169185638427734
+Frontend [visibility]:  33.20323181152344
+Frontend duration:  33.292640686035156
+Frontend [preprocess]:  0.017791999503970146
+Frontend [before tracking]:  17.798303604125977
+cur_frame_idx_front:  245
+Frontend [tracking]:  21.8175048828125
+Frontend [keyframe logic]:  38.56208038330078
+Frontend [visibility]:  38.595455169677734
+Frontend duration:  38.683841705322266
+Frontend [preprocess]:  0.01820800080895424
+Frontend [before tracking]:  16.485567092895508
+cur_frame_idx_front:  246
+Frontend [tracking]:  20.22617530822754
+Frontend [keyframe logic]:  26.48758316040039
+Frontend [visibility]:  26.519872665405273
+Frontend duration:  26.585344314575195
+Frontend [preprocess]:  0.011615999974310398
+Frontend [before tracking]:  12.372672080993652
+cur_frame_idx_front:  247
+Frontend [tracking]:  16.791231155395508
+Frontend [keyframe logic]:  30.063648223876953
+Frontend [visibility]:  30.08550453186035
+Frontend duration:  30.141855239868164
+Frontend [preprocess]:  0.01033599954098463
+Frontend [before tracking]:  11.973855972290039
+cur_frame_idx_front:  248
+Frontend [tracking]:  15.992032051086426
+Frontend [keyframe logic]:  34.443904876708984
+Frontend [visibility]:  34.46598434448242
+Frontend duration:  34.52150344848633
+Frontend [preprocess]:  0.010432000271975994
+Frontend [before tracking]:  11.807519912719727
+cur_frame_idx_front:  249
+Frontend [tracking]:  15.982368469238281
+Frontend [keyframe logic]:  19.805919647216797
+Frontend [visibility]:  19.830303192138672
+Frontend duration:  103.76383972167969
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  17.766399383544922
+cur_frame_idx_front:  250
+Frontend [tracking]:  22.44655990600586
+Frontend [keyframe logic]:  41.4854736328125
+Frontend [visibility]:  41.50883102416992
+Frontend duration:  41.66432189941406
+Frontend [preprocess]:  0.010688000358641148
+Frontend [before tracking]:  13.518207550048828
+cur_frame_idx_front:  251
+Frontend [tracking]:  17.94905662536621
+Frontend [keyframe logic]:  22.20297622680664
+Frontend [visibility]:  22.231199264526367
+Frontend duration:  22.28447914123535
+Frontend [preprocess]:  0.014112000353634357
+Frontend [before tracking]:  13.307104110717773
+cur_frame_idx_front:  252
+Frontend [tracking]:  17.18294334411621
+Frontend [keyframe logic]:  21.00044822692871
+Frontend [visibility]:  21.02227210998535
+Frontend duration:  21.062591552734375
+Frontend [preprocess]:  0.011136000044643879
+Frontend [before tracking]:  12.43286418914795
+cur_frame_idx_front:  253
+Frontend [tracking]:  16.690656661987305
+Frontend [keyframe logic]:  20.917856216430664
+Frontend [visibility]:  20.93926429748535
+Frontend duration:  20.97808074951172
+Frontend [preprocess]:  0.009664000011980534
+Frontend [before tracking]:  13.321344375610352
+cur_frame_idx_front:  254
+Frontend [tracking]:  17.19206428527832
+Frontend [keyframe logic]:  32.68479919433594
+Frontend [visibility]:  32.70652770996094
+Frontend duration:  116.98429107666016
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  17.122304916381836
+cur_frame_idx_front:  255
+Frontend [tracking]:  21.012479782104492
+Frontend [keyframe logic]:  35.71311950683594
+Frontend [visibility]:  35.735198974609375
+Frontend duration:  35.77561569213867
+Frontend [preprocess]:  0.009983999654650688
+Frontend [before tracking]:  18.597408294677734
+cur_frame_idx_front:  256
+Frontend [tracking]:  22.51420783996582
+Frontend [keyframe logic]:  31.32713508605957
+Frontend [visibility]:  31.351903915405273
+Frontend duration:  31.397472381591797
+Frontend [preprocess]:  0.012768000364303589
+Frontend [before tracking]:  12.633631706237793
+cur_frame_idx_front:  257
+Frontend [tracking]:  26.612255096435547
+Frontend [keyframe logic]:  38.14915084838867
+Frontend [visibility]:  38.171871185302734
+Frontend duration:  38.211647033691406
+Frontend [preprocess]:  0.009535999968647957
+Frontend [before tracking]:  20.77462387084961
+cur_frame_idx_front:  258
+Frontend [tracking]:  26.01545524597168
+Frontend [keyframe logic]:  41.47087860107422
+Frontend [visibility]:  41.49382400512695
+Frontend duration:  41.53318405151367
+Frontend [preprocess]:  0.0098879998549819
+Frontend [before tracking]:  17.585887908935547
+cur_frame_idx_front:  259
+Frontend [tracking]:  21.485279083251953
+Frontend [keyframe logic]:  27.1243839263916
+Frontend [visibility]:  27.14579200744629
+Frontend duration:  102.47087860107422
+Frontend [preprocess]:  0.0018560000462457538
+Frontend [before tracking]:  22.80838394165039
+cur_frame_idx_front:  260
+Frontend [tracking]:  26.765119552612305
+Frontend [keyframe logic]:  42.51350402832031
+Frontend [visibility]:  42.53897476196289
+Frontend duration:  42.725887298583984
+Frontend [preprocess]:  0.01206399966031313
+Frontend [before tracking]:  17.755647659301758
+cur_frame_idx_front:  261
+Frontend [tracking]:  21.859743118286133
+Frontend [keyframe logic]:  35.837120056152344
+Frontend [visibility]:  35.86227035522461
+Frontend duration:  35.9062385559082
+Frontend [preprocess]:  0.012160000391304493
+Frontend [before tracking]:  19.092031478881836
+cur_frame_idx_front:  262
+Frontend [tracking]:  23.008832931518555
+Frontend [keyframe logic]:  38.59049606323242
+Frontend [visibility]:  38.615806579589844
+Frontend duration:  38.6616325378418
+Frontend [preprocess]:  0.012160000391304493
+Frontend [before tracking]:  17.656896591186523
+cur_frame_idx_front:  263
+Frontend [tracking]:  21.588031768798828
+Frontend [keyframe logic]:  26.584064483642578
+Frontend [visibility]:  26.610496520996094
+Frontend duration:  26.65558433532715
+Frontend [preprocess]:  0.011359999887645245
+Frontend [before tracking]:  12.8538236618042
+cur_frame_idx_front:  264
+Frontend [tracking]:  17.20787239074707
+Frontend [keyframe logic]:  33.08425521850586
+Frontend [visibility]:  33.10918426513672
+Frontend duration:  106.66799926757812
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  25.382911682128906
+cur_frame_idx_front:  265
+Frontend [tracking]:  29.685760498046875
+Frontend [keyframe logic]:  34.40576171875
+Frontend [visibility]:  34.43110275268555
+Frontend duration:  34.47600173950195
+Frontend [preprocess]:  0.011776000261306763
+Frontend [before tracking]:  12.63542366027832
+cur_frame_idx_front:  266
+Frontend [tracking]:  16.558368682861328
+Frontend [keyframe logic]:  31.92736053466797
+Frontend [visibility]:  31.95907211303711
+Frontend duration:  32.02284622192383
+Frontend [preprocess]:  0.015296000055968761
+Frontend [before tracking]:  18.22313690185547
+cur_frame_idx_front:  267
+Frontend [tracking]:  22.116384506225586
+Frontend [keyframe logic]:  30.14838409423828
+Frontend [visibility]:  30.173248291015625
+Frontend duration:  30.21881675720215
+Frontend [preprocess]:  0.010975999757647514
+Frontend [before tracking]:  12.205535888671875
+cur_frame_idx_front:  268
+Frontend [tracking]:  21.04265594482422
+Frontend [keyframe logic]:  29.040607452392578
+Frontend [visibility]:  29.06470489501953
+Frontend duration:  29.110496520996094
+Frontend [preprocess]:  0.013567999936640263
+Frontend [before tracking]:  12.820159912109375
+cur_frame_idx_front:  269
+Frontend [tracking]:  17.20185661315918
+Frontend [keyframe logic]:  37.21897506713867
+Frontend [visibility]:  37.24262237548828
+MonoGS: Evaluating ATE at frame:  270
+Eval: RMSE ATE [m] 2.0420430275461672e-16
+Frontend duration:  224.34310913085938
+Frontend [preprocess]:  0.002047999994829297
+Frontend [before tracking]:  24.345600128173828
+cur_frame_idx_front:  270
+Frontend [tracking]:  28.883968353271484
+Frontend [keyframe logic]:  45.02880096435547
+Frontend [visibility]:  45.06060791015625
+Frontend duration:  45.2968635559082
+Frontend [preprocess]:  0.021056000143289566
+Frontend [before tracking]:  21.055904388427734
+cur_frame_idx_front:  271
+Frontend [tracking]:  25.487775802612305
+Frontend [keyframe logic]:  41.30470275878906
+Frontend [visibility]:  41.34163284301758
+Frontend duration:  41.406944274902344
+Frontend [preprocess]:  0.019328000023961067
+Frontend [before tracking]:  19.665056228637695
+cur_frame_idx_front:  272
+Frontend [tracking]:  23.661727905273438
+Frontend [keyframe logic]:  39.168800354003906
+Frontend [visibility]:  39.191009521484375
+Frontend duration:  39.229984283447266
+Frontend [preprocess]:  0.010143999941647053
+Frontend [before tracking]:  17.07823944091797
+cur_frame_idx_front:  273
+Frontend [tracking]:  20.978656768798828
+Frontend [keyframe logic]:  28.84681510925293
+Frontend [visibility]:  28.876224517822266
+Frontend duration:  28.933408737182617
+Frontend [preprocess]:  0.018912000581622124
+Frontend [before tracking]:  16.42915153503418
+cur_frame_idx_front:  274
+Frontend [tracking]:  31.25881576538086
+Frontend [keyframe logic]:  46.78976058959961
+Frontend [visibility]:  46.81139373779297
+Frontend duration:  125.10784149169922
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  16.476160049438477
+cur_frame_idx_front:  275
+Frontend [tracking]:  20.344831466674805
+Frontend [keyframe logic]:  24.086816787719727
+Frontend [visibility]:  24.108928680419922
+Frontend duration:  24.14886474609375
+Frontend [preprocess]:  0.009312000125646591
+Frontend [before tracking]:  12.40124797821045
+cur_frame_idx_front:  276
+Frontend [tracking]:  16.73891258239746
+Frontend [keyframe logic]:  22.595808029174805
+Frontend [visibility]:  22.61724853515625
+Frontend duration:  22.655487060546875
+Frontend [preprocess]:  0.010432000271975994
+Frontend [before tracking]:  12.139679908752441
+cur_frame_idx_front:  277
+Frontend [tracking]:  16.000160217285156
+Frontend [keyframe logic]:  20.890911102294922
+Frontend [visibility]:  20.9135684967041
+Frontend duration:  20.951007843017578
+Frontend [preprocess]:  0.009952000342309475
+Frontend [before tracking]:  11.550463676452637
+cur_frame_idx_front:  278
+Frontend [tracking]:  15.73964786529541
+Frontend [keyframe logic]:  30.299711227416992
+Frontend [visibility]:  30.32169532775879
+Frontend duration:  30.36182403564453
+Frontend [preprocess]:  0.010432000271975994
+Frontend [before tracking]:  12.408736228942871
+cur_frame_idx_front:  279
+Frontend [tracking]:  16.613279342651367
+Frontend [keyframe logic]:  22.92697525024414
+Frontend [visibility]:  22.952255249023438
+Frontend duration:  108.33087921142578
+Frontend [preprocess]:  0.002047999994829297
+Frontend [before tracking]:  24.357887268066406
+cur_frame_idx_front:  280
+Frontend [tracking]:  28.466175079345703
+Frontend [keyframe logic]:  34.17910385131836
+Frontend [visibility]:  34.216129302978516
+Frontend duration:  34.29404830932617
+Frontend [preprocess]:  0.019328000023961067
+Frontend [before tracking]:  17.137887954711914
+cur_frame_idx_front:  281
+Frontend [tracking]:  21.732576370239258
+Frontend [keyframe logic]:  35.787391662597656
+Frontend [visibility]:  35.81875228881836
+Frontend duration:  35.879520416259766
+Frontend [preprocess]:  0.01929599978029728
+Frontend [before tracking]:  16.731168746948242
+cur_frame_idx_front:  282
+Frontend [tracking]:  20.996416091918945
+Frontend [keyframe logic]:  26.844032287597656
+Frontend [visibility]:  26.874208450317383
+Frontend duration:  26.941984176635742
+Frontend [preprocess]:  0.017983999103307724
+Frontend [before tracking]:  14.457119941711426
+cur_frame_idx_front:  283
+Frontend [tracking]:  18.425119400024414
+Frontend [keyframe logic]:  23.11871910095215
+Frontend [visibility]:  23.148672103881836
+Frontend duration:  23.211551666259766
+Frontend [preprocess]:  0.018592000007629395
+Frontend [before tracking]:  17.216447830200195
+cur_frame_idx_front:  284
+Frontend [tracking]:  21.711807250976562
+Frontend [keyframe logic]:  35.15715026855469
+Frontend [visibility]:  35.190303802490234
+Frontend duration:  108.3505630493164
+Frontend [preprocess]:  0.001888000057078898
+Frontend [before tracking]:  16.52822494506836
+cur_frame_idx_front:  285
+Frontend [tracking]:  20.398944854736328
+Frontend [keyframe logic]:  26.87664031982422
+Frontend [visibility]:  26.899295806884766
+Frontend duration:  26.940319061279297
+Frontend [preprocess]:  0.009952000342309475
+Frontend [before tracking]:  12.302399635314941
+cur_frame_idx_front:  286
+Frontend [tracking]:  26.114112854003906
+Frontend [keyframe logic]:  31.344768524169922
+Frontend [visibility]:  31.3670711517334
+Frontend duration:  31.40729522705078
+Frontend [preprocess]:  0.009952000342309475
+Frontend [before tracking]:  12.764320373535156
+cur_frame_idx_front:  287
+Frontend [tracking]:  16.94326400756836
+Frontend [keyframe logic]:  32.18364715576172
+Frontend [visibility]:  32.21507263183594
+Frontend duration:  32.25603103637695
+Frontend [preprocess]:  0.011392000131309032
+Frontend [before tracking]:  13.21513557434082
+cur_frame_idx_front:  288
+Frontend [tracking]:  17.451488494873047
+Frontend [keyframe logic]:  27.62063980102539
+Frontend [visibility]:  27.643264770507812
+Frontend duration:  27.69379234313965
+Frontend [preprocess]:  0.01056000031530857
+Frontend [before tracking]:  12.735103607177734
+cur_frame_idx_front:  289
+Frontend [tracking]:  16.69798469543457
+Frontend [keyframe logic]:  22.602943420410156
+Frontend [visibility]:  22.626815795898438
+Frontend duration:  97.5223388671875
+Frontend [preprocess]:  0.002015999983996153
+Frontend [before tracking]:  16.130016326904297
+cur_frame_idx_front:  290
+Frontend [tracking]:  19.991519927978516
+Frontend [keyframe logic]:  25.10483169555664
+Frontend [visibility]:  25.126399993896484
+Frontend duration:  25.17228889465332
+Frontend [preprocess]:  0.010944000445306301
+Frontend [before tracking]:  12.489631652832031
+cur_frame_idx_front:  291
+Frontend [tracking]:  17.047456741333008
+Frontend [keyframe logic]:  20.82374382019043
+Frontend [visibility]:  20.848224639892578
+Frontend duration:  20.8939208984375
+Frontend [preprocess]:  0.012384000234305859
+Frontend [before tracking]:  12.252448081970215
+cur_frame_idx_front:  292
+Frontend [tracking]:  16.140575408935547
+Frontend [keyframe logic]:  32.24476623535156
+Frontend [visibility]:  32.269344329833984
+Frontend duration:  32.31545639038086
+Frontend [preprocess]:  0.012415999546647072
+Frontend [before tracking]:  14.787039756774902
+cur_frame_idx_front:  293
+Frontend [tracking]:  18.656736373901367
+Frontend [keyframe logic]:  33.885887145996094
+Frontend [visibility]:  33.91078567504883
+Frontend duration:  33.953887939453125
+Frontend [preprocess]:  0.011552000418305397
+Frontend [before tracking]:  15.97868824005127
+cur_frame_idx_front:  294
+Frontend [tracking]:  19.847360610961914
+Frontend [keyframe logic]:  23.956768035888672
+Frontend [visibility]:  23.981727600097656
+Frontend duration:  97.7372817993164
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  22.08768081665039
+cur_frame_idx_front:  295
+Frontend [tracking]:  25.999359130859375
+Frontend [keyframe logic]:  30.662464141845703
+Frontend [visibility]:  30.695903778076172
+Frontend duration:  30.744735717773438
+Frontend [preprocess]:  0.012032000347971916
+Frontend [before tracking]:  12.38361644744873
+cur_frame_idx_front:  296
+Frontend [tracking]:  16.7007999420166
+Frontend [keyframe logic]:  20.762752532958984
+Frontend [visibility]:  20.784927368164062
+Frontend duration:  20.822816848754883
+Frontend [preprocess]:  0.009631999768316746
+Frontend [before tracking]:  13.603263854980469
+cur_frame_idx_front:  297
+Frontend [tracking]:  17.488319396972656
+Frontend [keyframe logic]:  24.130367279052734
+Frontend [visibility]:  24.152544021606445
+Frontend duration:  24.192832946777344
+Frontend [preprocess]:  0.010944000445306301
+Frontend [before tracking]:  12.31884765625
+cur_frame_idx_front:  298
+Frontend [tracking]:  16.868480682373047
+Frontend [keyframe logic]:  21.483840942382812
+Frontend [visibility]:  21.507583618164062
+Frontend duration:  21.55414390563965
+Frontend [preprocess]:  0.012896000407636166
+Frontend [before tracking]:  15.04319953918457
+cur_frame_idx_front:  299
+Frontend [tracking]:  18.9354248046875
+Frontend [keyframe logic]:  25.58118438720703
+Frontend [visibility]:  25.60540771484375
+Frontend duration:  101.05840301513672
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  21.581823348999023
+cur_frame_idx_front:  300
+Frontend [tracking]:  26.386432647705078
+Frontend [keyframe logic]:  30.674272537231445
+Frontend [visibility]:  30.69945526123047
+Frontend duration:  30.75209617614746
+Frontend [preprocess]:  0.01196799986064434
+Frontend [before tracking]:  16.180639266967773
+cur_frame_idx_front:  301
+Frontend [tracking]:  19.89571189880371
+Frontend [keyframe logic]:  25.03081512451172
+Frontend [visibility]:  25.056095123291016
+Frontend duration:  25.10028839111328
+Frontend [preprocess]:  0.01196799986064434
+Frontend [before tracking]:  12.331135749816895
+cur_frame_idx_front:  302
+Frontend [tracking]:  16.407360076904297
+Frontend [keyframe logic]:  21.09337615966797
+Frontend [visibility]:  21.115392684936523
+Frontend duration:  21.154144287109375
+Frontend [preprocess]:  0.009824000298976898
+Frontend [before tracking]:  11.884511947631836
+cur_frame_idx_front:  303
+Frontend [tracking]:  15.67024040222168
+Frontend [keyframe logic]:  30.95212745666504
+Frontend [visibility]:  30.973663330078125
+Frontend duration:  31.011648178100586
+Frontend [preprocess]:  0.009440000168979168
+Frontend [before tracking]:  17.257375717163086
+cur_frame_idx_front:  304
+Frontend [tracking]:  21.146528244018555
+Frontend [keyframe logic]:  36.148799896240234
+Frontend [visibility]:  36.17078399658203
+Frontend duration:  119.16031646728516
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  22.4583683013916
+cur_frame_idx_front:  305
+Frontend [tracking]:  26.841087341308594
+Frontend [keyframe logic]:  41.44566345214844
+Frontend [visibility]:  41.467041015625
+Frontend duration:  41.507999420166016
+Frontend [preprocess]:  0.01027199998497963
+Frontend [before tracking]:  11.847295761108398
+cur_frame_idx_front:  306
+Frontend [tracking]:  16.261760711669922
+Frontend [keyframe logic]:  20.646303176879883
+Frontend [visibility]:  20.667583465576172
+Frontend duration:  20.705472946166992
+Frontend [preprocess]:  0.009855999611318111
+Frontend [before tracking]:  15.997599601745605
+cur_frame_idx_front:  307
+Frontend [tracking]:  19.713695526123047
+Frontend [keyframe logic]:  24.35763168334961
+Frontend [visibility]:  24.379392623901367
+Frontend duration:  24.416704177856445
+Frontend [preprocess]:  0.009727999567985535
+Frontend [before tracking]:  12.438752174377441
+cur_frame_idx_front:  308
+Frontend [tracking]:  16.499935150146484
+Frontend [keyframe logic]:  21.75971221923828
+Frontend [visibility]:  21.78144073486328
+Frontend duration:  21.819360733032227
+Frontend [preprocess]:  0.009727999567985535
+Frontend [before tracking]:  12.329824447631836
+cur_frame_idx_front:  309
+Frontend [tracking]:  16.373600006103516
+Frontend [keyframe logic]:  20.642080307006836
+Frontend [visibility]:  20.664064407348633
+Frontend duration:  93.65913391113281
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  20.550655364990234
+cur_frame_idx_front:  310
+Frontend [tracking]:  30.491647720336914
+Frontend [keyframe logic]:  36.742305755615234
+Frontend [visibility]:  36.763999938964844
+Frontend duration:  36.80928039550781
+Frontend [preprocess]:  0.009983999654650688
+Frontend [before tracking]:  12.868000030517578
+cur_frame_idx_front:  311
+Frontend [tracking]:  17.108383178710938
+Frontend [keyframe logic]:  24.446144104003906
+Frontend [visibility]:  24.46816062927246
+Frontend duration:  24.50511932373047
+Frontend [preprocess]:  0.010080000385642052
+Frontend [before tracking]:  12.747520446777344
+cur_frame_idx_front:  312
+Frontend [tracking]:  16.470783233642578
+Frontend [keyframe logic]:  21.18377685546875
+Frontend [visibility]:  21.211776733398438
+Frontend duration:  21.26425552368164
+Frontend [preprocess]:  0.014879999682307243
+Frontend [before tracking]:  13.575519561767578
+cur_frame_idx_front:  313
+Frontend [tracking]:  28.058975219726562
+Frontend [keyframe logic]:  36.913150787353516
+Frontend [visibility]:  36.93753433227539
+Frontend duration:  36.98137664794922
+Frontend [preprocess]:  0.011552000418305397
+Frontend [before tracking]:  12.983296394348145
+cur_frame_idx_front:  314
+Frontend [tracking]:  27.100160598754883
+Frontend [keyframe logic]:  31.202335357666016
+Frontend [visibility]:  31.22444725036621
+Frontend duration:  105.58438110351562
+Frontend [preprocess]:  0.0019199999514967203
+Frontend [before tracking]:  37.744510650634766
+cur_frame_idx_front:  315
+Frontend [tracking]:  41.95315170288086
+Frontend [keyframe logic]:  46.08822250366211
+Frontend [visibility]:  46.109825134277344
+Frontend duration:  46.1506233215332
+Frontend [preprocess]:  0.011168000288307667
+Frontend [before tracking]:  11.454943656921387
+cur_frame_idx_front:  316
+Frontend [tracking]:  15.8571195602417
+Frontend [keyframe logic]:  21.645408630371094
+Frontend [visibility]:  21.669984817504883
+Frontend duration:  21.71343994140625
+Frontend [preprocess]:  0.01228800043463707
+Frontend [before tracking]:  12.919487953186035
+cur_frame_idx_front:  317
+Frontend [tracking]:  16.625343322753906
+Frontend [keyframe logic]:  31.562496185302734
+Frontend [visibility]:  31.587263107299805
+Frontend duration:  31.631776809692383
+Frontend [preprocess]:  0.011839999817311764
+Frontend [before tracking]:  17.157503128051758
+cur_frame_idx_front:  318
+Frontend [tracking]:  20.897151947021484
+Frontend [keyframe logic]:  24.936927795410156
+Frontend [visibility]:  24.961631774902344
+Frontend duration:  25.00601577758789
+Frontend [preprocess]:  0.011136000044643879
+Frontend [before tracking]:  12.21776008605957
+cur_frame_idx_front:  319
+Frontend [tracking]:  16.329120635986328
+Frontend [keyframe logic]:  34.086143493652344
+Frontend [visibility]:  34.10908889770508
+MonoGS: Evaluating ATE at frame:  320
+Eval: RMSE ATE [m] 9.784113623486454e-16
+Frontend duration:  218.6754913330078
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  22.68057632446289
+cur_frame_idx_front:  320
+Frontend [tracking]:  26.869760513305664
+Frontend [keyframe logic]:  31.210559844970703
+Frontend [visibility]:  31.236352920532227
+Frontend duration:  31.479007720947266
+Frontend [preprocess]:  0.01235199999064207
+Frontend [before tracking]:  21.014432907104492
+cur_frame_idx_front:  321
+Frontend [tracking]:  25.058208465576172
+Frontend [keyframe logic]:  40.48406219482422
+Frontend [visibility]:  40.50831985473633
+Frontend duration:  40.55231857299805
+Frontend [preprocess]:  0.011136000044643879
+Frontend [before tracking]:  18.472639083862305
+cur_frame_idx_front:  322
+Frontend [tracking]:  22.348480224609375
+Frontend [keyframe logic]:  26.813343048095703
+Frontend [visibility]:  26.83782386779785
+Frontend duration:  26.881792068481445
+Frontend [preprocess]:  0.011168000288307667
+Frontend [before tracking]:  12.830080032348633
+cur_frame_idx_front:  323
+Frontend [tracking]:  16.88921546936035
+Frontend [keyframe logic]:  21.666912078857422
+Frontend [visibility]:  21.688127517700195
+Frontend duration:  21.72777557373047
+Frontend [preprocess]:  0.009727999567985535
+Frontend [before tracking]:  12.795743942260742
+cur_frame_idx_front:  324
+Frontend [tracking]:  16.48726463317871
+Frontend [keyframe logic]:  20.834144592285156
+Frontend [visibility]:  20.855775833129883
+Frontend duration:  96.08633422851562
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  19.363840103149414
+cur_frame_idx_front:  325
+Frontend [tracking]:  23.242752075195312
+Frontend [keyframe logic]:  38.913856506347656
+Frontend [visibility]:  38.9381103515625
+Frontend duration:  38.982398986816406
+Frontend [preprocess]:  0.011071999557316303
+Frontend [before tracking]:  18.0534725189209
+cur_frame_idx_front:  326
+Frontend [tracking]:  21.747039794921875
+Frontend [keyframe logic]:  37.224063873291016
+Frontend [visibility]:  37.24995040893555
+Frontend duration:  37.29487991333008
+Frontend [preprocess]:  0.012319999746978283
+Frontend [before tracking]:  18.581024169921875
+cur_frame_idx_front:  327
+Frontend [tracking]:  22.275615692138672
+Frontend [keyframe logic]:  33.089664459228516
+Frontend [visibility]:  33.11376190185547
+Frontend duration:  33.15715026855469
+Frontend [preprocess]:  0.01190400030463934
+Frontend [before tracking]:  23.120960235595703
+cur_frame_idx_front:  328
+Frontend [tracking]:  26.984512329101562
+Frontend [keyframe logic]:  33.834110260009766
+Frontend [visibility]:  33.858463287353516
+Frontend duration:  33.90256118774414
+Frontend [preprocess]:  0.011455999687314034
+Frontend [before tracking]:  12.996031761169434
+cur_frame_idx_front:  329
+Frontend [tracking]:  21.391807556152344
+Frontend [keyframe logic]:  29.675424575805664
+Frontend [visibility]:  29.696544647216797
+Frontend duration:  102.802978515625
+Frontend [preprocess]:  0.002047999994829297
+Frontend [before tracking]:  23.4465274810791
+cur_frame_idx_front:  330
+Frontend [tracking]:  27.356159210205078
+Frontend [keyframe logic]:  32.151615142822266
+Frontend [visibility]:  32.178016662597656
+Frontend duration:  32.231807708740234
+Frontend [preprocess]:  0.01190400030463934
+Frontend [before tracking]:  12.228639602661133
+cur_frame_idx_front:  331
+Frontend [tracking]:  16.53046417236328
+Frontend [keyframe logic]:  20.962080001831055
+Frontend [visibility]:  20.9847354888916
+Frontend duration:  21.02390480041504
+Frontend [preprocess]:  0.009824000298976898
+Frontend [before tracking]:  13.031135559082031
+cur_frame_idx_front:  332
+Frontend [tracking]:  16.71651268005371
+Frontend [keyframe logic]:  21.100543975830078
+Frontend [visibility]:  21.122304916381836
+Frontend duration:  21.160192489624023
+Frontend [preprocess]:  0.010432000271975994
+Frontend [before tracking]:  13.040831565856934
+cur_frame_idx_front:  333
+Frontend [tracking]:  17.27609634399414
+Frontend [keyframe logic]:  25.664384841918945
+Frontend [visibility]:  25.685888290405273
+Frontend duration:  25.732511520385742
+Frontend [preprocess]:  0.01017600018531084
+Frontend [before tracking]:  21.866783142089844
+cur_frame_idx_front:  334
+Frontend [tracking]:  26.21673583984375
+Frontend [keyframe logic]:  31.307296752929688
+Frontend [visibility]:  31.328832626342773
+Frontend duration:  116.9448013305664
+Frontend [preprocess]:  0.002047999994829297
+Frontend [before tracking]:  20.875263214111328
+cur_frame_idx_front:  335
+Frontend [tracking]:  24.762367248535156
+Frontend [keyframe logic]:  30.155263900756836
+Frontend [visibility]:  30.180511474609375
+Frontend duration:  30.226335525512695
+Frontend [preprocess]:  0.012000000104308128
+Frontend [before tracking]:  13.54355239868164
+cur_frame_idx_front:  336
+Frontend [tracking]:  17.713279724121094
+Frontend [keyframe logic]:  33.136863708496094
+Frontend [visibility]:  33.15932846069336
+Frontend duration:  33.20025634765625
+Frontend [preprocess]:  0.010432000271975994
+Frontend [before tracking]:  12.463423728942871
+cur_frame_idx_front:  337
+Frontend [tracking]:  16.83180809020996
+Frontend [keyframe logic]:  21.609472274780273
+Frontend [visibility]:  21.63497543334961
+Frontend duration:  21.67795181274414
+Frontend [preprocess]:  0.012000000104308128
+Frontend [before tracking]:  15.548416137695312
+cur_frame_idx_front:  338
+Frontend [tracking]:  19.41708755493164
+Frontend [keyframe logic]:  25.77846336364746
+Frontend [visibility]:  25.802400588989258
+Frontend duration:  25.847103118896484
+Frontend [preprocess]:  0.009727999567985535
+Frontend [before tracking]:  12.773664474487305
+cur_frame_idx_front:  339
+Frontend [tracking]:  25.144607543945312
+Frontend [keyframe logic]:  29.160160064697266
+Frontend [visibility]:  29.1843204498291
+Frontend duration:  103.26739501953125
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  17.667072296142578
+cur_frame_idx_front:  340
+Frontend [tracking]:  21.529600143432617
+Frontend [keyframe logic]:  37.25929641723633
+Frontend [visibility]:  37.28553771972656
+Frontend duration:  37.336063385009766
+Frontend [preprocess]:  0.011680000461637974
+Frontend [before tracking]:  18.01817512512207
+cur_frame_idx_front:  341
+Frontend [tracking]:  21.879680633544922
+Frontend [keyframe logic]:  26.94419288635254
+Frontend [visibility]:  26.96620750427246
+Frontend duration:  27.006303787231445
+Frontend [preprocess]:  0.01894400082528591
+Frontend [before tracking]:  13.248224258422852
+cur_frame_idx_front:  342
+Frontend [tracking]:  17.016544342041016
+Frontend [keyframe logic]:  26.764768600463867
+Frontend [visibility]:  26.78620719909668
+Frontend duration:  26.832447052001953
+Frontend [preprocess]:  0.009279999881982803
+Frontend [before tracking]:  12.214207649230957
+cur_frame_idx_front:  343
+Frontend [tracking]:  16.422847747802734
+Frontend [keyframe logic]:  21.2521915435791
+Frontend [visibility]:  21.273344039916992
+Frontend duration:  21.311744689941406
+Frontend [preprocess]:  0.01033599954098463
+Frontend [before tracking]:  21.32975959777832
+cur_frame_idx_front:  344
+Frontend [tracking]:  25.17487907409668
+Frontend [keyframe logic]:  30.089216232299805
+Frontend [visibility]:  30.11516761779785
+Frontend duration:  106.9551010131836
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  23.08198356628418
+cur_frame_idx_front:  345
+Frontend [tracking]:  27.739871978759766
+Frontend [keyframe logic]:  31.124736785888672
+Frontend [visibility]:  31.146495819091797
+Frontend duration:  31.184864044189453
+Frontend [preprocess]:  0.009759999811649323
+Frontend [before tracking]:  16.85103988647461
+cur_frame_idx_front:  346
+Frontend [tracking]:  20.546655654907227
+Frontend [keyframe logic]:  24.200096130371094
+Frontend [visibility]:  24.224416732788086
+Frontend duration:  24.26793670654297
+Frontend [preprocess]:  0.012000000104308128
+Frontend [before tracking]:  11.95958423614502
+cur_frame_idx_front:  347
+Frontend [tracking]:  16.26755142211914
+Frontend [keyframe logic]:  20.800352096557617
+Frontend [visibility]:  20.825759887695312
+Frontend duration:  20.878143310546875
+Frontend [preprocess]:  0.01206399966031313
+Frontend [before tracking]:  21.8767032623291
+cur_frame_idx_front:  348
+Frontend [tracking]:  26.016735076904297
+Frontend [keyframe logic]:  30.092639923095703
+Frontend [visibility]:  30.11846351623535
+Frontend duration:  30.161632537841797
+Frontend [preprocess]:  0.014303999952971935
+Frontend [before tracking]:  19.680288314819336
+cur_frame_idx_front:  349
+Frontend [tracking]:  23.358495712280273
+Frontend [keyframe logic]:  29.05241584777832
+Frontend [visibility]:  29.0762882232666
+Frontend duration:  29.143552780151367
+Frontend [preprocess]:  0.011327999643981457
+Frontend [before tracking]:  12.10582447052002
+cur_frame_idx_front:  350
+Frontend [tracking]:  16.776287078857422
+Frontend [keyframe logic]:  31.370624542236328
+Frontend [visibility]:  31.391935348510742
+Frontend duration:  106.28720092773438
+Frontend [preprocess]:  0.0019199999514967203
+Frontend [before tracking]:  14.191488265991211
+cur_frame_idx_front:  351
+Frontend [tracking]:  18.03968048095703
+Frontend [keyframe logic]:  34.0750732421875
+Frontend [visibility]:  34.10038375854492
+Frontend duration:  34.145408630371094
+Frontend [preprocess]:  0.011231999844312668
+Frontend [before tracking]:  17.35843276977539
+cur_frame_idx_front:  352
+Frontend [tracking]:  21.20867156982422
+Frontend [keyframe logic]:  36.5074577331543
+Frontend [visibility]:  36.5318717956543
+Frontend duration:  36.57622528076172
+Frontend [preprocess]:  0.011392000131309032
+Frontend [before tracking]:  18.008800506591797
+cur_frame_idx_front:  353
+Frontend [tracking]:  22.065887451171875
+Frontend [keyframe logic]:  25.694015502929688
+Frontend [visibility]:  25.718591690063477
+Frontend duration:  25.762752532958984
+Frontend [preprocess]:  0.012160000391304493
+Frontend [before tracking]:  12.90112018585205
+cur_frame_idx_front:  354
+Frontend [tracking]:  17.139455795288086
+Frontend [keyframe logic]:  21.588863372802734
+Frontend [visibility]:  21.612607955932617
+Frontend duration:  21.656864166259766
+Frontend [preprocess]:  0.012512000277638435
+Frontend [before tracking]:  13.373279571533203
+cur_frame_idx_front:  355
+Frontend [tracking]:  17.13750457763672
+Frontend [keyframe logic]:  20.779743194580078
+Frontend [visibility]:  20.804672241210938
+Frontend duration:  96.03427124023438
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  19.03206443786621
+cur_frame_idx_front:  356
+Frontend [tracking]:  23.401472091674805
+Frontend [keyframe logic]:  42.93648147583008
+Frontend [visibility]:  42.958560943603516
+Frontend duration:  42.997440338134766
+Frontend [preprocess]:  0.010143999941647053
+Frontend [before tracking]:  12.825568199157715
+cur_frame_idx_front:  357
+Frontend [tracking]:  17.10691261291504
+Frontend [keyframe logic]:  20.650720596313477
+Frontend [visibility]:  20.675296783447266
+Frontend duration:  20.718944549560547
+Frontend [preprocess]:  0.01142400037497282
+Frontend [before tracking]:  15.638208389282227
+cur_frame_idx_front:  358
+Frontend [tracking]:  19.38332748413086
+Frontend [keyframe logic]:  24.720640182495117
+Frontend [visibility]:  24.745248794555664
+Frontend duration:  24.789215087890625
+Frontend [preprocess]:  0.012191999703645706
+Frontend [before tracking]:  12.834943771362305
+cur_frame_idx_front:  359
+Frontend [tracking]:  16.835712432861328
+Frontend [keyframe logic]:  31.748607635498047
+Frontend [visibility]:  31.77110481262207
+Frontend duration:  31.811328887939453
+Frontend [preprocess]:  0.009696000255644321
+Frontend [before tracking]:  12.336128234863281
+cur_frame_idx_front:  360
+Frontend [tracking]:  16.764928817749023
+Frontend [keyframe logic]:  21.398815155029297
+Frontend [visibility]:  21.421056747436523
+Frontend duration:  108.77983856201172
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  17.81145668029785
+cur_frame_idx_front:  361
+Frontend [tracking]:  21.69548797607422
+Frontend [keyframe logic]:  25.602783203125
+Frontend [visibility]:  25.625152587890625
+Frontend duration:  25.66592025756836
+Frontend [preprocess]:  0.008352000266313553
+Frontend [before tracking]:  13.112064361572266
+cur_frame_idx_front:  362
+Frontend [tracking]:  17.413888931274414
+Frontend [keyframe logic]:  35.55315017700195
+Frontend [visibility]:  35.57478332519531
+Frontend duration:  35.614559173583984
+Frontend [preprocess]:  0.009696000255644321
+Frontend [before tracking]:  12.111552238464355
+cur_frame_idx_front:  363
+Frontend [tracking]:  16.55571174621582
+Frontend [keyframe logic]:  20.783519744873047
+Frontend [visibility]:  20.80780792236328
+Frontend duration:  20.852703094482422
+Frontend [preprocess]:  0.01152000017464161
+Frontend [before tracking]:  16.131328582763672
+cur_frame_idx_front:  364
+Frontend [tracking]:  20.00614356994629
+Frontend [keyframe logic]:  24.54649543762207
+Frontend [visibility]:  24.57142448425293
+Frontend duration:  24.616863250732422
+Frontend [preprocess]:  0.01142400037497282
+Frontend [before tracking]:  12.644351959228516
+cur_frame_idx_front:  365
+Frontend [tracking]:  16.657407760620117
+Frontend [keyframe logic]:  20.256671905517578
+Frontend [visibility]:  20.28156852722168
+Frontend duration:  106.8216323852539
+Frontend [preprocess]:  0.002015999983996153
+Frontend [before tracking]:  20.51375961303711
+cur_frame_idx_front:  366
+Frontend [tracking]:  25.152767181396484
+Frontend [keyframe logic]:  29.020736694335938
+Frontend [visibility]:  29.04761505126953
+Frontend duration:  29.096511840820312
+Frontend [preprocess]:  0.011807999573647976
+Frontend [before tracking]:  23.096895217895508
+cur_frame_idx_front:  367
+Frontend [tracking]:  26.968639373779297
+Frontend [keyframe logic]:  31.75315284729004
+Frontend [visibility]:  31.777664184570312
+Frontend duration:  31.823936462402344
+Frontend [preprocess]:  0.011552000418305397
+Frontend [before tracking]:  12.657279968261719
+cur_frame_idx_front:  368
+Frontend [tracking]:  16.910816192626953
+Frontend [keyframe logic]:  21.834047317504883
+Frontend [visibility]:  21.85865592956543
+Frontend duration:  21.903295516967773
+Frontend [preprocess]:  0.011231999844312668
+Frontend [before tracking]:  14.126720428466797
+cur_frame_idx_front:  369
+Frontend [tracking]:  17.7076473236084
+Frontend [keyframe logic]:  32.63683319091797
+Frontend [visibility]:  32.658687591552734
+Frontend duration:  32.696800231933594
+Frontend [preprocess]:  0.009952000342309475
+Frontend [before tracking]:  19.656768798828125
+cur_frame_idx_front:  370
+Frontend [tracking]:  23.36262321472168
+Frontend [keyframe logic]:  38.70259094238281
+Frontend [visibility]:  38.724063873291016
+MonoGS: Evaluating ATE at frame:  371
+Eval: RMSE ATE [m] 5.368637173002546e-16
+Frontend duration:  252.8692169189453
+Frontend [preprocess]:  0.0008640000014565885
+Frontend [before tracking]:  23.77302360534668
+cur_frame_idx_front:  371
+Frontend [tracking]:  27.997024536132812
+Frontend [keyframe logic]:  44.12156677246094
+Frontend [visibility]:  44.15340805053711
+Frontend duration:  44.21148681640625
+Frontend [preprocess]:  0.01679999940097332
+Frontend [before tracking]:  18.998111724853516
+cur_frame_idx_front:  372
+Frontend [tracking]:  22.8505916595459
+Frontend [keyframe logic]:  38.55526351928711
+Frontend [visibility]:  38.58019256591797
+Frontend duration:  38.62428665161133
+Frontend [preprocess]:  0.011711999773979187
+Frontend [before tracking]:  18.7956485748291
+cur_frame_idx_front:  373
+Frontend [tracking]:  22.65715217590332
+Frontend [keyframe logic]:  38.046592712402344
+Frontend [visibility]:  38.068416595458984
+Frontend duration:  38.10927963256836
+Frontend [preprocess]:  0.010304000228643417
+Frontend [before tracking]:  18.950944900512695
+cur_frame_idx_front:  374
+Frontend [tracking]:  23.153440475463867
+Frontend [keyframe logic]:  38.43312072753906
+Frontend [visibility]:  38.45836639404297
+Frontend duration:  38.503456115722656
+Frontend [preprocess]:  0.01235199999064207
+Frontend [before tracking]:  18.964704513549805
+cur_frame_idx_front:  375
+Frontend [tracking]:  22.822111129760742
+Frontend [keyframe logic]:  33.782718658447266
+Frontend [visibility]:  33.806846618652344
+Frontend duration:  110.90415954589844
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  19.422208786010742
+cur_frame_idx_front:  376
+Frontend [tracking]:  23.48031997680664
+Frontend [keyframe logic]:  27.795263290405273
+Frontend [visibility]:  27.82137680053711
+Frontend duration:  27.869216918945312
+Frontend [preprocess]:  0.011680000461637974
+Frontend [before tracking]:  22.662527084350586
+cur_frame_idx_front:  377
+Frontend [tracking]:  26.799488067626953
+Frontend [keyframe logic]:  31.377439498901367
+Frontend [visibility]:  31.403295516967773
+Frontend duration:  31.449440002441406
+Frontend [preprocess]:  0.012671999633312225
+Frontend [before tracking]:  12.137984275817871
+cur_frame_idx_front:  378
+Frontend [tracking]:  16.33024024963379
+Frontend [keyframe logic]:  33.68822479248047
+Frontend [visibility]:  33.71036911010742
+Frontend duration:  33.74905776977539
+Frontend [preprocess]:  0.01027199998497963
+Frontend [before tracking]:  12.16374397277832
+cur_frame_idx_front:  379
+Frontend [tracking]:  16.124576568603516
+Frontend [keyframe logic]:  19.85545539855957
+Frontend [visibility]:  19.884288787841797
+Frontend duration:  19.92188835144043
+Frontend [preprocess]:  0.010304000228643417
+Frontend [before tracking]:  17.376768112182617
+cur_frame_idx_front:  380
+Frontend [tracking]:  21.252607345581055
+Frontend [keyframe logic]:  36.5206413269043
+Frontend [visibility]:  36.54508972167969
+Frontend duration:  119.95718383789062
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  21.143552780151367
+cur_frame_idx_front:  381
+Frontend [tracking]:  25.005056381225586
+Frontend [keyframe logic]:  30.125823974609375
+Frontend [visibility]:  30.151264190673828
+Frontend duration:  30.195615768432617
+Frontend [preprocess]:  0.011296000331640244
+Frontend [before tracking]:  12.203200340270996
+cur_frame_idx_front:  382
+Frontend [tracking]:  16.505023956298828
+Frontend [keyframe logic]:  33.635902404785156
+Frontend [visibility]:  33.66134262084961
+Frontend duration:  33.71372985839844
+Frontend [preprocess]:  0.012000000104308128
+Frontend [before tracking]:  12.277024269104004
+cur_frame_idx_front:  383
+Frontend [tracking]:  16.51433563232422
+Frontend [keyframe logic]:  20.34707260131836
+Frontend [visibility]:  20.368896484375
+Frontend duration:  20.40777587890625
+Frontend [preprocess]:  0.010528000071644783
+Frontend [before tracking]:  16.44643211364746
+cur_frame_idx_front:  384
+Frontend [tracking]:  20.169696807861328
+Frontend [keyframe logic]:  24.513120651245117
+Frontend [visibility]:  24.537504196166992
+Frontend duration:  24.58185577392578
+Frontend [preprocess]:  0.01142400037497282
+Frontend [before tracking]:  12.597311973571777
+cur_frame_idx_front:  385
+Frontend [tracking]:  17.159072875976562
+Frontend [keyframe logic]:  22.17830467224121
+Frontend [visibility]:  22.20297622680664
+Frontend duration:  107.0244140625
+Frontend [preprocess]:  0.0016959999920800328
+Frontend [before tracking]:  22.342304229736328
+cur_frame_idx_front:  386
+Frontend [tracking]:  26.55299186706543
+Frontend [keyframe logic]:  30.492095947265625
+Frontend [visibility]:  30.51750373840332
+Frontend duration:  30.562976837158203
+Frontend [preprocess]:  0.011807999573647976
+Frontend [before tracking]:  12.708127975463867
+cur_frame_idx_front:  387
+Frontend [tracking]:  17.07651138305664
+Frontend [keyframe logic]:  32.76531219482422
+Frontend [visibility]:  32.787967681884766
+Frontend duration:  32.83027267456055
+Frontend [preprocess]:  0.009824000298976898
+Frontend [before tracking]:  12.01030445098877
+cur_frame_idx_front:  388
+Frontend [tracking]:  16.404159545898438
+Frontend [keyframe logic]:  36.3719367980957
+Frontend [visibility]:  36.39369583129883
+Frontend duration:  36.432640075683594
+Frontend [preprocess]:  0.009983999654650688
+Frontend [before tracking]:  11.922623634338379
+cur_frame_idx_front:  389
+Frontend [tracking]:  16.014528274536133
+Frontend [keyframe logic]:  19.907072067260742
+Frontend [visibility]:  19.931615829467773
+Frontend duration:  19.975711822509766
+Frontend [preprocess]:  0.011487999930977821
+Frontend [before tracking]:  17.892032623291016
+cur_frame_idx_front:  390
+Frontend [tracking]:  21.7903995513916
+Frontend [keyframe logic]:  26.772672653198242
+Frontend [visibility]:  26.79756736755371
+Frontend duration:  102.09356689453125
+Frontend [preprocess]:  0.002047999994829297
+Frontend [before tracking]:  20.947967529296875
+cur_frame_idx_front:  391
+Frontend [tracking]:  24.855552673339844
+Frontend [keyframe logic]:  40.072959899902344
+Frontend [visibility]:  40.09481430053711
+Frontend duration:  40.13488006591797
+Frontend [preprocess]:  0.009568000212311745
+Frontend [before tracking]:  19.936416625976562
+cur_frame_idx_front:  392
+Frontend [tracking]:  23.98633575439453
+Frontend [keyframe logic]:  30.739456176757812
+Frontend [visibility]:  30.763839721679688
+Frontend duration:  30.810623168945312
+Frontend [preprocess]:  0.011839999817311764
+Frontend [before tracking]:  26.56608009338379
+cur_frame_idx_front:  393
+Frontend [tracking]:  30.295488357543945
+Frontend [keyframe logic]:  34.7248649597168
+Frontend [visibility]:  34.749088287353516
+Frontend duration:  34.79363250732422
+Frontend [preprocess]:  0.012575999833643436
+Frontend [before tracking]:  12.35654354095459
+cur_frame_idx_front:  394
+Frontend [tracking]:  16.73209571838379
+Frontend [keyframe logic]:  34.80006408691406
+Frontend [visibility]:  34.821407318115234
+Frontend duration:  34.86124801635742
+Frontend [preprocess]:  0.008767999708652496
+Frontend [before tracking]:  11.882047653198242
+cur_frame_idx_front:  395
+Frontend [tracking]:  16.352832794189453
+Frontend [keyframe logic]:  20.401439666748047
+Frontend [visibility]:  20.426944732666016
+Frontend duration:  108.44099426269531
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  23.913471221923828
+cur_frame_idx_front:  396
+Frontend [tracking]:  28.39449691772461
+Frontend [keyframe logic]:  32.857566833496094
+Frontend [visibility]:  32.882816314697266
+Frontend duration:  32.92822265625
+Frontend [preprocess]:  0.012480000033974648
+Frontend [before tracking]:  22.445663452148438
+cur_frame_idx_front:  397
+Frontend [tracking]:  27.592287063598633
+Frontend [keyframe logic]:  41.8460807800293
+Frontend [visibility]:  41.87171173095703
+Frontend duration:  41.915679931640625
+Frontend [preprocess]:  0.011231999844312668
+Frontend [before tracking]:  21.021535873413086
+cur_frame_idx_front:  398
+Frontend [tracking]:  24.896352767944336
+Frontend [keyframe logic]:  31.633216857910156
+Frontend [visibility]:  31.658336639404297
+Frontend duration:  31.70470428466797
+Frontend [preprocess]:  0.012640000320971012
+Frontend [before tracking]:  12.431167602539062
+cur_frame_idx_front:  399
+Frontend [tracking]:  16.475967407226562
+Frontend [keyframe logic]:  31.634719848632812
+Frontend [visibility]:  31.65760040283203
+Frontend duration:  31.69638442993164
+Frontend [preprocess]:  0.01897599920630455
+Frontend [before tracking]:  11.94591999053955
+cur_frame_idx_front:  400
+Frontend [tracking]:  16.1648006439209
+Frontend [keyframe logic]:  21.036544799804688
+Frontend [visibility]:  21.061279296875
+Frontend duration:  109.39904022216797
+Frontend [preprocess]:  0.0007999999797903001
+Frontend [before tracking]:  23.421728134155273
+cur_frame_idx_front:  401
+Frontend [tracking]:  27.884319305419922
+Frontend [keyframe logic]:  31.93164825439453
+Frontend [visibility]:  31.964832305908203
+Frontend duration:  32.00966262817383
+Frontend [preprocess]:  0.012256000190973282
+Frontend [before tracking]:  22.392671585083008
+cur_frame_idx_front:  402
+Frontend [tracking]:  28.013408660888672
+Frontend [keyframe logic]:  36.91593551635742
+Frontend [visibility]:  36.94230270385742
+Frontend duration:  36.98828887939453
+Frontend [preprocess]:  0.012095999903976917
+Frontend [before tracking]:  12.06611156463623
+cur_frame_idx_front:  403
+Frontend [tracking]:  20.409887313842773
+Frontend [keyframe logic]:  30.209760665893555
+Frontend [visibility]:  30.232576370239258
+Frontend duration:  30.27123260498047
+Frontend [preprocess]:  0.010528000071644783
+Frontend [before tracking]:  12.106271743774414
+cur_frame_idx_front:  404
+Frontend [tracking]:  16.23196792602539
+Frontend [keyframe logic]:  37.188575744628906
+Frontend [visibility]:  37.210079193115234
+Frontend duration:  37.248863220214844
+Frontend [preprocess]:  0.010080000385642052
+Frontend [before tracking]:  11.975456237792969
+cur_frame_idx_front:  405
+Frontend [tracking]:  16.083744049072266
+Frontend [keyframe logic]:  22.578527450561523
+Frontend [visibility]:  22.60086441040039
+Frontend duration:  111.20108795166016
+Frontend [preprocess]:  0.002047999994829297
+Frontend [before tracking]:  23.748607635498047
+cur_frame_idx_front:  406
+Frontend [tracking]:  28.095487594604492
+Frontend [keyframe logic]:  32.47840118408203
+Frontend [visibility]:  32.504608154296875
+Frontend duration:  32.553184509277344
+Frontend [preprocess]:  0.012032000347971916
+Frontend [before tracking]:  20.24608039855957
+cur_frame_idx_front:  407
+Frontend [tracking]:  28.238399505615234
+Frontend [keyframe logic]:  32.73417663574219
+Frontend [visibility]:  32.75574493408203
+Frontend duration:  32.796321868896484
+Frontend [preprocess]:  0.010688000358641148
+Frontend [before tracking]:  11.756192207336426
+cur_frame_idx_front:  408
+Frontend [tracking]:  16.139936447143555
+Frontend [keyframe logic]:  35.32624053955078
+Frontend [visibility]:  35.348960876464844
+Frontend duration:  35.38742446899414
+Frontend [preprocess]:  0.009824000298976898
+Frontend [before tracking]:  13.26307201385498
+cur_frame_idx_front:  409
+Frontend [tracking]:  17.509599685668945
+Frontend [keyframe logic]:  23.5830078125
+Frontend [visibility]:  23.604736328125
+Frontend duration:  23.642751693725586
+Frontend [preprocess]:  0.010015999898314476
+Frontend [before tracking]:  14.65385627746582
+cur_frame_idx_front:  410
+Frontend [tracking]:  18.453920364379883
+Frontend [keyframe logic]:  23.642112731933594
+Frontend [visibility]:  23.669376373291016
+Frontend duration:  101.03395080566406
+Frontend [preprocess]:  0.002047999994829297
+Frontend [before tracking]:  17.449983596801758
+cur_frame_idx_front:  411
+Frontend [tracking]:  21.349376678466797
+Frontend [keyframe logic]:  25.603424072265625
+Frontend [visibility]:  25.625247955322266
+Frontend duration:  25.665952682495117
+Frontend [preprocess]:  0.009568000212311745
+Frontend [before tracking]:  11.677087783813477
+cur_frame_idx_front:  412
+Frontend [tracking]:  16.241247177124023
+Frontend [keyframe logic]:  22.2640323638916
+Frontend [visibility]:  22.289087295532227
+Frontend duration:  22.333120346069336
+Frontend [preprocess]:  0.01196799986064434
+Frontend [before tracking]:  14.660672187805176
+cur_frame_idx_front:  413
+Frontend [tracking]:  18.554943084716797
+Frontend [keyframe logic]:  25.187488555908203
+Frontend [visibility]:  25.21683120727539
+Frontend duration:  25.270431518554688
+Frontend [preprocess]:  0.013344000093638897
+Frontend [before tracking]:  13.740096092224121
+cur_frame_idx_front:  414
+Frontend [tracking]:  29.82815933227539
+Frontend [keyframe logic]:  33.38345718383789
+Frontend [visibility]:  33.41388702392578
+Frontend duration:  33.452735900878906
+Frontend [preprocess]:  0.01027199998497963
+Frontend [before tracking]:  17.329919815063477
+cur_frame_idx_front:  415
+Frontend [tracking]:  21.382911682128906
+Frontend [keyframe logic]:  42.29248046875
+Frontend [visibility]:  42.31398391723633
+Frontend duration:  42.36966323852539
+Frontend [preprocess]:  0.010111999697983265
+Frontend [before tracking]:  11.484416007995605
+cur_frame_idx_front:  416
+Frontend [tracking]:  15.889663696289062
+Frontend [keyframe logic]:  35.9376335144043
+Frontend [visibility]:  35.95926284790039
+Frontend duration:  36.0145263671875
+Frontend [preprocess]:  0.01027199998497963
+Frontend [before tracking]:  11.593503952026367
+cur_frame_idx_front:  417
+Frontend [tracking]:  15.835935592651367
+Frontend [keyframe logic]:  19.527263641357422
+Frontend [visibility]:  19.551807403564453
+Frontend duration:  108.14227294921875
+Frontend [preprocess]:  0.002047999994829297
+Frontend [before tracking]:  19.8154239654541
+cur_frame_idx_front:  418
+Frontend [tracking]:  24.209407806396484
+Frontend [keyframe logic]:  29.853504180908203
+Frontend [visibility]:  29.878591537475586
+Frontend duration:  29.927295684814453
+Frontend [preprocess]:  0.011552000418305397
+Frontend [before tracking]:  13.390015602111816
+cur_frame_idx_front:  419
+Frontend [tracking]:  17.246400833129883
+Frontend [keyframe logic]:  31.984159469604492
+Frontend [visibility]:  32.00569534301758
+Frontend duration:  32.04492950439453
+Frontend [preprocess]:  0.009759999811649323
+Frontend [before tracking]:  18.715776443481445
+cur_frame_idx_front:  420
+Frontend [tracking]:  23.445632934570312
+Frontend [keyframe logic]:  26.874719619750977
+Frontend [visibility]:  26.896160125732422
+Frontend duration:  28.2042236328125
+Frontend [preprocess]:  0.010367999784648418
+Frontend [before tracking]:  12.342975616455078
+cur_frame_idx_front:  421
+Frontend [tracking]:  16.693952560424805
+Frontend [keyframe logic]:  31.468576431274414
+Frontend [visibility]:  31.49065589904785
+Frontend duration:  31.530080795288086
+Frontend [preprocess]:  0.01071999967098236
+Frontend [before tracking]:  12.794816017150879
+cur_frame_idx_front:  422
+Frontend [tracking]:  17.054655075073242
+Frontend [keyframe logic]:  35.12236785888672
+Frontend [visibility]:  35.14380645751953
+MonoGS: Evaluating ATE at frame:  423
+Eval: RMSE ATE [m] 4.4737617827293636e-17
+Frontend duration:  256.4163818359375
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  19.29523277282715
+cur_frame_idx_front:  423
+Frontend [tracking]:  23.149568557739258
+Frontend [keyframe logic]:  27.19251251220703
+Frontend [visibility]:  27.215776443481445
+Frontend duration:  27.255775451660156
+Frontend [preprocess]:  0.01104000024497509
+Frontend [before tracking]:  11.580415725708008
+cur_frame_idx_front:  424
+Frontend [tracking]:  15.895551681518555
+Frontend [keyframe logic]:  19.621984481811523
+Frontend [visibility]:  19.647903442382812
+Frontend duration:  19.69398307800293
+Frontend [preprocess]:  0.01152000017464161
+Frontend [before tracking]:  15.291935920715332
+cur_frame_idx_front:  425
+Frontend [tracking]:  19.151391983032227
+Frontend [keyframe logic]:  24.192703247070312
+Frontend [visibility]:  24.218463897705078
+Frontend duration:  24.262367248535156
+Frontend [preprocess]:  0.012032000347971916
+Frontend [before tracking]:  12.068960189819336
+cur_frame_idx_front:  426
+Frontend [tracking]:  16.40457534790039
+Frontend [keyframe logic]:  20.098304748535156
+Frontend [visibility]:  20.12291145324707
+Frontend duration:  20.16796875
+Frontend [preprocess]:  0.012512000277638435
+Frontend [before tracking]:  14.858624458312988
+cur_frame_idx_front:  427
+Frontend [tracking]:  18.695552825927734
+Frontend [keyframe logic]:  22.39472007751465
+Frontend [visibility]:  22.41935920715332
+Frontend duration:  22.48428726196289
+Frontend [preprocess]:  0.012256000190973282
+Frontend [before tracking]:  11.784416198730469
+cur_frame_idx_front:  428
+Frontend [tracking]:  16.345312118530273
+Frontend [keyframe logic]:  20.506175994873047
+Frontend [visibility]:  20.53036880493164
+Frontend duration:  20.59334373474121
+Frontend [preprocess]:  0.011615999974310398
+Frontend [before tracking]:  14.81868839263916
+cur_frame_idx_front:  429
+Frontend [tracking]:  18.659711837768555
+Frontend [keyframe logic]:  34.70515060424805
+Frontend [visibility]:  34.73030471801758
+Frontend duration:  34.79404830932617
+Frontend [preprocess]:  0.012191999703645706
+Frontend [before tracking]:  17.389728546142578
+cur_frame_idx_front:  430
+Frontend [tracking]:  21.23075294494629
+Frontend [keyframe logic]:  36.52019119262695
+Frontend [visibility]:  36.54499053955078
+Frontend duration:  36.61824035644531
+Frontend [preprocess]:  0.012191999703645706
+Frontend [before tracking]:  18.510175704956055
+cur_frame_idx_front:  431
+Frontend [tracking]:  22.358367919921875
+Frontend [keyframe logic]:  38.17958450317383
+Frontend [visibility]:  38.20457458496094
+Frontend duration:  126.76812744140625
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  13.47379207611084
+cur_frame_idx_front:  432
+Frontend [tracking]:  17.320959091186523
+Frontend [keyframe logic]:  23.36569595336914
+Frontend [visibility]:  23.39084815979004
+Frontend duration:  23.43836784362793
+Frontend [preprocess]:  0.011168000288307667
+Frontend [before tracking]:  12.613504409790039
+cur_frame_idx_front:  433
+Frontend [tracking]:  17.325952529907227
+Frontend [keyframe logic]:  31.037567138671875
+Frontend [visibility]:  31.059711456298828
+Frontend duration:  31.099647521972656
+Frontend [preprocess]:  0.009824000298976898
+Frontend [before tracking]:  12.587008476257324
+cur_frame_idx_front:  434
+Frontend [tracking]:  16.943328857421875
+Frontend [keyframe logic]:  24.75721549987793
+Frontend [visibility]:  24.781375885009766
+Frontend duration:  24.826623916625977
+Frontend [preprocess]:  0.012032000347971916
+Frontend [before tracking]:  12.547103881835938
+cur_frame_idx_front:  435
+Frontend [tracking]:  16.524320602416992
+Frontend [keyframe logic]:  22.195648193359375
+Frontend [visibility]:  22.219968795776367
+Frontend duration:  22.264320373535156
+Frontend [preprocess]:  0.01190400030463934
+Frontend [before tracking]:  12.187711715698242
+cur_frame_idx_front:  436
+Frontend [tracking]:  16.356416702270508
+Frontend [keyframe logic]:  32.35580825805664
+Frontend [visibility]:  32.37772750854492
+Frontend duration:  32.43452835083008
+Frontend [preprocess]:  0.010304000228643417
+Frontend [before tracking]:  12.31817626953125
+cur_frame_idx_front:  437
+Frontend [tracking]:  16.49190330505371
+Frontend [keyframe logic]:  36.382110595703125
+Frontend [visibility]:  36.404510498046875
+Frontend duration:  36.46217727661133
+Frontend [preprocess]:  0.010015999898314476
+Frontend [before tracking]:  12.882111549377441
+cur_frame_idx_front:  438
+Frontend [tracking]:  17.28121566772461
+Frontend [keyframe logic]:  21.78668785095215
+Frontend [visibility]:  21.81612777709961
+Frontend duration:  109.91094207763672
+Frontend [preprocess]:  0.0019839999731630087
+Frontend [before tracking]:  24.60358428955078
+cur_frame_idx_front:  439
+Frontend [tracking]:  28.49785614013672
+Frontend [keyframe logic]:  34.631649017333984
+Frontend [visibility]:  34.6544303894043
+Frontend duration:  34.69676971435547
+Frontend [preprocess]:  0.010528000071644783
+Frontend [before tracking]:  12.703328132629395
+cur_frame_idx_front:  440
+Frontend [tracking]:  17.050207138061523
+Frontend [keyframe logic]:  31.884479522705078
+Frontend [visibility]:  31.906816482543945
+Frontend duration:  32.133663177490234
+Frontend [preprocess]:  0.009983999654650688
+Frontend [before tracking]:  11.851519584655762
+cur_frame_idx_front:  441
+Frontend [tracking]:  16.25779151916504
+Frontend [keyframe logic]:  23.459775924682617
+Frontend [visibility]:  23.481727600097656
+Frontend duration:  23.520416259765625
+Frontend [preprocess]:  0.010400000028312206
+Frontend [before tracking]:  13.587776184082031
+cur_frame_idx_front:  442
+Frontend [tracking]:  17.570880889892578
+Frontend [keyframe logic]:  23.575519561767578
+Frontend [visibility]:  23.599903106689453
+Frontend duration:  23.64473533630371
+Frontend [preprocess]:  0.012671999633312225
+Frontend [before tracking]:  12.449024200439453
+cur_frame_idx_front:  443
+Frontend [tracking]:  16.7139835357666
+Frontend [keyframe logic]:  32.42399978637695
+Frontend [visibility]:  32.449440002441406
+Frontend duration:  32.51340866088867
+Frontend [preprocess]:  0.01196799986064434
+Frontend [before tracking]:  12.195167541503906
+cur_frame_idx_front:  444
+Frontend [tracking]:  16.525663375854492
+Frontend [keyframe logic]:  36.50566482543945
+Frontend [visibility]:  36.52716827392578
+Frontend duration:  112.73693084716797
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  25.266176223754883
+cur_frame_idx_front:  445
+Frontend [tracking]:  29.190143585205078
+Frontend [keyframe logic]:  34.669822692871094
+Frontend [visibility]:  34.69446563720703
+Frontend duration:  34.740257263183594
+Frontend [preprocess]:  0.01196799986064434
+Frontend [before tracking]:  12.40783977508545
+cur_frame_idx_front:  446
+Frontend [tracking]:  16.80143928527832
+Frontend [keyframe logic]:  20.560928344726562
+Frontend [visibility]:  20.58576011657715
+Frontend duration:  20.630783081054688
+Frontend [preprocess]:  0.011711999773979187
+Frontend [before tracking]:  15.314784049987793
+cur_frame_idx_front:  447
+Frontend [tracking]:  19.222368240356445
+Frontend [keyframe logic]:  25.81443214416504
+Frontend [visibility]:  25.839616775512695
+Frontend duration:  25.88649559020996
+Frontend [preprocess]:  0.011872000060975552
+Frontend [before tracking]:  12.422335624694824
+cur_frame_idx_front:  448
+Frontend [tracking]:  16.544960021972656
+Frontend [keyframe logic]:  32.41417694091797
+Frontend [visibility]:  32.435935974121094
+Frontend duration:  32.47555160522461
+Frontend [preprocess]:  0.010816000401973724
+Frontend [before tracking]:  12.271424293518066
+cur_frame_idx_front:  449
+Frontend [tracking]:  16.399200439453125
+Frontend [keyframe logic]:  20.18524742126465
+Frontend [visibility]:  20.209856033325195
+Frontend duration:  109.46575927734375
+Frontend [preprocess]:  0.002047999994829297
+Frontend [before tracking]:  16.242687225341797
+cur_frame_idx_front:  450
+Frontend [tracking]:  20.169727325439453
+Frontend [keyframe logic]:  25.54332733154297
+Frontend [visibility]:  25.56831932067871
+Frontend duration:  25.620800018310547
+Frontend [preprocess]:  0.012640000320971012
+Frontend [before tracking]:  12.373632431030273
+cur_frame_idx_front:  451
+Frontend [tracking]:  16.705055236816406
+Frontend [keyframe logic]:  20.66307258605957
+Frontend [visibility]:  20.687423706054688
+Frontend duration:  20.73302459716797
+Frontend [preprocess]:  0.019967999309301376
+Frontend [before tracking]:  15.74176025390625
+cur_frame_idx_front:  452
+Frontend [tracking]:  19.510080337524414
+Frontend [keyframe logic]:  23.86307144165039
+Frontend [visibility]:  23.887807846069336
+Frontend duration:  23.93903923034668
+Frontend [preprocess]:  0.011744000017642975
+Frontend [before tracking]:  12.311967849731445
+cur_frame_idx_front:  453
+Frontend [tracking]:  16.43356704711914
+Frontend [keyframe logic]:  35.7325439453125
+Frontend [visibility]:  35.7562255859375
+Frontend duration:  35.79484939575195
+Frontend [preprocess]:  0.010111999697983265
+Frontend [before tracking]:  12.005887985229492
+cur_frame_idx_front:  454
+Frontend [tracking]:  16.252416610717773
+Frontend [keyframe logic]:  21.055423736572266
+Frontend [visibility]:  21.08176040649414
+Frontend duration:  111.52547454833984
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  15.167488098144531
+cur_frame_idx_front:  455
+Frontend [tracking]:  19.668991088867188
+Frontend [keyframe logic]:  24.015552520751953
+Frontend [visibility]:  24.040576934814453
+Frontend duration:  24.087360382080078
+Frontend [preprocess]:  0.012000000104308128
+Frontend [before tracking]:  21.944351196289062
+cur_frame_idx_front:  456
+Frontend [tracking]:  25.791519165039062
+Frontend [keyframe logic]:  29.734464645385742
+Frontend [visibility]:  29.758655548095703
+Frontend duration:  29.805728912353516
+Frontend [preprocess]:  0.013279999606311321
+Frontend [before tracking]:  12.18291187286377
+cur_frame_idx_front:  457
+Frontend [tracking]:  16.459135055541992
+Frontend [keyframe logic]:  36.86038589477539
+Frontend [visibility]:  36.88179016113281
+Frontend duration:  36.923519134521484
+Frontend [preprocess]:  0.009727999567985535
+Frontend [before tracking]:  13.255328178405762
+cur_frame_idx_front:  458
+Frontend [tracking]:  17.568416595458984
+Frontend [keyframe logic]:  21.975967407226562
+Frontend [visibility]:  22.000991821289062
+Frontend duration:  22.045663833618164
+Frontend [preprocess]:  0.011711999773979187
+Frontend [before tracking]:  16.546112060546875
+cur_frame_idx_front:  459
+Frontend [tracking]:  20.379968643188477
+Frontend [keyframe logic]:  36.03251266479492
+Frontend [visibility]:  36.05721664428711
+Frontend duration:  36.12345504760742
+Frontend [preprocess]:  0.012191999703645706
+Frontend [before tracking]:  20.887359619140625
+cur_frame_idx_front:  460
+Frontend [tracking]:  25.213760375976562
+Frontend [keyframe logic]:  29.008031845092773
+Frontend [visibility]:  29.033056259155273
+Frontend duration:  105.20918273925781
+Frontend [preprocess]:  0.002047999994829297
+Frontend [before tracking]:  18.64396858215332
+cur_frame_idx_front:  461
+Frontend [tracking]:  22.597631454467773
+Frontend [keyframe logic]:  26.57904052734375
+Frontend [visibility]:  26.604223251342773
+Frontend duration:  26.65007972717285
+Frontend [preprocess]:  0.011552000418305397
+Frontend [before tracking]:  12.579039573669434
+cur_frame_idx_front:  462
+Frontend [tracking]:  16.942304611206055
+Frontend [keyframe logic]:  22.005088806152344
+Frontend [visibility]:  22.029823303222656
+Frontend duration:  22.073951721191406
+Frontend [preprocess]:  0.011327999643981457
+Frontend [before tracking]:  15.437824249267578
+cur_frame_idx_front:  463
+Frontend [tracking]:  19.24287986755371
+Frontend [keyframe logic]:  25.012832641601562
+Frontend [visibility]:  25.037504196166992
+Frontend duration:  25.08291244506836
+Frontend [preprocess]:  0.011872000060975552
+Frontend [before tracking]:  12.39846420288086
+cur_frame_idx_front:  464
+Frontend [tracking]:  16.85696029663086
+Frontend [keyframe logic]:  35.49951934814453
+Frontend [visibility]:  35.52143859863281
+Frontend duration:  35.55980682373047
+Frontend [preprocess]:  0.010847999714314938
+Frontend [before tracking]:  12.5382719039917
+cur_frame_idx_front:  465
+Frontend [tracking]:  16.621984481811523
+Frontend [keyframe logic]:  20.627328872680664
+Frontend [visibility]:  20.649471282958984
+Frontend duration:  111.50188446044922
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  29.244415283203125
+cur_frame_idx_front:  466
+Frontend [tracking]:  33.70905685424805
+Frontend [keyframe logic]:  38.899070739746094
+Frontend [visibility]:  38.921695709228516
+Frontend duration:  38.96086502075195
+Frontend [preprocess]:  0.010015999898314476
+Frontend [before tracking]:  21.330944061279297
+cur_frame_idx_front:  467
+Frontend [tracking]:  25.256959915161133
+Frontend [keyframe logic]:  40.718753814697266
+Frontend [visibility]:  40.74105453491211
+Frontend duration:  40.77971267700195
+Frontend [preprocess]:  0.009056000038981438
+Frontend [before tracking]:  19.283296585083008
+cur_frame_idx_front:  468
+Frontend [tracking]:  23.212383270263672
+Frontend [keyframe logic]:  38.466880798339844
+Frontend [visibility]:  38.491294860839844
+Frontend duration:  38.53590393066406
+Frontend [preprocess]:  0.011872000060975552
+Frontend [before tracking]:  20.381311416625977
+cur_frame_idx_front:  469
+Frontend [tracking]:  24.315231323242188
+Frontend [keyframe logic]:  45.37129592895508
+Frontend [visibility]:  45.39360046386719
+Frontend duration:  45.43369674682617
+Frontend [preprocess]:  0.010432000271975994
+Frontend [before tracking]:  14.37936019897461
+cur_frame_idx_front:  470
+Frontend [tracking]:  18.307424545288086
+Frontend [keyframe logic]:  22.314943313598633
+Frontend [visibility]:  22.340351104736328
+Frontend duration:  23.1428165435791
+Frontend [preprocess]:  0.010400000028312206
+Frontend [before tracking]:  12.238304138183594
+cur_frame_idx_front:  471
+Frontend [tracking]:  16.439775466918945
+Frontend [keyframe logic]:  20.157567977905273
+Frontend [visibility]:  20.18297576904297
+Frontend duration:  106.86831665039062
+Frontend [preprocess]:  0.0013760000001639128
+Frontend [before tracking]:  23.767391204833984
+cur_frame_idx_front:  472
+Frontend [tracking]:  28.197216033935547
+Frontend [keyframe logic]:  51.36819076538086
+Frontend [visibility]:  51.390625
+Frontend duration:  51.432159423828125
+Frontend [preprocess]:  0.010304000228643417
+Frontend [before tracking]:  12.207648277282715
+cur_frame_idx_front:  473
+Frontend [tracking]:  16.44598388671875
+Frontend [keyframe logic]:  20.522560119628906
+Frontend [visibility]:  20.547840118408203
+Frontend duration:  20.59187126159668
+Frontend [preprocess]:  0.011776000261306763
+Frontend [before tracking]:  16.902912139892578
+cur_frame_idx_front:  474
+Frontend [tracking]:  20.836095809936523
+Frontend [keyframe logic]:  24.88652801513672
+Frontend [visibility]:  24.910720825195312
+Frontend duration:  24.95510482788086
+Frontend [preprocess]:  0.011744000017642975
+Frontend [before tracking]:  12.33948802947998
+cur_frame_idx_front:  475
+Frontend [tracking]:  16.445728302001953
+Frontend [keyframe logic]:  20.495168685913086
+Frontend [visibility]:  20.519840240478516
+Frontend duration:  20.565183639526367
+Frontend [preprocess]:  0.011807999573647976
+Frontend [before tracking]:  15.452608108520508
+cur_frame_idx_front:  476
+Frontend [tracking]:  19.378623962402344
+Frontend [keyframe logic]:  23.24518394470215
+Frontend [visibility]:  23.269664764404297
+Frontend duration:  23.333568572998047
+Frontend [preprocess]:  0.012640000320971012
+Frontend [before tracking]:  11.988544464111328
+cur_frame_idx_front:  477
+Frontend [tracking]:  16.428607940673828
+Frontend [keyframe logic]:  20.471967697143555
+Frontend [visibility]:  20.496448516845703
+Frontend duration:  108.1349105834961
+Frontend [preprocess]:  0.0015040000434964895
+Frontend [before tracking]:  19.765727996826172
+cur_frame_idx_front:  478
+Frontend [tracking]:  24.209888458251953
+Frontend [keyframe logic]:  30.039520263671875
+Frontend [visibility]:  30.0644474029541
+Frontend duration:  30.11030387878418
+Frontend [preprocess]:  0.01196799986064434
+Frontend [before tracking]:  20.744735717773438
+cur_frame_idx_front:  479
+Frontend [tracking]:  24.658464431762695
+Frontend [keyframe logic]:  29.065471649169922
+Frontend [visibility]:  29.091039657592773
+Frontend duration:  29.138944625854492
+Frontend [preprocess]:  0.011935999616980553
+Frontend [before tracking]:  12.06003189086914
+cur_frame_idx_front:  480
+Frontend [tracking]:  16.30963134765625
+Frontend [keyframe logic]:  20.62668800354004
+Frontend [visibility]:  20.651552200317383
+Frontend duration:  20.703744888305664
+Frontend [preprocess]:  0.01119999960064888
+Frontend [before tracking]:  15.603615760803223
+cur_frame_idx_front:  481
+Frontend [tracking]:  19.50160026550293
+Frontend [keyframe logic]:  34.77248001098633
+Frontend [visibility]:  34.797950744628906
+Frontend duration:  34.84195327758789
+Frontend [preprocess]:  0.012032000347971916
+Frontend [before tracking]:  18.79635238647461
+cur_frame_idx_front:  482
+Frontend [tracking]:  22.704959869384766
+Frontend [keyframe logic]:  31.07142448425293
+Frontend [visibility]:  31.095584869384766
+MonoGS: Evaluating ATE at frame:  483
+Eval: RMSE ATE [m] 6.135666544364149e-16
+Frontend duration:  253.05197143554688
+Frontend [preprocess]:  0.0018240000354126096
+Frontend [before tracking]:  21.27849578857422
+cur_frame_idx_front:  483
+Frontend [tracking]:  25.192224502563477
+Frontend [keyframe logic]:  40.56175994873047
+Frontend [visibility]:  40.58678436279297
+Frontend duration:  40.63238525390625
+Frontend [preprocess]:  0.01158399973064661
+Frontend [before tracking]:  20.254783630371094
+cur_frame_idx_front:  484
+Frontend [tracking]:  24.171552658081055
+Frontend [keyframe logic]:  39.8647346496582
+Frontend [visibility]:  39.88972854614258
+Frontend duration:  39.934593200683594
+Frontend [preprocess]:  0.011071999557316303
+Frontend [before tracking]:  19.422592163085938
+cur_frame_idx_front:  485
+Frontend [tracking]:  23.325824737548828
+Frontend [keyframe logic]:  38.710880279541016
+Frontend [visibility]:  38.736446380615234
+Frontend duration:  38.78156661987305
+Frontend [preprocess]:  0.011648000217974186
+Frontend [before tracking]:  19.857952117919922
+cur_frame_idx_front:  486
+Frontend [tracking]:  23.75939178466797
+Frontend [keyframe logic]:  39.432193756103516
+Frontend [visibility]:  39.457088470458984
+Frontend duration:  39.50230407714844
+Frontend [preprocess]:  0.012223999947309494
+Frontend [before tracking]:  20.356544494628906
+cur_frame_idx_front:  487
+Frontend [tracking]:  24.260032653808594
+Frontend [keyframe logic]:  29.544479370117188
+Frontend [visibility]:  29.568832397460938
+Frontend duration:  107.41497802734375
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  21.0380802154541
+cur_frame_idx_front:  488
+Frontend [tracking]:  24.95795249938965
+Frontend [keyframe logic]:  40.571712493896484
+Frontend [visibility]:  40.59648132324219
+Frontend duration:  40.64223861694336
+Frontend [preprocess]:  0.011103999800980091
+Frontend [before tracking]:  21.04035186767578
+cur_frame_idx_front:  489
+Frontend [tracking]:  24.859872817993164
+Frontend [keyframe logic]:  30.48041534423828
+Frontend [visibility]:  30.505151748657227
+Frontend duration:  30.55072021484375
+Frontend [preprocess]:  0.011615999974310398
+Frontend [before tracking]:  12.393216133117676
+cur_frame_idx_front:  490
+Frontend [tracking]:  16.4083194732666
+Frontend [keyframe logic]:  31.66873550415039
+Frontend [visibility]:  31.690752029418945
+Frontend duration:  31.737567901611328
+Frontend [preprocess]:  0.009920000098645687
+Frontend [before tracking]:  11.523455619812012
+cur_frame_idx_front:  491
+Frontend [tracking]:  15.60921573638916
+Frontend [keyframe logic]:  20.17398452758789
+Frontend [visibility]:  20.202943801879883
+Frontend duration:  20.243616104125977
+Frontend [preprocess]:  0.009920000098645687
+Frontend [before tracking]:  16.818016052246094
+cur_frame_idx_front:  492
+Frontend [tracking]:  20.71228790283203
+Frontend [keyframe logic]:  36.79087829589844
+Frontend [visibility]:  36.815425872802734
+Frontend duration:  42.71836853027344
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  21.311487197875977
+cur_frame_idx_front:  493
+Frontend [tracking]:  25.238527297973633
+Frontend [keyframe logic]:  29.20947265625
+Frontend [visibility]:  29.23472023010254
+Frontend duration:  29.28121566772461
+Frontend [preprocess]:  0.01158399973064661
+Frontend [before tracking]:  11.780896186828613
+cur_frame_idx_front:  494
+Frontend [tracking]:  16.251680374145508
+Frontend [keyframe logic]:  35.391326904296875
+Frontend [visibility]:  35.41292953491211
+Frontend duration:  35.45123291015625
+Frontend [preprocess]:  0.01759999990463257
+Frontend [before tracking]:  11.877663612365723
+cur_frame_idx_front:  495
+Frontend [tracking]:  16.003360748291016
+Frontend [keyframe logic]:  19.57200050354004
+Frontend [visibility]:  19.59663963317871
+Frontend duration:  19.64067268371582
+Frontend [preprocess]:  0.012160000391304493
+Frontend [before tracking]:  18.737056732177734
+cur_frame_idx_front:  496
+Frontend [tracking]:  22.631328582763672
+Frontend [keyframe logic]:  38.03532791137695
+Frontend [visibility]:  38.0599365234375
+Frontend duration:  38.1044807434082
+Frontend [preprocess]:  0.011711999773979187
+Frontend [before tracking]:  19.726591110229492
+cur_frame_idx_front:  497
+Frontend [tracking]:  23.63827133178711
+Frontend [keyframe logic]:  39.054656982421875
+Frontend [visibility]:  39.07894515991211
+Frontend duration:  119.75772857666016
+Frontend [preprocess]:  0.16735999286174774
+Frontend [before tracking]:  23.183456420898438
+cur_frame_idx_front:  498
+Frontend [tracking]:  27.443199157714844
+Frontend [keyframe logic]:  32.494815826416016
+Frontend [visibility]:  32.519935607910156
+Frontend duration:  32.56489562988281
+Frontend [preprocess]:  0.013151999562978745
+Frontend [before tracking]:  21.89708709716797
+cur_frame_idx_front:  499
+Frontend [tracking]:  26.007423400878906
+Frontend [keyframe logic]:  29.742111206054688
+Frontend [visibility]:  29.764192581176758
+Frontend duration:  29.803775787353516
+Frontend [preprocess]:  0.01017600018531084
+Frontend [before tracking]:  12.256959915161133
+cur_frame_idx_front:  500
+Frontend [tracking]:  16.622272491455078
+Frontend [keyframe logic]:  36.73936080932617
+Frontend [visibility]:  36.762847900390625
+Frontend duration:  36.98384094238281
+Frontend [preprocess]:  0.010879999957978725
+Frontend [before tracking]:  11.21878433227539
+cur_frame_idx_front:  501
+Frontend [tracking]:  15.706975936889648
+Frontend [keyframe logic]:  19.789119720458984
+Frontend [visibility]:  19.813919067382812
+Frontend duration:  19.857791900634766
+Frontend [preprocess]:  0.011807999573647976
+Frontend [before tracking]:  18.557344436645508
+cur_frame_idx_front:  502
+Frontend [tracking]:  22.482336044311523
+Frontend [keyframe logic]:  26.665727615356445
+Frontend [visibility]:  26.690719604492188
+Frontend duration:  32.39161682128906
+Frontend [preprocess]:  0.002047999994829297
+Frontend [before tracking]:  20.28339195251465
+cur_frame_idx_front:  503
+Frontend [tracking]:  24.370176315307617
+Frontend [keyframe logic]:  28.96224021911621
+Frontend [visibility]:  28.984352111816406
+Frontend duration:  29.024255752563477
+Frontend [preprocess]:  0.010015999898314476
+Frontend [before tracking]:  11.995712280273438
+cur_frame_idx_front:  504
+Frontend [tracking]:  16.258623123168945
+Frontend [keyframe logic]:  35.22742462158203
+Frontend [visibility]:  35.249855041503906
+Frontend duration:  35.31788635253906
+Frontend [preprocess]:  0.01027199998497963
+Frontend [before tracking]:  12.241344451904297
+cur_frame_idx_front:  505
+Frontend [tracking]:  16.665023803710938
+Frontend [keyframe logic]:  21.3055362701416
+Frontend [visibility]:  21.32796859741211
+Frontend duration:  21.367103576660156
+Frontend [preprocess]:  0.011008000001311302
+Frontend [before tracking]:  19.130016326904297
+cur_frame_idx_front:  506
+Frontend [tracking]:  23.384735107421875
+Frontend [keyframe logic]:  39.8590087890625
+Frontend [visibility]:  39.890113830566406
+Frontend duration:  39.94083023071289
+Frontend [preprocess]:  0.013567999936640263
+Frontend [before tracking]:  18.775968551635742
+cur_frame_idx_front:  507
+Frontend [tracking]:  22.690719604492188
+Frontend [keyframe logic]:  27.651968002319336
+Frontend [visibility]:  27.674528121948242
+Frontend duration:  104.4474868774414
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  16.650239944458008
+cur_frame_idx_front:  508
+Frontend [tracking]:  20.567039489746094
+Frontend [keyframe logic]:  24.557632446289062
+Frontend [visibility]:  24.58310317993164
+Frontend duration:  24.627103805541992
+Frontend [preprocess]:  0.012415999546647072
+Frontend [before tracking]:  12.182080268859863
+cur_frame_idx_front:  509
+Frontend [tracking]:  16.539199829101562
+Frontend [keyframe logic]:  21.955167770385742
+Frontend [visibility]:  21.980384826660156
+Frontend duration:  22.02694320678711
+Frontend [preprocess]:  0.012768000364303589
+Frontend [before tracking]:  14.252832412719727
+cur_frame_idx_front:  510
+Frontend [tracking]:  17.899295806884766
+Frontend [keyframe logic]:  33.224510192871094
+Frontend [visibility]:  33.250431060791016
+Frontend duration:  34.03420639038086
+Frontend [preprocess]:  0.012032000347971916
+Frontend [before tracking]:  19.097536087036133
+cur_frame_idx_front:  511
+Frontend [tracking]:  23.23244857788086
+Frontend [keyframe logic]:  27.0645751953125
+Frontend [visibility]:  27.089664459228516
+Frontend duration:  27.134368896484375
+Frontend [preprocess]:  0.012160000391304493
+Frontend [before tracking]:  12.012800216674805
+cur_frame_idx_front:  512
+Frontend [tracking]:  16.34432029724121
+Frontend [keyframe logic]:  21.38902473449707
+Frontend [visibility]:  21.414527893066406
+Frontend duration:  110.83545684814453
+Frontend [preprocess]:  0.0013119999784976244
+Frontend [before tracking]:  27.134239196777344
+cur_frame_idx_front:  513
+Frontend [tracking]:  31.217952728271484
+Frontend [keyframe logic]:  35.876033782958984
+Frontend [visibility]:  35.90585708618164
+Frontend duration:  35.96847915649414
+Frontend [preprocess]:  0.019519999623298645
+Frontend [before tracking]:  16.171295166015625
+cur_frame_idx_front:  514
+Frontend [tracking]:  20.706592559814453
+Frontend [keyframe logic]:  38.62259292602539
+Frontend [visibility]:  38.65459060668945
+Frontend duration:  38.70671844482422
+Frontend [preprocess]:  0.012160000391304493
+Frontend [before tracking]:  13.226400375366211
+cur_frame_idx_front:  515
+Frontend [tracking]:  17.64803123474121
+Frontend [keyframe logic]:  22.82761573791504
+Frontend [visibility]:  22.849695205688477
+Frontend duration:  22.88902473449707
+Frontend [preprocess]:  0.0098879998549819
+Frontend [before tracking]:  14.465312004089355
+cur_frame_idx_front:  516
+Frontend [tracking]:  18.286880493164062
+Frontend [keyframe logic]:  25.2030086517334
+Frontend [visibility]:  25.227615356445312
+Frontend duration:  25.270687103271484
+Frontend [preprocess]:  0.011711999773979187
+Frontend [before tracking]:  13.626144409179688
+cur_frame_idx_front:  517
+Frontend [tracking]:  28.733919143676758
+Frontend [keyframe logic]:  32.836097717285156
+Frontend [visibility]:  32.85737609863281
+Frontend duration:  107.63801574707031
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  16.58470344543457
+cur_frame_idx_front:  518
+Frontend [tracking]:  20.487167358398438
+Frontend [keyframe logic]:  30.099552154541016
+Frontend [visibility]:  30.125024795532227
+Frontend duration:  30.170528411865234
+Frontend [preprocess]:  0.012032000347971916
+Frontend [before tracking]:  19.05356788635254
+cur_frame_idx_front:  519
+Frontend [tracking]:  27.93471908569336
+Frontend [keyframe logic]:  32.42665481567383
+Frontend [visibility]:  32.4554557800293
+Frontend duration:  32.5082893371582
+Frontend [preprocess]:  0.013183999806642532
+Frontend [before tracking]:  12.990303993225098
+cur_frame_idx_front:  520
+Frontend [tracking]:  17.31260871887207
+Frontend [keyframe logic]:  34.81126403808594
+Frontend [visibility]:  34.8328971862793
+Frontend duration:  35.12540817260742
+Frontend [preprocess]:  0.011136000044643879
+Frontend [before tracking]:  12.30345630645752
+cur_frame_idx_front:  521
+Frontend [tracking]:  16.707679748535156
+Frontend [keyframe logic]:  22.317087173461914
+Frontend [visibility]:  22.339359283447266
+Frontend duration:  22.377792358398438
+Frontend [preprocess]:  0.010015999898314476
+Frontend [before tracking]:  14.340767860412598
+cur_frame_idx_front:  522
+Frontend [tracking]:  18.39580726623535
+Frontend [keyframe logic]:  22.705759048461914
+Frontend [visibility]:  22.727615356445312
+Frontend duration:  99.42752075195312
+Frontend [preprocess]:  0.18643200397491455
+Frontend [before tracking]:  23.85100746154785
+cur_frame_idx_front:  523
+Frontend [tracking]:  28.256256103515625
+Frontend [keyframe logic]:  33.649566650390625
+Frontend [visibility]:  33.6888313293457
+Frontend duration:  33.75894546508789
+Frontend [preprocess]:  0.017696000635623932
+Frontend [before tracking]:  18.01375961303711
+cur_frame_idx_front:  524
+Frontend [tracking]:  21.910079956054688
+Frontend [keyframe logic]:  26.826976776123047
+Frontend [visibility]:  26.852031707763672
+Frontend duration:  26.896223068237305
+Frontend [preprocess]:  0.010528000071644783
+Frontend [before tracking]:  11.8603515625
+cur_frame_idx_front:  525
+Frontend [tracking]:  16.11097526550293
+Frontend [keyframe logic]:  20.028480529785156
+Frontend [visibility]:  20.052928924560547
+Frontend duration:  20.09756851196289
+Frontend [preprocess]:  0.012319999746978283
+Frontend [before tracking]:  14.800383567810059
+cur_frame_idx_front:  526
+Frontend [tracking]:  18.667007446289062
+Frontend [keyframe logic]:  33.85011291503906
+Frontend [visibility]:  33.874847412109375
+Frontend duration:  33.91852951049805
+Frontend [preprocess]:  0.011744000017642975
+Frontend [before tracking]:  19.156831741333008
+cur_frame_idx_front:  527
+Frontend [tracking]:  22.892383575439453
+Frontend [keyframe logic]:  42.8392333984375
+Frontend [visibility]:  42.86054229736328
+Frontend duration:  130.3040313720703
+Frontend [preprocess]:  0.0016319999704137444
+Frontend [before tracking]:  16.52387237548828
+cur_frame_idx_front:  528
+Frontend [tracking]:  20.430431365966797
+Frontend [keyframe logic]:  36.017791748046875
+Frontend [visibility]:  36.04991912841797
+Frontend duration:  36.102176666259766
+Frontend [preprocess]:  0.012640000320971012
+Frontend [before tracking]:  19.379392623901367
+cur_frame_idx_front:  529
+Frontend [tracking]:  23.288000106811523
+Frontend [keyframe logic]:  38.57865524291992
+Frontend [visibility]:  38.6011848449707
+Frontend duration:  38.64179229736328
+Frontend [preprocess]:  0.010432000271975994
+Frontend [before tracking]:  19.540639877319336
+cur_frame_idx_front:  530
+Frontend [tracking]:  23.449247360229492
+Frontend [keyframe logic]:  29.534015655517578
+Frontend [visibility]:  29.555072784423828
+Frontend duration:  30.85273551940918
+Frontend [preprocess]:  0.01071999967098236
+Frontend [before tracking]:  12.577631950378418
+cur_frame_idx_front:  531
+Frontend [tracking]:  28.130144119262695
+Frontend [keyframe logic]:  32.75251388549805
+Frontend [visibility]:  32.77446365356445
+Frontend duration:  32.814048767089844
+Frontend [preprocess]:  0.009727999567985535
+Frontend [before tracking]:  12.378144264221191
+cur_frame_idx_front:  532
+Frontend [tracking]:  16.73321533203125
+Frontend [keyframe logic]:  21.55353546142578
+Frontend [visibility]:  21.575040817260742
+MonoGS: Evaluating ATE at frame:  533
+Eval: RMSE ATE [m] 2.4349558137600216e-16
+Frontend duration:  234.53773498535156
+Frontend [preprocess]:  0.0009919999865815043
+Frontend [before tracking]:  21.774303436279297
+cur_frame_idx_front:  533
+Frontend [tracking]:  26.273759841918945
+Frontend [keyframe logic]:  30.870880126953125
+Frontend [visibility]:  30.896095275878906
+Frontend duration:  30.9434871673584
+Frontend [preprocess]:  0.011552000418305397
+Frontend [before tracking]:  16.493087768554688
+cur_frame_idx_front:  534
+Frontend [tracking]:  20.425247192382812
+Frontend [keyframe logic]:  25.821279525756836
+Frontend [visibility]:  25.846784591674805
+Frontend duration:  25.89129638671875
+Frontend [preprocess]:  0.012095999903976917
+Frontend [before tracking]:  28.987136840820312
+cur_frame_idx_front:  535
+Frontend [tracking]:  32.9090576171875
+Frontend [keyframe logic]:  42.543678283691406
+Frontend [visibility]:  42.56892776489258
+Frontend duration:  42.61417770385742
+Frontend [preprocess]:  0.010879999957978725
+Frontend [before tracking]:  12.200960159301758
+cur_frame_idx_front:  536
+Frontend [tracking]:  28.11084747314453
+Frontend [keyframe logic]:  42.80742263793945
+Frontend [visibility]:  42.83308792114258
+Frontend duration:  42.880672454833984
+Frontend [preprocess]:  0.011296000331640244
+Frontend [before tracking]:  21.043903350830078
+cur_frame_idx_front:  537
+Frontend [tracking]:  24.967744827270508
+Frontend [keyframe logic]:  32.90768051147461
+Frontend [visibility]:  32.932350158691406
+Frontend duration:  110.80438232421875
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  23.87353515625
+cur_frame_idx_front:  538
+Frontend [tracking]:  28.37811279296875
+Frontend [keyframe logic]:  33.8721923828125
+Frontend [visibility]:  33.8939208984375
+Frontend duration:  33.934974670410156
+Frontend [preprocess]:  0.009440000168979168
+Frontend [before tracking]:  17.32931137084961
+cur_frame_idx_front:  539
+Frontend [tracking]:  21.251232147216797
+Frontend [keyframe logic]:  36.41408157348633
+Frontend [visibility]:  36.4381103515625
+Frontend duration:  36.48441696166992
+Frontend [preprocess]:  0.01235199999064207
+Frontend [before tracking]:  19.802175521850586
+cur_frame_idx_front:  540
+Frontend [tracking]:  23.739456176757812
+Frontend [keyframe logic]:  30.444128036499023
+Frontend [visibility]:  30.468128204345703
+Frontend duration:  30.521728515625
+Frontend [preprocess]:  0.012671999633312225
+Frontend [before tracking]:  12.173055648803711
+cur_frame_idx_front:  541
+Frontend [tracking]:  16.418560028076172
+Frontend [keyframe logic]:  31.765119552612305
+Frontend [visibility]:  31.787839889526367
+Frontend duration:  31.827808380126953
+Frontend [preprocess]:  0.010208000428974628
+Frontend [before tracking]:  12.561023712158203
+cur_frame_idx_front:  542
+Frontend [tracking]:  16.86284828186035
+Frontend [keyframe logic]:  37.26784133911133
+Frontend [visibility]:  37.28972625732422
+Frontend duration:  37.348350524902344
+Frontend [preprocess]:  0.009824000298976898
+Frontend [before tracking]:  11.896832466125488
+cur_frame_idx_front:  543
+Frontend [tracking]:  16.365568161010742
+Frontend [keyframe logic]:  20.341983795166016
+Frontend [visibility]:  20.365312576293945
+Frontend duration:  110.2655029296875
+Frontend [preprocess]:  0.002047999994829297
+Frontend [before tracking]:  22.700031280517578
+cur_frame_idx_front:  544
+Frontend [tracking]:  26.873855590820312
+Frontend [keyframe logic]:  31.164352416992188
+Frontend [visibility]:  31.19059181213379
+Frontend duration:  31.238367080688477
+Frontend [preprocess]:  0.012608000077307224
+Frontend [before tracking]:  20.95702362060547
+cur_frame_idx_front:  545
+Frontend [tracking]:  28.495712280273438
+Frontend [keyframe logic]:  43.471839904785156
+Frontend [visibility]:  43.49622344970703
+Frontend duration:  43.54025650024414
+Frontend [preprocess]:  0.011455999687314034
+Frontend [before tracking]:  20.03603172302246
+cur_frame_idx_front:  546
+Frontend [tracking]:  23.983552932739258
+Frontend [keyframe logic]:  28.976224899291992
+Frontend [visibility]:  29.001279830932617
+Frontend duration:  29.04604721069336
+Frontend [preprocess]:  0.012415999546647072
+Frontend [before tracking]:  11.675104141235352
+cur_frame_idx_front:  547
+Frontend [tracking]:  16.12233543395996
+Frontend [keyframe logic]:  34.757694244384766
+Frontend [visibility]:  34.78022384643555
+Frontend duration:  34.81980895996094
+Frontend [preprocess]:  0.010784000158309937
+Frontend [before tracking]:  12.732352256774902
+cur_frame_idx_front:  548
+Frontend [tracking]:  17.021791458129883
+Frontend [keyframe logic]:  23.36639976501465
+Frontend [visibility]:  23.390655517578125
+Frontend duration:  23.456031799316406
+Frontend [preprocess]:  0.012703999876976013
+Frontend [before tracking]:  14.164640426635742
+cur_frame_idx_front:  549
+Frontend [tracking]:  18.101919174194336
+Frontend [keyframe logic]:  24.389663696289062
+Frontend [visibility]:  24.414304733276367
+Frontend duration:  24.480287551879883
+Frontend [preprocess]:  0.011776000261306763
+Frontend [before tracking]:  12.2640962600708
+cur_frame_idx_front:  550
+Frontend [tracking]:  16.337568283081055
+Frontend [keyframe logic]:  31.95417594909668
+Frontend [visibility]:  31.978336334228516
+Frontend duration:  32.26374435424805
+Frontend [preprocess]:  0.011935999616980553
+Frontend [before tracking]:  12.203968048095703
+cur_frame_idx_front:  551
+Frontend [tracking]:  16.368576049804688
+Frontend [keyframe logic]:  20.305599212646484
+Frontend [visibility]:  20.32748794555664
+Frontend duration:  20.382015228271484
+Frontend [preprocess]:  0.010400000028312206
+Frontend [before tracking]:  16.708511352539062
+cur_frame_idx_front:  552
+Frontend [tracking]:  20.661151885986328
+Frontend [keyframe logic]:  25.55446434020996
+Frontend [visibility]:  25.57935905456543
+Frontend duration:  25.642688751220703
+Frontend [preprocess]:  0.012191999703645706
+Frontend [before tracking]:  11.682304382324219
+cur_frame_idx_front:  553
+Frontend [tracking]:  15.836671829223633
+Frontend [keyframe logic]:  20.229183197021484
+Frontend [visibility]:  20.25372886657715
+Frontend duration:  20.318336486816406
+Frontend [preprocess]:  0.013376000337302685
+Frontend [before tracking]:  15.417728424072266
+cur_frame_idx_front:  554
+Frontend [tracking]:  19.35807991027832
+Frontend [keyframe logic]:  23.17318344116211
+Frontend [visibility]:  23.19593620300293
+Frontend duration:  101.2011489868164
+Frontend [preprocess]:  0.0012799999676644802
+Frontend [before tracking]:  18.056447982788086
+cur_frame_idx_front:  555
+Frontend [tracking]:  22.621440887451172
+Frontend [keyframe logic]:  28.53887939453125
+Frontend [visibility]:  28.575679779052734
+Frontend duration:  28.63871955871582
+Frontend [preprocess]:  0.015200000256299973
+Frontend [before tracking]:  21.29955291748047
+cur_frame_idx_front:  556
+Frontend [tracking]:  25.24297523498535
+Frontend [keyframe logic]:  30.057823181152344
+Frontend [visibility]:  30.08345603942871
+Frontend duration:  30.128063201904297
+Frontend [preprocess]:  0.011680000461637974
+Frontend [before tracking]:  12.545023918151855
+cur_frame_idx_front:  557
+Frontend [tracking]:  16.719871520996094
+Frontend [keyframe logic]:  34.74937438964844
+Frontend [visibility]:  34.77167892456055
+Frontend duration:  34.81184005737305
+Frontend [preprocess]:  0.009920000098645687
+Frontend [before tracking]:  11.8787202835083
+cur_frame_idx_front:  558
+Frontend [tracking]:  16.356672286987305
+Frontend [keyframe logic]:  20.328960418701172
+Frontend [visibility]:  20.35036849975586
+Frontend duration:  20.389087677001953
+Frontend [preprocess]:  0.00940799992531538
+Frontend [before tracking]:  17.085887908935547
+cur_frame_idx_front:  559
+Frontend [tracking]:  20.85830307006836
+Frontend [keyframe logic]:  25.04102325439453
+Frontend [visibility]:  25.062559127807617
+Frontend duration:  25.119359970092773
+Frontend [preprocess]:  0.010208000428974628
+Frontend [before tracking]:  11.752127647399902
+cur_frame_idx_front:  560
+Frontend [tracking]:  15.904447555541992
+Frontend [keyframe logic]:  19.855648040771484
+Frontend [visibility]:  19.876447677612305
+Frontend duration:  20.863712310791016
+Frontend [preprocess]:  0.010432000271975994
+Frontend [before tracking]:  14.912287712097168
+cur_frame_idx_front:  561
+Frontend [tracking]:  18.789152145385742
+Frontend [keyframe logic]:  33.83184051513672
+Frontend [visibility]:  33.85676956176758
+Frontend duration:  124.67110443115234
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  27.047935485839844
+cur_frame_idx_front:  562
+Frontend [tracking]:  31.469568252563477
+Frontend [keyframe logic]:  36.22528076171875
+Frontend [visibility]:  36.24809646606445
+Frontend duration:  36.28883361816406
+Frontend [preprocess]:  0.009664000011980534
+Frontend [before tracking]:  20.053855895996094
+cur_frame_idx_front:  563
+Frontend [tracking]:  24.154592514038086
+Frontend [keyframe logic]:  28.418560028076172
+Frontend [visibility]:  28.44054412841797
+Frontend duration:  28.479135513305664
+Frontend [preprocess]:  0.009184000082314014
+Frontend [before tracking]:  12.817728042602539
+cur_frame_idx_front:  564
+Frontend [tracking]:  17.152320861816406
+Frontend [keyframe logic]:  35.09036636352539
+Frontend [visibility]:  35.11324691772461
+Frontend duration:  35.153953552246094
+Frontend [preprocess]:  0.010528000071644783
+Frontend [before tracking]:  12.357343673706055
+cur_frame_idx_front:  565
+Frontend [tracking]:  16.70524787902832
+Frontend [keyframe logic]:  21.14681625366211
+Frontend [visibility]:  21.17363166809082
+Frontend duration:  21.224992752075195
+Frontend [preprocess]:  0.011327999643981457
+Frontend [before tracking]:  16.441055297851562
+cur_frame_idx_front:  566
+Frontend [tracking]:  20.248287200927734
+Frontend [keyframe logic]:  29.377504348754883
+Frontend [visibility]:  29.402015686035156
+Frontend duration:  29.465791702270508
+Frontend [preprocess]:  0.012191999703645706
+Frontend [before tracking]:  12.259424209594727
+cur_frame_idx_front:  567
+Frontend [tracking]:  28.545120239257812
+Frontend [keyframe logic]:  32.729278564453125
+Frontend [visibility]:  32.75404739379883
+Frontend duration:  32.82070541381836
+Frontend [preprocess]:  0.01017600018531084
+Frontend [before tracking]:  12.729151725769043
+cur_frame_idx_front:  568
+Frontend [tracking]:  16.871231079101562
+Frontend [keyframe logic]:  21.88515281677246
+Frontend [visibility]:  21.909791946411133
+Frontend duration:  21.97542381286621
+Frontend [preprocess]:  0.012608000077307224
+Frontend [before tracking]:  14.044575691223145
+cur_frame_idx_front:  569
+Frontend [tracking]:  18.607519149780273
+Frontend [keyframe logic]:  22.232864379882812
+Frontend [visibility]:  22.25779151916504
+Frontend duration:  22.320480346679688
+Frontend [preprocess]:  0.012927999719977379
+Frontend [before tracking]:  13.382431983947754
+cur_frame_idx_front:  570
+Frontend [tracking]:  17.56934356689453
+Frontend [keyframe logic]:  21.802751541137695
+Frontend [visibility]:  21.83011245727539
+Frontend duration:  22.82454490661621
+Frontend [preprocess]:  0.010143999941647053
+Frontend [before tracking]:  13.210335731506348
+cur_frame_idx_front:  571
+Frontend [tracking]:  17.172191619873047
+Frontend [keyframe logic]:  21.569568634033203
+Frontend [visibility]:  21.59891128540039
+Frontend duration:  21.67411231994629
+Frontend [preprocess]:  0.014271999709308147
+Frontend [before tracking]:  13.727071762084961
+cur_frame_idx_front:  572
+Frontend [tracking]:  18.034015655517578
+Frontend [keyframe logic]:  31.36332893371582
+Frontend [visibility]:  31.385215759277344
+Frontend duration:  31.477535247802734
+Frontend [preprocess]:  0.009983999654650688
+Frontend [before tracking]:  13.337920188903809
+cur_frame_idx_front:  573
+Frontend [tracking]:  17.63052749633789
+Frontend [keyframe logic]:  22.38800048828125
+Frontend [visibility]:  22.40985679626465
+Frontend duration:  22.465696334838867
+Frontend [preprocess]:  0.01056000031530857
+Frontend [before tracking]:  18.452320098876953
+cur_frame_idx_front:  574
+Frontend [tracking]:  22.230880737304688
+Frontend [keyframe logic]:  26.39401626586914
+Frontend [visibility]:  26.418495178222656
+Frontend duration:  26.48137664794922
+Frontend [preprocess]:  0.011935999616980553
+Frontend [before tracking]:  12.670592308044434
+cur_frame_idx_front:  575
+Frontend [tracking]:  16.962175369262695
+Frontend [keyframe logic]:  21.66499137878418
+Frontend [visibility]:  21.689184188842773
+Frontend duration:  21.752607345581055
+Frontend [preprocess]:  0.009920000098645687
+Frontend [before tracking]:  14.480192184448242
+cur_frame_idx_front:  576
+Frontend [tracking]:  18.15635108947754
+Frontend [keyframe logic]:  34.1607666015625
+Frontend [visibility]:  34.185630798339844
+Frontend duration:  34.24959945678711
+Frontend [preprocess]:  0.012736000120639801
+Frontend [before tracking]:  19.342527389526367
+cur_frame_idx_front:  577
+Frontend [tracking]:  22.9685115814209
+Frontend [keyframe logic]:  33.3507194519043
+Frontend [visibility]:  33.37801742553711
+Frontend duration:  33.444671630859375
+Frontend [preprocess]:  0.011807999573647976
+Frontend [before tracking]:  20.854047775268555
+cur_frame_idx_front:  578
+Frontend [tracking]:  25.921823501586914
+Frontend [keyframe logic]:  30.155424118041992
+Frontend [visibility]:  30.180831909179688
+Frontend duration:  120.12102508544922
+Frontend [preprocess]:  0.0010239999974146485
+Frontend [before tracking]:  20.980735778808594
+cur_frame_idx_front:  579
+Frontend [tracking]:  25.62281608581543
+Frontend [keyframe logic]:  29.502304077148438
+Frontend [visibility]:  29.524255752563477
+Frontend duration:  29.56403160095215
+Frontend [preprocess]:  0.009824000298976898
+Frontend [before tracking]:  15.85257625579834
+cur_frame_idx_front:  580
+Frontend [tracking]:  19.7673282623291
+Frontend [keyframe logic]:  35.11734390258789
+Frontend [visibility]:  35.14166259765625
+Frontend duration:  36.257694244384766
+Frontend [preprocess]:  0.01196799986064434
+Frontend [before tracking]:  18.0163516998291
+cur_frame_idx_front:  581
+Frontend [tracking]:  21.934175491333008
+Frontend [keyframe logic]:  37.148990631103516
+Frontend [visibility]:  37.17417526245117
+Frontend duration:  37.21696090698242
+Frontend [preprocess]:  0.011648000217974186
+Frontend [before tracking]:  19.23859214782715
+cur_frame_idx_front:  582
+Frontend [tracking]:  23.150272369384766
+Frontend [keyframe logic]:  26.845951080322266
+Frontend [visibility]:  26.870655059814453
+Frontend duration:  26.914304733276367
+Frontend [preprocess]:  0.011615999974310398
+Frontend [before tracking]:  12.62172794342041
+cur_frame_idx_front:  583
+Frontend [tracking]:  16.76483154296875
+Frontend [keyframe logic]:  20.83750343322754
+Frontend [visibility]:  20.863008499145508
+Frontend duration:  20.925823211669922
+Frontend [preprocess]:  0.011711999773979187
+Frontend [before tracking]:  15.577183723449707
+cur_frame_idx_front:  584
+Frontend [tracking]:  19.32195281982422
+Frontend [keyframe logic]:  23.096799850463867
+Frontend [visibility]:  23.121503829956055
+Frontend duration:  23.185184478759766
+Frontend [preprocess]:  0.01190400030463934
+Frontend [before tracking]:  12.560864448547363
+cur_frame_idx_front:  585
+Frontend [tracking]:  16.856544494628906
+Frontend [keyframe logic]:  20.736576080322266
+Frontend [visibility]:  20.76188850402832
+Frontend duration:  20.825151443481445
+Frontend [preprocess]:  0.011839999817311764
+Frontend [before tracking]:  15.722368240356445
+cur_frame_idx_front:  586
+Frontend [tracking]:  19.63814353942871
+Frontend [keyframe logic]:  24.343135833740234
+Frontend [visibility]:  24.367647171020508
+Frontend duration:  24.43168067932129
+Frontend [preprocess]:  0.01196799986064434
+Frontend [before tracking]:  12.4301118850708
+cur_frame_idx_front:  587
+Frontend [tracking]:  17.095455169677734
+Frontend [keyframe logic]:  20.990400314331055
+Frontend [visibility]:  21.01203155517578
+Frontend duration:  21.0665283203125
+Frontend [preprocess]:  0.009664000011980534
+Frontend [before tracking]:  13.937376022338867
+cur_frame_idx_front:  588
+Frontend [tracking]:  17.680095672607422
+Frontend [keyframe logic]:  21.521120071411133
+Frontend [visibility]:  21.54332733154297
+Frontend duration:  21.59926414489746
+Frontend [preprocess]:  0.01065600011497736
+Frontend [before tracking]:  12.826239585876465
+cur_frame_idx_front:  589
+Frontend [tracking]:  17.156736373901367
+Frontend [keyframe logic]:  21.41200065612793
+Frontend [visibility]:  21.43382453918457
+Frontend duration:  21.492351531982422
+Frontend [preprocess]:  0.011231999844312668
+Frontend [before tracking]:  13.794367790222168
+cur_frame_idx_front:  590
+Frontend [tracking]:  17.53094482421875
+Frontend [keyframe logic]:  32.561153411865234
+Frontend [visibility]:  32.58390426635742
+Frontend duration:  33.319358825683594
+Frontend [preprocess]:  0.010528000071644783
+Frontend [before tracking]:  18.666112899780273
+cur_frame_idx_front:  591
+Frontend [tracking]:  22.679168701171875
+Frontend [keyframe logic]:  27.153440475463867
+Frontend [visibility]:  27.17535972595215
+Frontend duration:  27.230783462524414
+Eval: RMSE ATE [m] 2.3882202568782753e-16
+Eval: Total time 116.869171875
+Eval: Total FPS 5.06549323916821
+Eval: RMSE ATE [m] 2.3882202568782753e-16
+Eval: mean psnr: 17.444361826007285, ssim: 0.5777152709746629, lpips: 0.5150844059633405
+Backend duration:  7450.11083984375  keyframe
+Backend duration:  258.6275939941406  keyframe
+Backend duration:  298.7857971191406  keyframe
+Backend duration:  290.9388732910156  keyframe
+Backend duration:  291.41510009765625  keyframe
+Backend duration:  293.755859375  keyframe
+Backend duration:  312.75604248046875  keyframe
+Backend duration:  314.21826171875  keyframe
+Backend duration:  317.0744934082031  keyframe
+Backend duration:  313.2088317871094  keyframe
+Backend duration:  303.71942138671875  keyframe
+Backend duration:  294.69390869140625  keyframe
+Backend duration:  309.23876953125  keyframe
+Backend duration:  312.2309265136719  keyframe
+Backend duration:  306.1206970214844  keyframe
+Backend duration:  314.54327392578125  keyframe
+Backend duration:  316.4950866699219  keyframe
+Backend duration:  315.7094421386719  keyframe
+Backend duration:  316.29925537109375  keyframe
+Backend duration:  317.0846862792969  keyframe
+Backend duration:  308.3837585449219  keyframe
+Backend duration:  308.7687683105469  keyframe
+Backend duration:  316.3810119628906  keyframe
+Backend duration:  315.8528137207031  keyframe
+Backend duration:  317.5301208496094  keyframe
+Backend duration:  326.6631774902344  keyframe
+Backend duration:  322.6950378417969  keyframe
+Backend duration:  325.83782958984375  keyframe
+Backend duration:  328.48077392578125  keyframe
+Backend duration:  329.1094970703125  keyframe
+Backend duration:  326.5372009277344  keyframe
+Backend duration:  328.1295471191406  keyframe
+Backend duration:  338.8539733886719  keyframe
+Backend duration:  329.2825622558594  keyframe
+Backend duration:  325.29718017578125  keyframe
+Backend duration:  317.7257080078125  keyframe
+Backend duration:  321.3763732910156  keyframe
+Backend duration:  321.23870849609375  keyframe
+Backend duration:  320.9195556640625  keyframe
+Backend duration:  325.80609130859375  keyframe
+Backend duration:  326.5455322265625  keyframe
+Backend duration:  332.51531982421875  keyframe
+Backend duration:  342.52203369140625  keyframe
+Backend duration:  334.8616943359375  keyframe
+Backend duration:  332.5677185058594  keyframe
+Backend duration:  333.98785400390625  keyframe
+Backend duration:  340.7083435058594  keyframe
+Backend duration:  329.0777587890625  keyframe
+Backend duration:  328.5094299316406  keyframe
+Backend duration:  329.90228271484375  keyframe
+Backend duration:  337.4960632324219  keyframe
+Backend duration:  339.1006774902344  keyframe
+Backend duration:  340.0396728515625  keyframe
+Backend duration:  341.90234375  keyframe
+Backend duration:  347.2783508300781  keyframe
+Backend duration:  343.1413879394531  keyframe
+Backend duration:  348.74468994140625  keyframe
+Backend duration:  351.6376037597656  keyframe
+Backend duration:  351.4144592285156  keyframe
+Backend duration:  352.8509521484375  keyframe
+Backend duration:  354.2341003417969  keyframe
+Backend duration:  331.3418273925781  keyframe
+Backend duration:  341.71624755859375  keyframe
+Backend duration:  335.29754638671875  keyframe
+Backend duration:  338.6468811035156  keyframe
+Backend duration:  351.8310546875  keyframe
+Backend duration:  357.0575256347656  keyframe
+Backend duration:  358.6805725097656  keyframe
+Backend duration:  364.8296813964844  keyframe
+Backend duration:  362.3753356933594  keyframe
+Backend duration:  352.6269226074219  keyframe
+Backend duration:  350.5769348144531  keyframe
+Backend duration:  359.21929931640625  keyframe
+Backend duration:  350.36358642578125  keyframe
+Backend duration:  345.08306884765625  keyframe
+Backend duration:  352.3870849609375  keyframe
+Backend duration:  353.93023681640625  keyframe
+Backend duration:  346.9701232910156  keyframe
+Backend duration:  348.2562561035156  keyframe
+Backend duration:  339.14349365234375  keyframe
+Backend duration:  344.0056457519531  keyframe
+Backend duration:  345.59698486328125  keyframe
+Backend duration:  355.703857421875  keyframe
+Backend duration:  348.626220703125  keyframe
+Backend duration:  351.7400207519531  keyframe
+Backend duration:  352.1607666015625  keyframe
+Backend duration:  350.3055725097656  keyframe
+Backend duration:  344.5555419921875  keyframe
+MonoGS: Starting color refinement
+MonoGS: Map refinement done
+Eval: mean psnr: 19.331672389855544, ssim: 0.649748655182592, lpips: 0.43734992153189156
+MonoGS: Backend stopped and joined the main thread
+MonoGS: Done.

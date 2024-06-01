@@ -126,70 +126,58 @@ class FrontEnd(mp.Process):
         self.reset = False
 
     def tracking(self, cur_frame_idx, viewpoint):
-        viewpoint.update_RT(viewpoint.R_gt, viewpoint.T_gt)
+        prev = self.cameras[cur_frame_idx - self.use_every_n_frames]
+        viewpoint.update_RT(prev.R, prev.T)
 
-        # opt_params = []
-        # opt_params.append(
-        #     {
-        #         "params": [viewpoint.cam_rot_delta],
-        #         "lr": self.config["Training"]["lr"]["cam_rot_delta"],
-        #         "name": "rot_{}".format(viewpoint.uid),
-        #     }
-        # )
-        # opt_params.append(
-        #     {
-        #         "params": [viewpoint.cam_trans_delta],
-        #         "lr": self.config["Training"]["lr"]["cam_trans_delta"],
-        #         "name": "trans_{}".format(viewpoint.uid),
-        #     }
-        # )
-        # opt_params.append(
-        #     {
-        #         "params": [viewpoint.exposure_a],
-        #         "lr": 0.01,
-        #         "name": "exposure_a_{}".format(viewpoint.uid),
-        #     }
-        # )
-        # opt_params.append(
-        #     {
-        #         "params": [viewpoint.exposure_b],
-        #         "lr": 0.01,
-        #         "name": "exposure_b_{}".format(viewpoint.uid),
-        #     }
-        # )
+        opt_params = []
+        opt_params.append(
+            {
+                "params": [viewpoint.cam_rot_delta],
+                "lr": self.config["Training"]["lr"]["cam_rot_delta"],
+                "name": "rot_{}".format(viewpoint.uid),
+            }
+        )
+        opt_params.append(
+            {
+                "params": [viewpoint.cam_trans_delta],
+                "lr": self.config["Training"]["lr"]["cam_trans_delta"],
+                "name": "trans_{}".format(viewpoint.uid),
+            }
+        )
+        opt_params.append(
+            {
+                "params": [viewpoint.exposure_a],
+                "lr": 0.01,
+                "name": "exposure_a_{}".format(viewpoint.uid),
+            }
+        )
+        opt_params.append(
+            {
+                "params": [viewpoint.exposure_b],
+                "lr": 0.01,
+                "name": "exposure_b_{}".format(viewpoint.uid),
+            }
+        )
 
-        tic = torch.cuda.Event(enable_timing=True)
-        toc = torch.cuda.Event(enable_timing=True)
-
-        # pose_optimizer = torch.optim.Adam(opt_params)
+        pose_optimizer = torch.optim.Adam(opt_params)
         for tracking_itr in range(self.tracking_itr_num):
-
-            tic.record()
-
             render_pkg = render(
                 viewpoint, self.gaussians, self.pipeline_params, self.background
             )
-
-            toc.record()
-            torch.cuda.synchronize()
-            print ("Frontend [rendering]: ", tic.elapsed_time(toc))
-
             image, depth, opacity = (
                 render_pkg["render"],
                 render_pkg["depth"],
                 render_pkg["opacity"],
             )
-            # pose_optimizer.zero_grad()
-            # loss_tracking = get_loss_tracking(
-            #     self.config, image, depth, opacity, viewpoint
-            # )
-            # loss_tracking.backward()
+            pose_optimizer.zero_grad()
+            loss_tracking = get_loss_tracking(
+                self.config, image, depth, opacity, viewpoint
+            )
+            loss_tracking.backward()
 
             with torch.no_grad():
-                # pose_optimizer.step()
-                # converged = update_pose(viewpoint)
-                viewpoint.update_RT(viewpoint.R_gt, viewpoint.T_gt)
-                converged = True
+                pose_optimizer.step()
+                converged = update_pose(viewpoint)
 
             if tracking_itr % 10 == 0:
                 self.q_main2vis.put(
@@ -359,14 +347,14 @@ class FrontEnd(mp.Process):
                 if cur_frame_idx >= len(self.dataset):
                 # if cur_frame_idx >= 100:
                     if self.save_results:
-                        eval_ate(
-                            self.cameras,
-                            self.kf_indices,
-                            self.save_dir,
-                            0,
-                            final=True,
-                            monocular=self.monocular,
-                        )
+                        # eval_ate(
+                        #     self.cameras,
+                        #     self.kf_indices,
+                        #     self.save_dir,
+                        #     0,
+                        #     final=True,
+                        #     monocular=self.monocular,
+                        # )
                         save_gaussians(
                             self.gaussians, self.save_dir, "final", final=True
                         )
@@ -384,18 +372,10 @@ class FrontEnd(mp.Process):
                     time.sleep(0.01)
                     continue
 
-                toc.record()
-                torch.cuda.synchronize()
-                print ("Frontend [preprocess]: ", tic.elapsed_time(toc))
-
                 viewpoint = Camera.init_from_dataset(
                     self.dataset, cur_frame_idx, projection_matrix
                 )
                 viewpoint.compute_grad_mask(self.config)
-
-                toc.record()
-                torch.cuda.synchronize()
-                print ("Frontend [grad mask]: ", tic.elapsed_time(toc))
 
                 self.cameras[cur_frame_idx] = viewpoint
 
@@ -408,19 +388,10 @@ class FrontEnd(mp.Process):
                 self.initialized = self.initialized or (
                     len(self.current_window) == self.window_size
                 )
-                toc.record()
-                torch.cuda.synchronize()
-                print ("Frontend [before tracking]: ", tic.elapsed_time(toc))
-
 
                 print ("cur_frame_idx_front: ", cur_frame_idx)
                 # Tracking
                 render_pkg = self.tracking(cur_frame_idx, viewpoint)
-
-                toc.record()
-                torch.cuda.synchronize()
-                print ("Frontend [tracking]: ", tic.elapsed_time(toc))
-
 
                 current_window_dict = {}
                 current_window_dict[self.current_window[0]] = self.current_window[1:]
@@ -449,12 +420,6 @@ class FrontEnd(mp.Process):
                     curr_visibility,
                     self.occ_aware_visibility,
                 )
-
-                toc.record()
-                torch.cuda.synchronize()
-                print ("Frontend [keyframe logic]: ", tic.elapsed_time(toc))
-
-
                 if len(self.current_window) < self.window_size:
                     union = torch.logical_or(
                         curr_visibility, self.occ_aware_visibility[last_keyframe_idx]
@@ -467,12 +432,6 @@ class FrontEnd(mp.Process):
                         check_time
                         and point_ratio < self.config["Training"]["kf_overlap"]
                     )
-
-                toc.record()
-                torch.cuda.synchronize()
-                print ("Frontend [visibility]: ", tic.elapsed_time(toc))
-
-
                 if self.single_thread:
                     create_kf = check_time and create_kf
                 if create_kf:
@@ -517,10 +476,10 @@ class FrontEnd(mp.Process):
                     )
                 toc.record()
                 torch.cuda.synchronize()
-                # if create_kf:
-                #     # throttle at 3fps when keyframe is added
-                #     duration = tic.elapsed_time(toc)
-                #     time.sleep(max(0.01, 1.0 / 3.0 - duration / 1000))
+                if create_kf:
+                    # throttle at 3fps when keyframe is added
+                    duration = tic.elapsed_time(toc)
+                    time.sleep(max(0.01, 1.0 / 3.0 - duration / 1000))
                 print ("Frontend duration: ", tic.elapsed_time(toc))
             else:
                 data = self.frontend_queue.get()
