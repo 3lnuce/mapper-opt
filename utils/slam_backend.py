@@ -6,6 +6,7 @@ import torch.multiprocessing as mp
 from tqdm import tqdm
 
 from gaussian_splatting.gaussian_renderer import render
+from gaussian_splatting.gaussian_renderer import fast_render
 from gaussian_splatting.utils.loss_utils import l1_loss, ssim
 from utils.logging_utils import Log
 from utils.multiprocessing_utils import clone_obj
@@ -22,8 +23,9 @@ from gaussian_splatting.utils.system_utils import mkdir_p
 '''
     Macros
 '''
-TIMING = 1
-LOG_ERROR = 1
+TIMING = 0
+LOG_ERROR = 0
+LOG_ERROR_INIT = 0
 
 class BackEnd(mp.Process):
     def __init__(self, config):
@@ -79,7 +81,7 @@ class BackEnd(mp.Process):
         )
 
 
-    def save_image(self, render_pkg, viewpoint, path, is_init=False, iter_idx=None, frame_idx=None, cam_idx=None):
+    def save_image(self, render_pkg, viewpoint, path, ref_pkg=None, is_init=False, iter_idx=None, frame_idx=None, cam_idx=None):
         if is_init:
             file_prefix = "init_iter_%d" % (iter_idx)
         else:
@@ -108,6 +110,17 @@ class BackEnd(mp.Process):
         img_gt = o3d.geometry.Image(gt)
         o3d.io.write_image("%s/%s_gt.png" %(path, file_prefix), img_gt)
         o3d.io.write_image("%s/%s_render.png" %(path, file_prefix), img_render)
+        if ref_pkg is not None:
+            ref = (
+                (torch.clamp(ref_pkg["render"], min=0, max=1.0) * 255)
+                .byte()
+                .permute(1 ,2 ,0)
+                .contiguous()
+                .cpu()
+                .numpy()
+            )
+            img_ref = o3d.geometry.Image(ref)
+            o3d.io.write_image("%s/%s_render_ref.png" %(path, file_prefix), img_ref)
 
         # compute and save error map
         image = render_pkg["render"]
@@ -117,8 +130,14 @@ class BackEnd(mp.Process):
         _, h, w = gt_image.shape
         mask_shape = (1, h, w)
         rgb_boundary_threshold = self.config["Training"]["rgb_boundary_threshold"]
+
+        '''
         rgb_pixel_mask = (gt_image.sum(dim=0) > rgb_boundary_threshold).view(*depth.shape)
         l1_rgb = torch.abs(image_ab * rgb_pixel_mask - gt_image * rgb_pixel_mask)
+        '''
+        # mask out skipped tiles for computing loss
+        test_rgb_pixel_mask = (image.sum(dim=0) > rgb_boundary_threshold).view(*mask_shape)
+        l1_rgb = torch.abs(image * test_rgb_pixel_mask - gt_image * test_rgb_pixel_mask)
 
         error_map = l1_rgb.detach().mean(dim=0).cpu().numpy()
         cmap = plt.get_cmap("jet")
@@ -126,9 +145,9 @@ class BackEnd(mp.Process):
         # matplotlib.image.imsave('%s/frame_%d_cam_%d_iter_%d_error.png' %(path, frame_idx, cam_idx, iter_idx), error_map)
         matplotlib.image.imsave('%s/%s_error.png' %(path, file_prefix), error_map)
 
-    def add_next_kf(self, frame_idx, viewpoint, init=False, scale=2.0, depth_map=None):
+    def add_next_kf(self, frame_idx, viewpoint, init=False, scale=2.0, depth_map=None, last_viewport=None):
         self.gaussians.extend_from_pcd_seq(
-            viewpoint, kf_id=frame_idx, init=init, scale=scale, depthmap=depth_map
+            viewpoint, kf_id=frame_idx, init=init, scale=scale, depthmap=depth_map, last_viewport=last_viewport
         )
 
     def reset(self):
@@ -146,7 +165,7 @@ class BackEnd(mp.Process):
             self.backend_queue.get()
 
     def initialize_map(self, cur_frame_idx, viewpoint, frame_idx=-1):
-        if (LOG_ERROR):
+        if (LOG_ERROR_INIT):
             img_dir = os.path.join(self.save_dir, "images", "init_iter_%d" % (self.init_itr_num))
             mkdir_p(img_dir)
 
@@ -156,13 +175,18 @@ class BackEnd(mp.Process):
         tot_forward = 0
         tot_bckward = 0
 
+        # print ("before init.: ", self.gaussians._xyz.shape, " flag: ", self.gaussians.is_active.shape)
         for mapping_iteration in range(self.init_itr_num):
+            # print ("init. iters: ", mapping_iteration, ", gaussians: ", self.gaussians._xyz.shape, ", flag: ", self.gaussians.is_active.shape)
             tic_loop.record()
 
             self.iteration_count += 1
+
             render_pkg = render(
+            # render_pkg = fast_render(
                 viewpoint, self.gaussians, self.pipeline_params, self.background
             )
+
             (
                 image,
                 viewspace_point_tensor,
@@ -180,16 +204,20 @@ class BackEnd(mp.Process):
                 render_pkg["opacity"],
                 render_pkg["n_touched"],
             )
-            loss_init = get_loss_mapping(
-                self.config, image, depth, viewpoint, opacity, initialization=True
-            )
 
-            if (LOG_ERROR):
+            if (LOG_ERROR_INIT):
+                render_pkg_ref = render(
+                    viewpoint, self.gaussians, self.pipeline_params, self.background
+                )
                 self.save_image(
                     render_pkg, viewpoint, img_dir,
+                    ref_pkg=render_pkg_ref,
                     is_init=True,
                     iter_idx=mapping_iteration
                 )
+            loss_init = get_loss_mapping(
+                self.config, image, depth, viewpoint, opacity, initialization=True
+            )
 
             if (TIMING):
                 toc_loop.record()
@@ -236,13 +264,14 @@ class BackEnd(mp.Process):
         self.occ_aware_visibility[cur_frame_idx] = (n_touched > 0).long()
         Log("Initialized map")
 
-        print("[Backend] [tot_forward]: ", tot_forward)
-        print("[Backend] [tot_bckward]: ", tot_bckward)
-        logger.info('test')
+        if (TIMING):
+            print("[Backend] [tot_forward]: ", tot_forward)
+            print("[Backend] [tot_bckward]: ", tot_bckward)
 
         return render_pkg
 
     def map(self, current_window, prune=False, iters=1, frame_idx=-1):
+        # print ("before map.: ", self.gaussians._xyz.shape, " flag: ", self.gaussians.is_active.shape)
         if (LOG_ERROR):
             img_dir = os.path.join(self.save_dir, "images", "frame_%d_iter_%d_cam_%d" \
                                                 % (frame_idx, iters, len(current_window)))
@@ -273,6 +302,7 @@ class BackEnd(mp.Process):
         # print("iters: ", iters)
         # print("curr_window: ", len(current_window))
         for iter_idx in range(iters):
+            # print ("map. iters: ", iter_idx, ", gaussians: ", self.gaussians._xyz.shape, ", flag: ", self.gaussians.is_active.shape)
             tic.record()
             self.iteration_count += 1
             self.last_sent += 1
@@ -290,9 +320,12 @@ class BackEnd(mp.Process):
 
                 viewpoint = viewpoint_stack[cam_idx]
                 keyframes_opt.append(viewpoint)
-                render_pkg = render(
+
+                # render_pkg = render(
+                render_pkg = fast_render(
                     viewpoint, self.gaussians, self.pipeline_params, self.background
                 )
+
                 (
                     image,
                     viewspace_point_tensor,
@@ -317,8 +350,12 @@ class BackEnd(mp.Process):
 
                 if (LOG_ERROR):
                     if (prune==False and iters > 1 and frame_idx != -1):
+                            render_pkg_ref = render(
+                                viewpoint, self.gaussians, self.pipeline_params, self.background
+                            )
                             self.save_image(
                                 render_pkg, viewpoint, img_dir,
+                                ref_pkg=render_pkg_ref,
                                 is_init=False,
                                 iter_idx=iter_idx,
                                 frame_idx=frame_idx,
@@ -341,9 +378,12 @@ class BackEnd(mp.Process):
                 tic_loop.record()
 
                 viewpoint = random_viewpoint_stack[cam_idx]
-                render_pkg = render(
-                    viewpoint, self.gaussians, self.pipeline_params, self.background
+
+                # render_pkg = render(
+                render_pkg = fast_render(
+                    viewpoint, self.gaussians, self.pipeline_params, self.background #, mask=test_mask
                 )
+
                 (
                     image,
                     viewspace_point_tensor,
@@ -478,8 +518,9 @@ class BackEnd(mp.Process):
                 #         continue
                 #     update_pose(viewpoint)
 
-        print("[Backend] [tot_forward]: ", tot_forward)
-        print("[Backend] [tot_bckward]: ", tot_bckward)
+        if (TIMING):
+            print("[Backend] [tot_forward]: ", tot_forward)
+            print("[Backend] [tot_bckward]: ", tot_bckward)
 
         return gaussian_split
 
@@ -607,7 +648,10 @@ class BackEnd(mp.Process):
 
                     self.viewpoints[cur_frame_idx] = viewpoint
                     self.current_window = current_window
-                    self.add_next_kf(cur_frame_idx, viewpoint, depth_map=depth_map)
+
+                    # python >= 3.7 has keys sorted by default
+                    last_vp_key = list(sorted(self.viewpoints.keys()))[-2]
+                    self.add_next_kf(cur_frame_idx, viewpoint, depth_map=depth_map, last_viewport=self.viewpoints[last_vp_key])
 
                     if (TIMING):
                         toc.record()

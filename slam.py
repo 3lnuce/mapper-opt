@@ -90,6 +90,7 @@ class SLAM:
         self.backend.backend_queue = backend_queue
         self.backend.live_mode = self.live_mode
 
+        self.backend.save_dir = self.save_dir
         self.backend.set_hyperparams()
 
         self.params_gui = gui_utils.ParamsGUI(

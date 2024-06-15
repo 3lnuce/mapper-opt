@@ -30,6 +30,13 @@ from gaussian_splatting.utils.graphics_utils import BasicPointCloud, getWorld2Vi
 from gaussian_splatting.utils.sh_utils import RGB2SH
 from gaussian_splatting.utils.system_utils import mkdir_p
 
+'''
+    Macros:
+        CLEANUP: cleanup old flags
+        PROJECT: project to compute insertion mask
+'''
+CLEANUP = 1
+PROJECT = 1
 
 class GaussianModel:
     def __init__(self, sh_degree: int, config=None):
@@ -47,6 +54,7 @@ class GaussianModel:
 
         self.unique_kfIDs = torch.empty(0).int()
         self.n_obs = torch.empty(0).int()
+        self.is_active = torch.empty(0, device="cuda").int()
 
         self.optimizer = None
 
@@ -104,7 +112,37 @@ class GaussianModel:
         if self.active_sh_degree < self.max_sh_degree:
             self.active_sh_degree += 1
 
-    def create_pcd_from_image(self, cam_info, init=False, scale=2.0, depthmap=None):
+    def compute_insertion_mask(self, new_xyz, last_viewport):
+        # print ("new_xyz before: ", new_xyz.shape)
+        # o3d.create_from_rgbd_image takes extrinsic but applies inverse
+        # points projected from cam to world are then multiplied with the inv mat
+        extrinsic = getWorld2View2(last_viewport.R, last_viewport.T).cpu().numpy()
+
+        # homo coords
+        new_xyz = np.concatenate((new_xyz, np.ones((new_xyz.shape[0], 1))), axis=1)
+
+        out = np.dot(extrinsic, new_xyz.T).T
+
+        u = (((out[:, 0] * last_viewport.fx) / out[:, 2]) + last_viewport.cx + 0.5).astype(int)
+        v = (((out[:, 1] * last_viewport.fy) / out[:, 2]) + last_viewport.cy + 0.5).astype(int)
+
+        coord = np.stack((u, v), axis=1)
+
+        mask =  (coord[:, 0] >= 0) & (coord[:, 0] <= last_viewport.image_width) & \
+                (coord[:, 1] >= 0) & (coord[:, 1] <= last_viewport.image_height)
+
+        mask = ~mask
+
+        # TODO: temporarily fixing the issue with too few points added
+        if (mask.sum() <= 10):
+            mask[-11 : -1] = 1
+
+        # print ("shape: ", mask.shape)
+        # print ("sum mask", mask.sum())
+        # print ("new_xyz shape after: ", new_xyz[mask].shape)
+        return mask
+
+    def create_pcd_from_image(self, cam_info, init=False, scale=2.0, depthmap=None, last_viewport=None):
         cam = cam_info
         image_ab = (torch.exp(cam.exposure_a)) * cam.original_image + cam.exposure_b
         image_ab = torch.clamp(image_ab, 0.0, 1.0)
@@ -128,9 +166,9 @@ class GaussianModel:
             rgb = o3d.geometry.Image(rgb_raw.astype(np.uint8))
             depth = o3d.geometry.Image(depth_raw.astype(np.float32))
 
-        return self.create_pcd_from_image_and_depth(cam, rgb, depth, init)
+        return self.create_pcd_from_image_and_depth(cam, rgb, depth, init, last_viewport)
 
-    def create_pcd_from_image_and_depth(self, cam, rgb, depth, init=False):
+    def create_pcd_from_image_and_depth(self, cam, rgb, depth, init=False, last_viewport=None):
         if init:
             downsample_factor = self.config["Dataset"]["pcd_downsample_init"]
         else:
@@ -164,6 +202,11 @@ class GaussianModel:
         pcd_tmp = pcd_tmp.random_down_sample(1.0 / downsample_factor)
         new_xyz = np.asarray(pcd_tmp.points)
         new_rgb = np.asarray(pcd_tmp.colors)
+
+        if last_viewport is not None and PROJECT:
+            mask = self.compute_insertion_mask(new_xyz, last_viewport)
+            new_xyz = new_xyz[mask]
+            new_rgb = new_rgb[mask]
 
         pcd = BasicPointCloud(
             points=new_xyz, colors=new_rgb, normals=np.zeros((new_xyz.shape[0], 3))
@@ -221,6 +264,13 @@ class GaussianModel:
 
         new_unique_kfIDs = torch.ones((new_xyz.shape[0])).int() * kf_id
         new_n_obs = torch.zeros((new_xyz.shape[0])).int()
+        new_is_active = torch.ones(new_xyz.shape[0], device="cuda").int()
+
+        # cleanup old flags
+        if CLEANUP:
+            self.is_active[:] = 0
+            self.is_active.int()
+
         self.densification_postfix(
             new_xyz,
             new_features_dc,
@@ -230,13 +280,14 @@ class GaussianModel:
             new_rotation,
             new_kf_ids=new_unique_kfIDs,
             new_n_obs=new_n_obs,
+            new_is_active=new_is_active,
         )
 
     def extend_from_pcd_seq(
-        self, cam_info, kf_id=-1, init=False, scale=2.0, depthmap=None
+        self, cam_info, kf_id=-1, init=False, scale=2.0, depthmap=None, last_viewport=None
     ):
         fused_point_cloud, features, scales, rots, opacities = (
-            self.create_pcd_from_image(cam_info, init, scale=scale, depthmap=depthmap)
+            self.create_pcd_from_image(cam_info, init, scale=scale, depthmap=depthmap, last_viewport=last_viewport)
         )
         self.extend_from_pcd(
             fused_point_cloud, features, scales, rots, opacities, kf_id
@@ -519,6 +570,7 @@ class GaussianModel:
         self.max_radii2D = self.max_radii2D[valid_points_mask]
         self.unique_kfIDs = self.unique_kfIDs[valid_points_mask.cpu()]
         self.n_obs = self.n_obs[valid_points_mask.cpu()]
+        self.is_active = self.is_active[valid_points_mask]
 
     def cat_tensors_to_optimizer(self, tensors_dict):
         optimizable_tensors = {}
@@ -564,6 +616,7 @@ class GaussianModel:
         new_rotation,
         new_kf_ids=None,
         new_n_obs=None,
+        new_is_active=None,
     ):
         d = {
             "xyz": new_xyz,
@@ -589,6 +642,8 @@ class GaussianModel:
             self.unique_kfIDs = torch.cat((self.unique_kfIDs, new_kf_ids)).int()
         if new_n_obs is not None:
             self.n_obs = torch.cat((self.n_obs, new_n_obs)).int()
+        if new_is_active is not None:
+            self.is_active = torch.cat((self.is_active, new_is_active)).int()
 
     def densify_and_split(self, grads, grad_threshold, scene_extent, N=2):
         n_init_points = self.get_xyz.shape[0]
@@ -619,6 +674,7 @@ class GaussianModel:
 
         new_kf_id = self.unique_kfIDs[selected_pts_mask.cpu()].repeat(N)
         new_n_obs = self.n_obs[selected_pts_mask.cpu()].repeat(N)
+        new_is_active = self.is_active[selected_pts_mask].repeat(N)
 
         self.densification_postfix(
             new_xyz,
@@ -629,6 +685,7 @@ class GaussianModel:
             new_rotation,
             new_kf_ids=new_kf_id,
             new_n_obs=new_n_obs,
+            new_is_active=new_is_active,
         )
 
         prune_filter = torch.cat(
@@ -660,6 +717,8 @@ class GaussianModel:
 
         new_kf_id = self.unique_kfIDs[selected_pts_mask.cpu()]
         new_n_obs = self.n_obs[selected_pts_mask.cpu()]
+        new_is_active = self.is_active[selected_pts_mask]
+
         self.densification_postfix(
             new_xyz,
             new_features_dc,
@@ -669,6 +728,7 @@ class GaussianModel:
             new_rotation,
             new_kf_ids=new_kf_id,
             new_n_obs=new_n_obs,
+            new_is_active=new_is_active,
         )
 
     def densify_and_prune(self, max_grad, min_opacity, extent, max_screen_size):
