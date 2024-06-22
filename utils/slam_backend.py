@@ -24,6 +24,7 @@ from gaussian_splatting.utils.system_utils import mkdir_p
     Macros
 '''
 TIMING = 0
+FREEZE_GS = 1
 LOG_ERROR = 0
 LOG_ERROR_INIT = 0
 
@@ -277,6 +278,9 @@ class BackEnd(mp.Process):
                                                 % (frame_idx, iters, len(current_window)))
             mkdir_p(img_dir)
 
+        file = os.path.join(self.save_dir, "frame_%d_loss.log" %frame_idx)
+        f = open(file, "w")
+
         tic = torch.cuda.Event(enable_timing=True)
         toc = torch.cuda.Event(enable_timing=True)
 
@@ -344,8 +348,9 @@ class BackEnd(mp.Process):
                     render_pkg["n_touched"],
                 )
 
+                active_pixel_mask = (image.sum(dim=0) > self.config["Training"]["rgb_boundary_threshold"]).view(*depth.shape)
                 loss_mapping += get_loss_mapping(
-                    self.config, image, depth, viewpoint, opacity
+                    self.config, image, depth, viewpoint, opacity, active_pixel_mask=active_pixel_mask
                 )
 
                 if (LOG_ERROR):
@@ -401,8 +406,9 @@ class BackEnd(mp.Process):
                     render_pkg["opacity"],
                     render_pkg["n_touched"],
                 )
+                active_pixel_mask = (image.sum(dim=0) > self.config["Training"]["rgb_boundary_threshold"]).view(*depth.shape)
                 loss_mapping += get_loss_mapping(
-                    self.config, image, depth, viewpoint, opacity
+                    self.config, image, depth, viewpoint, opacity, active_pixel_mask=active_pixel_mask
                 )
                 viewspace_point_tensor_acm.append(viewspace_point_tensor)
                 visibility_filter_acm.append(visibility_filter)
@@ -422,6 +428,9 @@ class BackEnd(mp.Process):
             scaling = self.gaussians.get_scaling
             isotropic_loss = torch.abs(scaling - scaling.mean(dim=1).view(-1, 1))
             loss_mapping += 10 * isotropic_loss.mean()
+
+            print ("iter, ", iter_idx, " , loss, ", loss_mapping)
+            f.write("iter, %d, loss, %f\n" %(iter_idx, loss_mapping))
             loss_mapping.backward()
 
             if (TIMING):
@@ -505,6 +514,16 @@ class BackEnd(mp.Process):
                     self.gaussians.reset_opacity_nonvisible(visibility_filter_acm)
                     gaussian_split = True
 
+                # param names: xyz, f_dc, f_rest, opacity, scaling, rotation
+                for param in self.gaussians.optimizer.param_groups:
+                    mask = ~self.gaussians.is_active.cpu().bool().numpy()
+                    if not FREEZE_GS:
+                        mask[:] = False
+
+                    param_tensor = param['params'][0]
+                    if (param_tensor.grad is not None):
+                        param_tensor.grad[mask] = torch.zeros(param_tensor.shape[-1], device='cuda')
+
                 self.gaussians.optimizer.step()
                 self.gaussians.optimizer.zero_grad(set_to_none=True)
                 self.gaussians.update_learning_rate(self.iteration_count)
@@ -518,6 +537,7 @@ class BackEnd(mp.Process):
                 #         continue
                 #     update_pose(viewpoint)
 
+        f.close()
         if (TIMING):
             print("[Backend] [tot_forward]: ", tot_forward)
             print("[Backend] [tot_bckward]: ", tot_bckward)
