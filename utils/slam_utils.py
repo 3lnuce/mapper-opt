@@ -88,17 +88,17 @@ def get_loss_tracking_rgbd(
     return alpha * l1_rgb + (1 - alpha) * l1_depth.mean()
 
 
-def get_loss_mapping(config, image, depth, viewpoint, opacity, initialization=False):
+def get_loss_mapping(config, image, depth, viewpoint, opacity, initialization=False, active_pixel_mask=None):
     if initialization:
         image_ab = image
     else:
         image_ab = (torch.exp(viewpoint.exposure_a)) * image + viewpoint.exposure_b
     if config["Training"]["monocular"]:
-        return get_loss_mapping_rgb(config, image_ab, depth, viewpoint)
-    return get_loss_mapping_rgbd(config, image_ab, depth, viewpoint)
+        return get_loss_mapping_rgb(config, image_ab, depth, viewpoint, active_pixel_mask=active_pixel_mask)
+    return get_loss_mapping_rgbd(config, image_ab, depth, viewpoint, active_pixel_mask=active_pixel_mask)
 
 
-def get_loss_mapping_rgb(config, image, depth, viewpoint):
+def get_loss_mapping_rgb(config, image, depth, viewpoint, active_pixel_mask=None):
     gt_image = viewpoint.original_image.cuda()
     _, h, w = gt_image.shape
     mask_shape = (1, h, w)
@@ -116,7 +116,7 @@ def get_loss_mapping_rgb(config, image, depth, viewpoint):
     return l1_rgb.sum() / test_rgb_pixel_mask.sum()
 
 
-def get_loss_mapping_rgbd(config, image, depth, viewpoint, initialization=False):
+def get_loss_mapping_rgbd(config, image, depth, viewpoint, initialization=False, active_pixel_mask=None):
     alpha = config["Training"]["alpha"] if "alpha" in config["Training"] else 0.95
     rgb_boundary_threshold = config["Training"]["rgb_boundary_threshold"]
 
@@ -127,6 +127,10 @@ def get_loss_mapping_rgbd(config, image, depth, viewpoint, initialization=False)
     )[None]
     rgb_pixel_mask = (gt_image.sum(dim=0) > rgb_boundary_threshold).view(*depth.shape)
     depth_pixel_mask = (gt_depth > 0.01).view(*depth.shape)
+
+    if active_pixel_mask is not None:
+        rgb_pixel_mask = (rgb_pixel_mask & active_pixel_mask).view(*depth.shape)
+        depth_pixel_mask = (depth_pixel_mask & active_pixel_mask).view(*depth.shape)
 
     l1_rgb = torch.abs(image * rgb_pixel_mask - gt_image * rgb_pixel_mask)
     l1_depth = torch.abs(depth * depth_pixel_mask - gt_depth * depth_pixel_mask)
