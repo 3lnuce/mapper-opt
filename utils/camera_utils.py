@@ -62,6 +62,10 @@ class Camera(nn.Module):
 
         self.projection_matrix = projection_matrix.to(device=device)
 
+        self.const_world_view_transform = None
+        self.const_full_proj_transform = None
+        self.const_camera_center = None
+
     @staticmethod
     def init_from_dataset(dataset, idx, projection_matrix):
         gt_color, gt_depth, gt_pose = dataset[idx]
@@ -152,3 +156,8 @@ class Camera(nn.Module):
 
         self.exposure_a = None
         self.exposure_b = None
+
+    def comp_constant(self):
+        self.const_world_view_transform = self.world_view_transform
+        self.const_full_proj_transform = self.full_proj_transform
+        self.const_camera_center = self.camera_center

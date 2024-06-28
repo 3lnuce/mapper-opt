@@ -123,6 +123,7 @@ class FrontEnd(mp.Process):
 
         # Initialise the frame at the ground truth pose
         viewpoint.update_RT(viewpoint.R_gt, viewpoint.T_gt)
+        viewpoint.comp_constant()
 
         self.kf_indices = []
         depth_map = self.add_new_keyframe(cur_frame_idx, init=True)
@@ -137,6 +138,7 @@ class FrontEnd(mp.Process):
         tot_bckward = 0
 
         viewpoint.update_RT(viewpoint.R_gt, viewpoint.T_gt)
+        viewpoint.comp_constant()
 
         # opt_params = []
         # opt_params.append(
