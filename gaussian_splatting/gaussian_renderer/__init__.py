@@ -21,6 +21,7 @@ from diff_gaussian_rasterization import (
 from gaussian_splatting.scene.gaussian_model import GaussianModel
 from gaussian_splatting.utils.sh_utils import eval_sh
 
+PRECOMPUTE = 0
 
 def render(
     viewpoint_camera,
@@ -36,6 +37,51 @@ def render(
 
     Background tensor (bg_color) must be on GPU!
     """
+    # tic = torch.cuda.Event(enable_timing=True)
+    # toc = torch.cuda.Event(enable_timing=True)
+
+    # tic.record()
+    # print ("="* 50)
+
+    # if PRECOMPUTE:
+    #     image_height=int(viewpoint_camera.image_height)
+    #     image_width=int(viewpoint_camera.image_width)
+
+    #     toc.record()
+    #     torch.cuda.synchronize()
+    #     print("=== ckpt 1: ", tic.elapsed_time(toc))
+
+    #     # this
+    #     viewmatrix=viewpoint_camera.world_view_transform
+    #     const_viewmatrix = viewpoint_camera.const_world_view_transform
+
+    #     toc.record()
+    #     torch.cuda.synchronize()
+    #     print("=== this -> ckpt 1.1: ", tic.elapsed_time(toc))
+    #     if (not torch.eq(viewmatrix, const_viewmatrix).all().item()):
+    #         raise Exception("viewmatrix and const_viewmatrix are not the same")
+
+    #     # this
+    #     projmatrix=viewpoint_camera.full_proj_transform
+    #     const_projmatrix=viewpoint_camera.const_full_proj_transform
+    #     if (not torch.eq(projmatrix, const_projmatrix).all().item()):
+    #         raise Exception("viewmatrix and const_viewmatrix are not the same")
+
+    #     toc.record()
+    #     torch.cuda.synchronize()
+    #     print("=== this -> ckpt 1.2: ", tic.elapsed_time(toc))
+    #     # print (projmatrix)
+
+    #     # this
+    #     campos=viewpoint_camera.camera_center
+    #     const_campos=viewpoint_camera.const_camera_center
+    #     if (not torch.eq(campos, const_campos).all().item()):
+    #         raise Exception("viewmatrix and const_viewmatrix are not the same")
+
+    #     toc.record()
+    #     torch.cuda.synchronize()
+    #     print("=== this -> ckpt 1.3: ", tic.elapsed_time(toc))
+    #     # print (campos)
 
     # Create zero tensor. We will use it to make pytorch return gradients of the 2D (screen-space) means
     if pc.get_xyz.shape[0] == 0:
@@ -52,25 +98,42 @@ def render(
     except Exception:
         pass
 
-    # Set up rasterization configuration
     tanfovx = math.tan(viewpoint_camera.FoVx * 0.5)
     tanfovy = math.tan(viewpoint_camera.FoVy * 0.5)
 
-    raster_settings = GaussianRasterizationSettings(
-        image_height=int(viewpoint_camera.image_height),
-        image_width=int(viewpoint_camera.image_width),
-        tanfovx=tanfovx,
-        tanfovy=tanfovy,
-        bg=bg_color,
-        scale_modifier=scaling_modifier,
-        viewmatrix=viewpoint_camera.world_view_transform,
-        projmatrix=viewpoint_camera.full_proj_transform,
-        projmatrix_raw=viewpoint_camera.projection_matrix,
-        sh_degree=pc.active_sh_degree,
-        campos=viewpoint_camera.camera_center,
-        prefiltered=False,
-        debug=False,
-    )
+    # Set up rasterization configuration
+    if PRECOMPUTE:
+        raster_settings = GaussianRasterizationSettings(
+            image_height=int(viewpoint_camera.image_height),
+            image_width=int(viewpoint_camera.image_width),
+            tanfovx=tanfovx,
+            tanfovy=tanfovy,
+            bg=bg_color,
+            scale_modifier=scaling_modifier,
+            viewmatrix=viewpoint_camera.const_world_view_transform,
+            projmatrix=viewpoint_camera.const_full_proj_transform,
+            projmatrix_raw=viewpoint_camera.projection_matrix,
+            sh_degree=pc.active_sh_degree,
+            campos=viewpoint_camera.const_camera_center,
+            prefiltered=False,
+            debug=False,
+        )
+    else:
+        raster_settings = GaussianRasterizationSettings(
+            image_height=int(viewpoint_camera.image_height),
+            image_width=int(viewpoint_camera.image_width),
+            tanfovx=tanfovx,
+            tanfovy=tanfovy,
+            bg=bg_color,
+            scale_modifier=scaling_modifier,
+            viewmatrix=viewpoint_camera.world_view_transform,
+            projmatrix=viewpoint_camera.full_proj_transform,
+            projmatrix_raw=viewpoint_camera.projection_matrix,
+            sh_degree=pc.active_sh_degree,
+            campos=viewpoint_camera.camera_center,
+            prefiltered=False,
+            debug=False,
+        )
 
     rasterizer = GaussianRasterizer(raster_settings=raster_settings)
 
@@ -113,6 +176,10 @@ def render(
     else:
         colors_precomp = override_color
 
+    # toc.record()
+    # torch.cuda.synchronize()
+    # print("=== preparation: ", tic.elapsed_time(toc))
+
     # Rasterize visible Gaussians to image, obtain their radii (on screen).
     if mask is not None:
         rendered_image, radii, depth, opacity = rasterizer(
@@ -140,6 +207,10 @@ def render(
             theta=viewpoint_camera.cam_rot_delta,
             rho=viewpoint_camera.cam_trans_delta,
         )
+
+    # toc.record()
+    # torch.cuda.synchronize()
+    # print("=== call_cuda_rast: ", tic.elapsed_time(toc))
 
     # Those Gaussians that were frustum culled or had a radius of 0 were not visible.
     # They will be excluded from value updates used in the splitting criteria.
@@ -187,21 +258,38 @@ def fast_render(
     tanfovx = math.tan(viewpoint_camera.FoVx * 0.5)
     tanfovy = math.tan(viewpoint_camera.FoVy * 0.5)
 
-    raster_settings = GaussianRasterizationSettings(
-        image_height=int(viewpoint_camera.image_height),
-        image_width=int(viewpoint_camera.image_width),
-        tanfovx=tanfovx,
-        tanfovy=tanfovy,
-        bg=bg_color,
-        scale_modifier=scaling_modifier,
-        viewmatrix=viewpoint_camera.world_view_transform,
-        projmatrix=viewpoint_camera.full_proj_transform,
-        projmatrix_raw=viewpoint_camera.projection_matrix,
-        sh_degree=pc.active_sh_degree,
-        campos=viewpoint_camera.camera_center,
-        prefiltered=False,
-        debug=False,
-    )
+    if PRECOMPUTE:
+        raster_settings = GaussianRasterizationSettings(
+            image_height=int(viewpoint_camera.image_height),
+            image_width=int(viewpoint_camera.image_width),
+            tanfovx=tanfovx,
+            tanfovy=tanfovy,
+            bg=bg_color,
+            scale_modifier=scaling_modifier,
+            viewmatrix=viewpoint_camera.const_world_view_transform,
+            projmatrix=viewpoint_camera.const_full_proj_transform,
+            projmatrix_raw=viewpoint_camera.projection_matrix,
+            sh_degree=pc.active_sh_degree,
+            campos=viewpoint_camera.const_camera_center,
+            prefiltered=False,
+            debug=False,
+        )
+    else:
+        raster_settings = GaussianRasterizationSettings(
+            image_height=int(viewpoint_camera.image_height),
+            image_width=int(viewpoint_camera.image_width),
+            tanfovx=tanfovx,
+            tanfovy=tanfovy,
+            bg=bg_color,
+            scale_modifier=scaling_modifier,
+            viewmatrix=viewpoint_camera.world_view_transform,
+            projmatrix=viewpoint_camera.full_proj_transform,
+            projmatrix_raw=viewpoint_camera.projection_matrix,
+            sh_degree=pc.active_sh_degree,
+            campos=viewpoint_camera.camera_center,
+            prefiltered=False,
+            debug=False,
+        )
 
     rasterizer = GaussianRasterizerFast(raster_settings=raster_settings)
 
