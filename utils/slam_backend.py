@@ -23,10 +23,19 @@ from gaussian_splatting.utils.system_utils import mkdir_p
 '''
     Macros
 '''
-TIMING = 0
-FREEZE_GS = 1
+FREEZE_GS = 0
+
+LOG_LOSS = 1
 LOG_ERROR = 0
 LOG_ERROR_INIT = 0
+
+LOG_TILE = 0
+
+LOG_TIMING = 0
+PRINT_TIMING = 0
+
+tot_forward_v = []
+tot_bckward_v = []
 
 class BackEnd(mp.Process):
     def __init__(self, config):
@@ -178,7 +187,7 @@ class BackEnd(mp.Process):
 
         # print ("before init.: ", self.gaussians._xyz.shape, " flag: ", self.gaussians.is_active.shape)
         for mapping_iteration in range(self.init_itr_num):
-            # print ("init. iters: ", mapping_iteration, ", gaussians: ", self.gaussians._xyz.shape, ", flag: ", self.gaussians.is_active.shape)
+            print ("init. iters: ", mapping_iteration, "/", self.init_itr_num, ", gaussians: ", self.gaussians._xyz.shape, ", flag: ", self.gaussians.is_active.shape)
             tic_loop.record()
 
             self.iteration_count += 1
@@ -220,7 +229,7 @@ class BackEnd(mp.Process):
                 self.config, image, depth, viewpoint, opacity, initialization=True
             )
 
-            if (TIMING):
+            if (LOG_TIMING):
                 toc_loop.record()
                 torch.cuda.synchronize()
                 # print("Backend [Init Mapping]: ", tic_loop.elapsed_time(toc_loop))
@@ -231,7 +240,7 @@ class BackEnd(mp.Process):
 
             loss_init.backward()
 
-            if (TIMING):
+            if (LOG_TIMING):
                 toc_loop.record()
                 torch.cuda.synchronize()
                 # print("Backend [Init Mapping] Loss: ", tic_loop.elapsed_time(toc_loop))
@@ -265,21 +274,30 @@ class BackEnd(mp.Process):
         self.occ_aware_visibility[cur_frame_idx] = (n_touched > 0).long()
         Log("Initialized map")
 
-        if (TIMING):
+        if (LOG_TIMING):
             print("[Backend] [tot_forward]: ", tot_forward)
             print("[Backend] [tot_bckward]: ", tot_bckward)
 
+            tot_forward_v.append(tot_forward)
+            tot_bckward_v.append(tot_bckward)
         return render_pkg
 
     def map(self, current_window, prune=False, iters=1, frame_idx=-1):
         # print ("before map.: ", self.gaussians._xyz.shape, " flag: ", self.gaussians.is_active.shape)
+        # print ("===================================== frame idx: ", frame_idx)
         if (LOG_ERROR):
             img_dir = os.path.join(self.save_dir, "images", "frame_%d_iter_%d_cam_%d" \
                                                 % (frame_idx, iters, len(current_window)))
             mkdir_p(img_dir)
 
-        file = os.path.join(self.save_dir, "frame_%d_loss.log" %frame_idx)
-        f = open(file, "w")
+        if (LOG_TILE):
+            log_tile_dir = os.path.join(self.save_dir, "log_tile", "frame_%d_iter_%d_cam_%d" \
+                                            % (frame_idx, iters, len(current_window)))
+            mkdir_p(log_tile_dir)
+
+        if (LOG_LOSS):
+            file = os.path.join(self.save_dir, "frame_%d_loss.log" %frame_idx)
+            f = open(file, "w")
 
         tic = torch.cuda.Event(enable_timing=True)
         toc = torch.cuda.Event(enable_timing=True)
@@ -306,7 +324,7 @@ class BackEnd(mp.Process):
         # print("iters: ", iters)
         # print("curr_window: ", len(current_window))
         for iter_idx in range(iters):
-            # print ("map. iters: ", iter_idx, ", gaussians: ", self.gaussians._xyz.shape, ", flag: ", self.gaussians.is_active.shape)
+            print ("map. iters: ", iter_idx, "/", iters, ", gaussians: ", self.gaussians._xyz.shape, ", flag: ", self.gaussians.is_active.shape)
             tic.record()
             self.iteration_count += 1
             self.last_sent += 1
@@ -325,10 +343,23 @@ class BackEnd(mp.Process):
                 viewpoint = viewpoint_stack[cam_idx]
                 keyframes_opt.append(viewpoint)
 
-                # render_pkg = render(
-                render_pkg = fast_render(
-                    viewpoint, self.gaussians, self.pipeline_params, self.background
+                if (PRINT_TIMING):
+                    toc_loop.record()
+                    torch.cuda.synchronize()
+                    print("before_render: ", tic_loop.elapsed_time(toc_loop))
+
+                if (LOG_TILE):
+                    render_info = "%s/frame_%d_cam_%d_iter_%d.log" % (log_tile_dir, frame_idx, cam_idx, iter_idx)
+
+                render_pkg = render(
+                # render_pkg = fast_render(
+                    viewpoint, self.gaussians, self.pipeline_params, self.background, render_info=render_info
                 )
+
+                if (PRINT_TIMING):
+                    toc_loop.record()
+                    torch.cuda.synchronize()
+                    print("after_render: ", tic_loop.elapsed_time(toc_loop))
 
                 (
                     image,
@@ -352,6 +383,11 @@ class BackEnd(mp.Process):
                 loss_mapping += get_loss_mapping(
                     self.config, image, depth, viewpoint, opacity, active_pixel_mask=active_pixel_mask
                 )
+
+                if (PRINT_TIMING):
+                    toc_loop.record()
+                    torch.cuda.synchronize()
+                    print("get_loss: ", tic_loop.elapsed_time(toc_loop))
 
                 if (LOG_ERROR):
                     if (prune==False and iters > 1 and frame_idx != -1):
@@ -372,22 +408,33 @@ class BackEnd(mp.Process):
                 radii_acm.append(radii)
                 n_touched_acm.append(n_touched)
 
-                if (TIMING):
+                if (LOG_TIMING):
                     toc_loop.record()
                     torch.cuda.synchronize()
                     # print("Backend [Mapping] cam_idx_wind: ", cam_idx, ", time: ", tic_loop.elapsed_time(toc_loop))
                     tot_forward += tic_loop.elapsed_time(toc_loop)
-                    # print("tot_forward: ", tot_forward)
+                    # print("forward_per_iter_seq: ", tic_loop.elapsed_time(toc_loop))
 
             for cam_idx in torch.randperm(len(random_viewpoint_stack))[:2]:
                 tic_loop.record()
 
                 viewpoint = random_viewpoint_stack[cam_idx]
 
-                # render_pkg = render(
-                render_pkg = fast_render(
-                    viewpoint, self.gaussians, self.pipeline_params, self.background #, mask=test_mask
+                if (PRINT_TIMING):
+                    toc_loop.record()
+                    torch.cuda.synchronize()
+                    print("before_render: ", tic_loop.elapsed_time(toc_loop))
+
+                render_info = ""
+                render_pkg = render(
+                # render_pkg = fast_render(
+                    viewpoint, self.gaussians, self.pipeline_params, self.background, render_info=render_info
                 )
+
+                if (PRINT_TIMING):
+                    toc_loop.record()
+                    torch.cuda.synchronize()
+                    print("after_render: ", tic_loop.elapsed_time(toc_loop))
 
                 (
                     image,
@@ -410,16 +457,22 @@ class BackEnd(mp.Process):
                 loss_mapping += get_loss_mapping(
                     self.config, image, depth, viewpoint, opacity, active_pixel_mask=active_pixel_mask
                 )
+
+                if (PRINT_TIMING):
+                    toc_loop.record()
+                    torch.cuda.synchronize()
+                    print("get_loss: ", tic_loop.elapsed_time(toc_loop))
+
                 viewspace_point_tensor_acm.append(viewspace_point_tensor)
                 visibility_filter_acm.append(visibility_filter)
                 radii_acm.append(radii)
 
-                if (TIMING):
+                if (LOG_TIMING):
                     toc_loop.record()
                     torch.cuda.synchronize()
                     # print("Backend [Mapping] cam_idx_rand: ", cam_idx, ", time: ", tic_loop.elapsed_time(toc_loop))
                     tot_forward += tic_loop.elapsed_time(toc_loop)
-                    # print("tot_forward: ", tot_forward)
+                    # print("forward_per_iter_rand: ", tic_loop.elapsed_time(toc_loop))
 
             # print("Backend [Mapping] Iter: ", _, ", time forward: ", tot_forward)
 
@@ -429,11 +482,12 @@ class BackEnd(mp.Process):
             isotropic_loss = torch.abs(scaling - scaling.mean(dim=1).view(-1, 1))
             loss_mapping += 10 * isotropic_loss.mean()
 
-            print ("iter, ", iter_idx, " , loss, ", loss_mapping)
-            f.write("iter, %d, loss, %f\n" %(iter_idx, loss_mapping))
+            if (LOG_LOSS):
+                print ("iter, ", iter_idx, " , loss, ", loss_mapping)
+                f.write("iter, %d, loss, %f\n" %(iter_idx, loss_mapping))
             loss_mapping.backward()
 
-            if (TIMING):
+            if (LOG_TIMING):
                 toc.record()
                 torch.cuda.synchronize()
                 # print("Backend [Mapping] Loss: ", tic.elapsed_time(toc))
@@ -536,11 +590,16 @@ class BackEnd(mp.Process):
                 #     if viewpoint.uid == 0:
                 #         continue
                 #     update_pose(viewpoint)
-
-        f.close()
-        if (TIMING):
+        if (LOG_LOSS):
+            f.close()
+        if (LOG_TIMING):
             print("[Backend] [tot_forward]: ", tot_forward)
             print("[Backend] [tot_bckward]: ", tot_bckward)
+            tot_forward_v.append(tot_forward)
+            tot_bckward_v.append(tot_bckward)
+
+            print("[Backend] [tot_forward_sum]: ", sum(tot_forward_v))
+            print("[Backend] [tot_bckward_sum]: ", sum(tot_bckward_v))
 
         return gaussian_split
 
@@ -614,8 +673,10 @@ class BackEnd(mp.Process):
                 if self.last_sent >= 10:
                     self.map(self.current_window, prune=True, iters=10)
                     self.push_to_frontend()
+                # time.sleep(0.01)
 
-                if (TIMING):
+
+                if (PRINT_TIMING):
                     toc.record()
                     torch.cuda.synchronize()
                     print("[Backend] [Duration]: ", tic.elapsed_time(toc), " routine")
@@ -650,13 +711,13 @@ class BackEnd(mp.Process):
                     self.initialize_map(cur_frame_idx, viewpoint, frame_idx=cur_frame_idx)
                     self.push_to_frontend("init")
 
-                    if (TIMING):
+                    if (PRINT_TIMING):
                         toc.record()
                         torch.cuda.synchronize()
                         print("[Backend] [Duration]: ", tic.elapsed_time(toc), " init")
 
                 elif data[0] == "keyframe":
-                    print("cur_frame_idx_back: ", data[1], "keyframe")
+                    # print("cur_frame_idx_back: ", data[1], "keyframe")
                     # print("cur_wind_len: ", len(self.current_window))
 
                     tic.record()
@@ -673,7 +734,7 @@ class BackEnd(mp.Process):
                     last_vp_key = list(sorted(self.viewpoints.keys()))[-2]
                     self.add_next_kf(cur_frame_idx, viewpoint, depth_map=depth_map, last_viewport=self.viewpoints[last_vp_key])
 
-                    if (TIMING):
+                    if (PRINT_TIMING):
                         toc.record()
                         torch.cuda.synchronize()
                         print("[Backend] [Add KFs]: ", tic.elapsed_time(toc))
@@ -737,28 +798,28 @@ class BackEnd(mp.Process):
                         )
                     self.keyframe_optimizers = torch.optim.Adam(opt_params)
 
-                    if (TIMING):
+                    if (PRINT_TIMING):
                         toc.record()
                         torch.cuda.synchronize()
                         print("[Backend] [Init KF Opts]: ", tic.elapsed_time(toc))
 
                     self.map(self.current_window, iters=iter_per_kf, frame_idx=cur_frame_idx)
 
-                    if (TIMING):
+                    if (PRINT_TIMING):
                         toc.record()
                         torch.cuda.synchronize()
                         print("[Backend] [Mapping]: ", tic.elapsed_time(toc))
 
                     self.map(self.current_window, prune=True)
 
-                    if (TIMING):
+                    if (PRINT_TIMING):
                         toc.record()
                         torch.cuda.synchronize()
                         print("[Backend] [Pruning]: ", tic.elapsed_time(toc))
 
                     self.push_to_frontend("keyframe")
 
-                    if (TIMING):
+                    if (PRINT_TIMING):
                         toc.record()
                         torch.cuda.synchronize()
                         print("[Backend] [Duration]: ", tic.elapsed_time(toc), " keyframe", "\n")

@@ -31,6 +31,7 @@ def render(
     scaling_modifier=1.0,
     override_color=None,
     mask=None,
+    render_info=""
 ):
     """
     Render the scene.
@@ -117,6 +118,7 @@ def render(
             campos=viewpoint_camera.const_camera_center,
             prefiltered=False,
             debug=False,
+            render_info=render_info,
         )
     else:
         raster_settings = GaussianRasterizationSettings(
@@ -133,6 +135,7 @@ def render(
             campos=viewpoint_camera.camera_center,
             prefiltered=False,
             debug=False,
+            render_info=render_info,
         )
 
     rasterizer = GaussianRasterizer(raster_settings=raster_settings)
