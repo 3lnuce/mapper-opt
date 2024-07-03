@@ -348,12 +348,15 @@ class BackEnd(mp.Process):
                     torch.cuda.synchronize()
                     print("before_render: ", tic_loop.elapsed_time(toc_loop))
 
+                render_info = ""
                 if (LOG_TILE):
                     render_info = "%s/frame_%d_cam_%d_iter_%d.log" % (log_tile_dir, frame_idx, cam_idx, iter_idx)
 
-                render_pkg = render(
-                # render_pkg = fast_render(
-                    viewpoint, self.gaussians, self.pipeline_params, self.background, render_info=render_info
+                # render_pkg = render(
+                #     viewpoint, self.gaussians, self.pipeline_params, self.background, render_info=render_info
+                # )
+                render_pkg = fast_render(
+                    viewpoint, self.gaussians, self.pipeline_params, self.background
                 )
 
                 if (PRINT_TIMING):
@@ -426,9 +429,11 @@ class BackEnd(mp.Process):
                     print("before_render: ", tic_loop.elapsed_time(toc_loop))
 
                 render_info = ""
-                render_pkg = render(
-                # render_pkg = fast_render(
-                    viewpoint, self.gaussians, self.pipeline_params, self.background, render_info=render_info
+                # render_pkg = render(
+                #     viewpoint, self.gaussians, self.pipeline_params, self.background, render_info=render_info
+                # )
+                render_pkg = fast_render(
+                    viewpoint, self.gaussians, self.pipeline_params, self.background
                 )
 
                 if (PRINT_TIMING):
