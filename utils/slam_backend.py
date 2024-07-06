@@ -23,7 +23,6 @@ from gaussian_splatting.utils.system_utils import mkdir_p
 '''
     Macros
 '''
-FREEZE_GS = 0
 
 LOG_LOSS = 1
 LOG_ERROR = 0
@@ -575,12 +574,16 @@ class BackEnd(mp.Process):
 
                 # param names: xyz, f_dc, f_rest, opacity, scaling, rotation
                 for param in self.gaussians.optimizer.param_groups:
-                    mask = ~self.gaussians.is_active.cpu().bool().numpy()
-                    if not FREEZE_GS:
-                        mask[:] = False
+                    # param_tensor = param['params'][0]
+                    # print ("=== param name: ", param['name'])
+                    # print ("[DEBUG_LOG] param grad: ", param_tensor.grad[mask])
+                    # print ("[DEBUG_LOG] param grad sum: ", param_tensor.grad[mask].sum())
 
-                    param_tensor = param['params'][0]
-                    if (param_tensor.grad is not None):
+                    ## Scaling needs manual reset due to the usage in isotropic_loss
+                    ## Other params are already zeroed out in backward tile skipping
+                    if (param['name'] == 'scaling'):
+                        param_tensor = param['params'][0]
+                        mask = ~self.gaussians.is_active.cpu().bool().numpy()
                         param_tensor.grad[mask] = torch.zeros(param_tensor.shape[-1], device='cuda')
 
                 self.gaussians.optimizer.step()
