@@ -12,19 +12,19 @@ import open3d.visualization.gui as gui
 import open3d.visualization.rendering as rendering
 import torch
 import torch.nn.functional as F
-from OpenGL import GL as gl
 
 from gaussian_splatting.gaussian_renderer import render
 from gaussian_splatting.utils.graphics_utils import fov2focal, getWorld2View2
 from gui.gl_render import util, util_gau
 from gui.gl_render.render_ogl import OpenGLRenderer
 from gui.gui_utils import (
-    GaussianPacket,
-    Packet_vis2main,
     create_frustum,
     cv_gl,
+    GaussianPacket,
     get_latest_queue,
+    Packet_vis2main,
 )
+from OpenGL import GL as gl
 from utils.camera_utils import Camera
 from utils.logging_utils import Log
 

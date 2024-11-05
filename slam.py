@@ -6,19 +6,22 @@ from datetime import datetime
 
 import torch
 import torch.multiprocessing as mp
-import yaml
-from munch import munchify
 
 import wandb
+import yaml
 from gaussian_splatting.scene.gaussian_model import GaussianModel
 from gaussian_splatting.utils.system_utils import mkdir_p
 from gui import gui_utils, slam_gui
+from munch import munchify
 from utils.config_utils import load_config
 from utils.dataset import load_dataset
 from utils.eval_utils import eval_ate, eval_rendering, save_gaussians
 from utils.logging_utils import Log
 from utils.multiprocessing_utils import FakeQueue
+
 from utils.slam_backend import BackEnd
+
+# from utils.slam_backend_baseline import BackEnd
 from utils.slam_frontend import FrontEnd
 
 

@@ -132,9 +132,38 @@ def get_loss_mapping_rgbd(config, image, depth, viewpoint, initialization=False,
         rgb_pixel_mask = (rgb_pixel_mask & active_pixel_mask).view(*depth.shape)
         depth_pixel_mask = (depth_pixel_mask & active_pixel_mask).view(*depth.shape)
 
+    ## rgb_pixel_mask filters out pixels but not affect the gradient
     l1_rgb = torch.abs(image * rgb_pixel_mask - gt_image * rgb_pixel_mask)
+
+
+
+    # print ("Rendered image: ", image)
+    # print ("GT image: ", gt_image)
+    # print ("Error map: ", image - gt_image) 
+    # print ("Sum of rgb pixel mask: ", rgb_pixel_mask.sum())
+
+    # when this error is postive, the gradient is also positive
+    # l1_rgb = torch.abs(image - gt_image)
     l1_depth = torch.abs(depth * depth_pixel_mask - gt_depth * depth_pixel_mask)
 
+    # l1_rgb_debug = image * rgb_pixel_mask - gt_image * rgb_pixel_mask
+    # l1_depth_debug = depth * depth_pixel_mask - gt_depth * depth_pixel_mask
+
+    # print ("error map rgb: ")
+    # print (l1_rgb_debug[0][0])
+    # print (l1_rgb_debug[1][0])
+    # print (l1_rgb_debug[2][0])
+    # print ("error map depth: ")
+    # print (l1_depth_debug[0][0])
+
+    # when alpha is 0.95
+    # gradient for color pixel is (1 * 0.95) / (1200 * 680 * 3) ~= 3.881e-7
+    # gradient for depth pixel is (1 * 0.05) / (1200 * 680) ~= 6.127e-8
+    # when alpha is 1.0
+    # gradient for color pixel is (1 * 1.0) / (1200 * 680 * 3) ~= 4.085e-7
+    # gradient for depth pixel is (1 * 0.0) / (1200 * 680) == 0
+    # alpha=1.0
+    # print ("alpha: ", alpha)
     return alpha * l1_rgb.mean() + (1 - alpha) * l1_depth.mean()
 
 

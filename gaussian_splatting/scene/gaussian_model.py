@@ -14,9 +14,6 @@ import os
 import numpy as np
 import open3d as o3d
 import torch
-from plyfile import PlyData, PlyElement
-from simple_knn._C import distCUDA2
-from torch import nn
 
 from gaussian_splatting.utils.general_utils import (
     build_rotation,
@@ -29,14 +26,18 @@ from gaussian_splatting.utils.general_utils import (
 from gaussian_splatting.utils.graphics_utils import BasicPointCloud, getWorld2View2
 from gaussian_splatting.utils.sh_utils import RGB2SH
 from gaussian_splatting.utils.system_utils import mkdir_p
+from plyfile import PlyData, PlyElement
+from simple_knn._C import distCUDA2
+from torch import nn
 
-'''
+"""
     Macros:
         CLEANUP: cleanup old flags
         PROJECT: project to compute insertion mask
-'''
+"""
 CLEANUP = 1
 PROJECT = 1
+
 
 class GaussianModel:
     def __init__(self, sh_degree: int, config=None):
@@ -123,26 +124,149 @@ class GaussianModel:
 
         out = np.dot(extrinsic, new_xyz.T).T
 
-        u = (((out[:, 0] * last_viewport.fx) / out[:, 2]) + last_viewport.cx + 0.5).astype(int)
-        v = (((out[:, 1] * last_viewport.fy) / out[:, 2]) + last_viewport.cy + 0.5).astype(int)
+        u = (
+            ((out[:, 0] * last_viewport.fx) / out[:, 2]) + last_viewport.cx + 0.5
+        ).astype(int)
+        v = (
+            ((out[:, 1] * last_viewport.fy) / out[:, 2]) + last_viewport.cy + 0.5
+        ).astype(int)
 
         coord = np.stack((u, v), axis=1)
 
-        mask =  (coord[:, 0] >= 0) & (coord[:, 0] <= last_viewport.image_width) & \
-                (coord[:, 1] >= 0) & (coord[:, 1] <= last_viewport.image_height)
+        mask = (
+            (coord[:, 0] >= 0)
+            & (coord[:, 0] <= last_viewport.image_width)
+            & (coord[:, 1] >= 0)
+            & (coord[:, 1] <= last_viewport.image_height)
+        )
 
         mask = ~mask
 
         # TODO: temporarily fixing the issue with too few points added
-        if (mask.sum() <= 10):
-            mask[-11 : -1] = 1
+        if mask.sum() <= 10:
+            mask[-11:-1] = 1
 
         # print ("shape: ", mask.shape)
         # print ("sum mask", mask.sum())
         # print ("new_xyz shape after: ", new_xyz[mask].shape)
+        print(
+            "inserted, %d, new_total, %d, scene_total, %d"
+            % (mask.sum(), new_xyz.shape[0], self._xyz.shape[0])
+        )
         return mask
 
-    def create_pcd_from_image(self, cam_info, init=False, scale=2.0, depthmap=None, last_viewport=None):
+    def compute_insertion_mask_unique(self, new_xyz, viewport, rgbd, downsample_factor):
+        # print ("new_xyz before: ", new_xyz.shape)
+        # o3d.create_from_rgbd_image takes extrinsic but applies inverse
+        # points projected from cam to world are then multiplied with the inv mat
+        extrinsic = getWorld2View2(viewport.R, viewport.T).cpu().numpy()
+
+        # homo coords
+        # print (self._xyz)
+        # print (self._xyz.detach().cpu().numpy())
+        old_xyz = np.concatenate(
+            (self._xyz.detach().cpu().numpy(), np.ones((self._xyz.shape[0], 1))), axis=1
+        )
+
+        out = np.dot(extrinsic, old_xyz.T).T
+
+        u = (((out[:, 0] * viewport.fx) / out[:, 2]) + viewport.cx + 0.5).astype(int)
+        v = (((out[:, 1] * viewport.fy) / out[:, 2]) + viewport.cy + 0.5).astype(int)
+
+        print(u)
+        print(v)
+
+        valid_indices = (
+            (u >= 0)
+            & (u < viewport.image_width)
+            & (v >= 0)
+            & (v < viewport.image_height)
+        )
+
+        # x_grid, y_grid = np.meshgrid(np.arange(rgbd.image_width), np.arange(rgbd.image_height))
+
+        # mask = ((x_grid.unsqueeze(0) >= (u.unsqueeze(-1) - 5)) &
+        #         (x_grid.unsqueeze(0) <= (u.unsqueeze(-1) + 5)) &
+        #         (y_grid.unsqueeze(0) >= (v.unsqueeze(-1) - 5)) &
+        #         (y_grid.unsqueeze(0) <= (v.unsqueeze(-1) + 5))).any(dim=1, keepdims=True)
+
+        # rgbd = rgbd * mask.float()
+
+        # coord = np.stack((u, v), axis=1)
+
+        # mask = torch.zeros(viewport.image_width, viewport.image_height).bool()
+        mask = torch.zeros(
+            (viewport.image_height, viewport.image_width), dtype=torch.float32
+        )
+        print("num valid indices: ", len(valid_indices))
+        mask[v[valid_indices], u[valid_indices]] = 1
+        print(mask)
+        print(torch.sum(mask))
+
+        mask = mask.unsqueeze(0).unsqueeze(0)
+        dilation_size = 7
+        kernel_size = (dilation_size, dilation_size)
+        padding = dilation_size // 2
+
+        conv = torch.nn.Conv2d(
+            1, 1, kernel_size=kernel_size, padding=padding, bias=False
+        )
+        conv.weight.data.fill_(1)
+
+        mask = conv(mask)
+        # mask = F.max_pool2d(mask, kernel_size, stride=1, padding=dilation_size //2 )#dilation=dilation_size)
+        mask = mask.squeeze(0).squeeze(0).bool()
+        print("after")
+        print(mask)
+        print(torch.sum(mask))
+
+        """""" """""" """""" """""" """""" """""" """"""
+
+        # mask = ~mask
+        depth_array = np.asarray(rgbd.depth)
+        print("shape: ", depth_array.shape)
+        depth_array[mask] = 0
+        filtered_depth = o3d.geometry.Image(depth_array)
+        rgbd.depth = filtered_depth
+
+        W2C = getWorld2View2(viewport.R, viewport.T).cpu().numpy()
+        pcd_tmp = o3d.geometry.PointCloud.create_from_rgbd_image(
+            rgbd,
+            o3d.camera.PinholeCameraIntrinsic(
+                viewport.image_width,
+                viewport.image_height,
+                viewport.fx,
+                viewport.fy,
+                viewport.cx,
+                viewport.cy,
+            ),
+            extrinsic=W2C,
+            project_valid_depth_only=True,
+        )
+        pcd_tmp = pcd_tmp.random_down_sample(1.0 / downsample_factor)
+        new_xyz = np.asarray(pcd_tmp.points)
+        new_rgb = np.asarray(pcd_tmp.colors)
+
+        # TODO: check which pixel is empty
+        # offset = 0
+        # mask =  (coord[:, 0] >= 0+offset) & (coord[:, 0] <= last_viewport.image_width - offset) & \
+        #         (coord[:, 1] >= 0+offset) & (coord[:, 1] <= last_viewport.image_height - offset)
+
+        # mask = ~mask
+
+        # TODO: temporarily fixing the issue with too few points added
+        # if (mask.sum() <= 10):
+        #     mask[-11 : -1] = 1
+
+        # print ("shape: ", mask.shape)
+        # print ("sum mask", mask.sum())
+        # print ("new_xyz shape after: ", new_xyz[mask].shape)
+        print("inserted, %d, scene_total, %d" % (new_xyz.shape[0], self._xyz.shape[0]))
+        return new_xyz, new_rgb
+
+    def create_pcd_from_image(
+        self, cam_info, init=False, scale=2.0, depthmap=None, last_viewport=None
+    ):
         cam = cam_info
         image_ab = (torch.exp(cam.exposure_a)) * cam.original_image + cam.exposure_b
         image_ab = torch.clamp(image_ab, 0.0, 1.0)
@@ -166,9 +290,13 @@ class GaussianModel:
             rgb = o3d.geometry.Image(rgb_raw.astype(np.uint8))
             depth = o3d.geometry.Image(depth_raw.astype(np.float32))
 
-        return self.create_pcd_from_image_and_depth(cam, rgb, depth, init, last_viewport)
+        return self.create_pcd_from_image_and_depth(
+            cam, rgb, depth, init, last_viewport
+        )
 
-    def create_pcd_from_image_and_depth(self, cam, rgb, depth, init=False, last_viewport=None):
+    def create_pcd_from_image_and_depth(
+        self, cam, rgb, depth, init=False, last_viewport=None
+    ):
         if init:
             downsample_factor = self.config["Dataset"]["pcd_downsample_init"]
         else:
@@ -207,6 +335,27 @@ class GaussianModel:
             mask = self.compute_insertion_mask(new_xyz, last_viewport)
             new_xyz = new_xyz[mask]
             new_rgb = new_rgb[mask]
+
+            # new_xyz_bound = new_xyz[mask]
+            # new_rgb_bound = new_rgb[mask]
+
+        # if last_viewport is not None and PROJECT:
+        #     new_xyz_unique, new_rgb_unique = self.compute_insertion_mask_unique(
+        #         new_xyz, cam, rgbd, downsample_factor
+        #     )
+
+        #     rows1 = {tuple(row.tolist()) for row in new_xyz_bound}
+        #     rows2 = {tuple(row.tolist()) for row in new_xyz_unique}
+        #     shared_rows = rows1.intersection(rows2)
+        #     new_xyz = np.asarray(torch.tensor(list(shared_rows)))
+
+        #     rows1 = {tuple(row.tolist()) for row in new_rgb_bound}
+        #     rows2 = {tuple(row.tolist()) for row in new_rgb_unique}
+        #     shared_rows = rows1.intersection(rows2)
+        #     new_rgb = np.asarray(torch.tensor(list(shared_rows)))
+
+        #     print("[DEBUG] new_xyz shape: ", new_xyz.shape)
+        #     print("[DEBUG] new_rgb shape: ", new_rgb.shape)
 
         pcd = BasicPointCloud(
             points=new_xyz, colors=new_rgb, normals=np.zeros((new_xyz.shape[0], 3))
@@ -284,10 +433,22 @@ class GaussianModel:
         )
 
     def extend_from_pcd_seq(
-        self, cam_info, kf_id=-1, init=False, scale=2.0, depthmap=None, last_viewport=None
+        self,
+        cam_info,
+        kf_id=-1,
+        init=False,
+        scale=2.0,
+        depthmap=None,
+        last_viewport=None,
     ):
         fused_point_cloud, features, scales, rots, opacities = (
-            self.create_pcd_from_image(cam_info, init, scale=scale, depthmap=depthmap, last_viewport=last_viewport)
+            self.create_pcd_from_image(
+                cam_info,
+                init,
+                scale=scale,
+                depthmap=depthmap,
+                last_viewport=last_viewport,
+            )
         )
         self.extend_from_pcd(
             fused_point_cloud, features, scales, rots, opacities, kf_id
@@ -554,6 +715,7 @@ class GaussianModel:
         return optimizable_tensors
 
     def prune_points(self, mask):
+        print("num pruned: ", torch.sum(mask), mask.shape[0])
         valid_points_mask = ~mask
         optimizable_tensors = self._prune_optimizer(valid_points_mask)
 

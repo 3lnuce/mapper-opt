@@ -341,8 +341,6 @@ class BackEnd(mp.Process):
                 continue
             random_viewpoint_stack.append(viewpoint)
 
-        skip_cam = []
-
         # print("iters: ", iters)
         # print("curr_window: ", len(current_window))
         for iter_idx in range(iters):
@@ -369,44 +367,7 @@ class BackEnd(mp.Process):
 
             keyframes_opt = []
 
-            partial_iter = 30
-            if iter_idx >= partial_iter:
-                self.gaussians.is_active[:] = 1
-            if iter_idx >= 50:
-                continue
-
-            if prune:
-                self.gaussians.is_active[:] = 1
-
-            # self.gaussians.is_active[:] = 1
-            # if iter_idx >= 10:
-            #     continue
-
             for cam_idx in range(len(current_window)):
-
-                if cam_idx in skip_cam:
-                    viewspace_point_tensor_acm.append(
-                        torch.zeros(
-                            self.gaussians._xyz.shape[0], self.gaussians._xyz.shape[1]
-                        ).cuda()
-                    )
-                    visibility_filter_acm.append(
-                        torch.zeros(
-                            self.gaussians._xyz.shape[0], dtype=torch.bool
-                        ).cuda()
-                    )
-                    radii_acm.append(
-                        torch.zeros(
-                            self.gaussians._xyz.shape[0], dtype=torch.int32
-                        ).cuda()
-                    )
-                    n_touched_acm.append(
-                        torch.zeros(
-                            self.gaussians._xyz.shape[0], dtype=torch.int32
-                        ).cuda()
-                    )
-                    continue
-
                 tic_loop.record()
 
                 viewpoint = viewpoint_stack[cam_idx]
@@ -419,8 +380,8 @@ class BackEnd(mp.Process):
                 )
 
                 # print ("=========================================== REFENCE RENDER !!!\n")
-                # render_pkg = render(
-                render_pkg = fast_render(
+                render_pkg = render(
+                    # render_pkg = fast_render(
                     # render_pkg = fused_render(
                     viewpoint,
                     self.gaussians,
@@ -469,10 +430,6 @@ class BackEnd(mp.Process):
                     % (iter_idx, cam_idx, local_loss)
                 )
 
-                # if local_loss <= 1e-6:
-                if cam_idx >= 2:
-                    skip_cam.append(cam_idx)
-
                 loss_mapping += local_loss
                 # loss_mapping += get_loss_mapping(
                 #     self.config, image, depth, viewpoint, opacity, active_pixel_mask=active_pixel_mask
@@ -502,15 +459,6 @@ class BackEnd(mp.Process):
                 radii_acm.append(radii)
                 n_touched_acm.append(n_touched)
 
-                # print("viewspace_point_tensor: ", viewspace_point_tensor.shape)
-                # print("viewspace_point_tensor: ", viewspace_point_tensor)
-                # print("visibility_filter: ", visibility_filter.shape)
-                # print("visibility_filter: ", visibility_filter)
-                # print("radii: ", radii.shape)
-                # print("radii: ", radii)
-                # print("n_touched: ", n_touched.shape)
-                # print("n_touched: ", n_touched)
-
                 if TIMING:
                     toc_loop.record()
                     torch.cuda.synchronize()
@@ -518,86 +466,80 @@ class BackEnd(mp.Process):
                     tot_forward += tic_loop.elapsed_time(toc_loop)
                     # print("tot_forward: ", tot_forward)
 
-            if iter_idx >= partial_iter or prune:
-                for cam_idx in torch.randperm(len(random_viewpoint_stack))[:2]:
+            for cam_idx in torch.randperm(len(random_viewpoint_stack))[:2]:
+                tic_loop.record()
 
-                    # if cam_idx in skip_cam:
-                    #     continue
+                viewpoint = random_viewpoint_stack[cam_idx]
 
-                    tic_loop.record()
+                render_info = "######frame_%d_cam_rand_%d_iter_%d.log" % (
+                    frame_idx,
+                    cam_idx,
+                    iter_idx,
+                )
 
-                    viewpoint = random_viewpoint_stack[cam_idx]
+                render_pkg = render(
+                    # render_pkg = fast_render(
+                    # render_pkg = fused_render(
+                    viewpoint,
+                    self.gaussians,
+                    self.pipeline_params,
+                    self.background,
+                    render_info=render_info,  # , mask=test_mask
+                )
 
-                    render_info = "######frame_%d_cam_rand_%d_iter_%d.log" % (
-                        frame_idx,
-                        cam_idx,
-                        iter_idx,
-                    )
+                toc_loop.record()
+                torch.cuda.synchronize()
+                python_timer.write(
+                    render_info + ": " + str(tic_loop.elapsed_time(toc_loop)) + "\n"
+                )
 
-                    # render_pkg = render(
-                    render_pkg = fast_render(
-                        # render_pkg = fused_render(
-                        viewpoint,
-                        self.gaussians,
-                        self.pipeline_params,
-                        self.background,
-                        render_info=render_info,  # , mask=test_mask
-                    )
+                (
+                    image,
+                    viewspace_point_tensor,
+                    visibility_filter,
+                    radii,
+                    depth,
+                    opacity,
+                    n_touched,
+                ) = (
+                    render_pkg["render"],
+                    render_pkg["viewspace_points"],
+                    render_pkg["visibility_filter"],
+                    render_pkg["radii"],
+                    render_pkg["depth"],
+                    render_pkg["opacity"],
+                    render_pkg["n_touched"],
+                )
+                active_pixel_mask = (
+                    image.sum(dim=0) > self.config["Training"]["rgb_boundary_threshold"]
+                ).view(*depth.shape)
+                local_loss = get_loss_mapping(
+                    self.config,
+                    image,
+                    depth,
+                    viewpoint,
+                    opacity,
+                    active_pixel_mask=active_pixel_mask,
+                )
+                print(
+                    "rand: iter %d, cam_idx %d, loss: %f"
+                    % (iter_idx, cam_idx, local_loss)
+                )
+                loss_mapping += local_loss
 
+                # loss_mapping += get_loss_mapping(
+                #     self.config, image, depth, viewpoint, opacity, active_pixel_mask=active_pixel_mask
+                # )
+                viewspace_point_tensor_acm.append(viewspace_point_tensor)
+                visibility_filter_acm.append(visibility_filter)
+                radii_acm.append(radii)
+
+                if TIMING:
                     toc_loop.record()
                     torch.cuda.synchronize()
-                    python_timer.write(
-                        render_info + ": " + str(tic_loop.elapsed_time(toc_loop)) + "\n"
-                    )
-
-                    (
-                        image,
-                        viewspace_point_tensor,
-                        visibility_filter,
-                        radii,
-                        depth,
-                        opacity,
-                        n_touched,
-                    ) = (
-                        render_pkg["render"],
-                        render_pkg["viewspace_points"],
-                        render_pkg["visibility_filter"],
-                        render_pkg["radii"],
-                        render_pkg["depth"],
-                        render_pkg["opacity"],
-                        render_pkg["n_touched"],
-                    )
-                    active_pixel_mask = (
-                        image.sum(dim=0)
-                        > self.config["Training"]["rgb_boundary_threshold"]
-                    ).view(*depth.shape)
-                    local_loss = get_loss_mapping(
-                        self.config,
-                        image,
-                        depth,
-                        viewpoint,
-                        opacity,
-                        active_pixel_mask=active_pixel_mask,
-                    )
-                    print(
-                        "rand: iter %d, cam_idx %d, loss: %f"
-                        % (iter_idx, cam_idx, local_loss)
-                    )
-                    loss_mapping += local_loss
-
-                    # loss_mapping += get_loss_mapping(
-                    #     self.config, image, depth, viewpoint, opacity, active_pixel_mask=active_pixel_mask
-                    # )
-                    viewspace_point_tensor_acm.append(viewspace_point_tensor)
-                    visibility_filter_acm.append(visibility_filter)
-                    radii_acm.append(radii)
-
-                    if TIMING:
-                        toc_loop.record()
-                        torch.cuda.synchronize()
-                        # print("Backend [Mapping] cam_idx_rand: ", cam_idx, ", time: ", tic_loop.elapsed_time(toc_loop))
-                        tot_forward += tic_loop.elapsed_time(toc_loop)
-                        # print("tot_forward: ", tot_forward)
+                    # print("Backend [Mapping] cam_idx_rand: ", cam_idx, ", time: ", tic_loop.elapsed_time(toc_loop))
+                    tot_forward += tic_loop.elapsed_time(toc_loop)
+                    # print("tot_forward: ", tot_forward)
 
             # print("Backend [Mapping] Iter: ", _, ", time forward: ", tot_forward)
 
@@ -704,8 +646,6 @@ class BackEnd(mp.Process):
                     return False
 
                 for idx in range(len(viewspace_point_tensor_acm)):
-                    if idx in skip_cam:
-                        continue
                     self.gaussians.max_radii2D[visibility_filter_acm[idx]] = torch.max(
                         self.gaussians.max_radii2D[visibility_filter_acm[idx]],
                         radii_acm[idx][visibility_filter_acm[idx]],
@@ -714,16 +654,10 @@ class BackEnd(mp.Process):
                         viewspace_point_tensor_acm[idx], visibility_filter_acm[idx]
                     )
 
-                # update_gaussian = (
-                #     self.iteration_count % self.gaussian_update_every
-                #     == self.gaussian_update_offset
-                # )
-
-                update_gaussian = False
-                if iter_idx == partial_iter:
-                    update_gaussian = True
-
-                print("Update gaussian: ", update_gaussian)
+                update_gaussian = (
+                    self.iteration_count % self.gaussian_update_every
+                    == self.gaussian_update_offset
+                )
 
                 if update_gaussian:
                     self.gaussians.densify_and_prune(
@@ -735,24 +669,24 @@ class BackEnd(mp.Process):
                     gaussian_split = True
 
                 ## Opacity reset
-                # if (self.iteration_count % self.gaussian_reset) == 0 and (
-                #     not update_gaussian
-                # ):
-                #     Log("Resetting the opacity of non-visible Gaussians")
-                #     self.gaussians.reset_opacity_nonvisible(visibility_filter_acm)
-                #     gaussian_split = True
+                if (self.iteration_count % self.gaussian_reset) == 0 and (
+                    not update_gaussian
+                ):
+                    Log("Resetting the opacity of non-visible Gaussians")
+                    self.gaussians.reset_opacity_nonvisible(visibility_filter_acm)
+                    gaussian_split = True
 
                 # param names: xyz, f_dc, f_rest, opacity, scaling, rotation
-                for param in self.gaussians.optimizer.param_groups:
-                    mask = ~self.gaussians.is_active.cpu().bool().numpy()
-                    if not FREEZE_GS:
-                        mask[:] = False
+                # for param in self.gaussians.optimizer.param_groups:
+                #     mask = ~self.gaussians.is_active.cpu().bool().numpy()
+                #     if not FREEZE_GS:
+                #         mask[:] = False
 
-                    param_tensor = param["params"][0]
-                    if param_tensor.grad is not None:
-                        param_tensor.grad[mask] = torch.zeros(
-                            param_tensor.shape[-1], device="cuda"
-                        )
+                #     param_tensor = param["params"][0]
+                #     if param_tensor.grad is not None:
+                #         param_tensor.grad[mask] = torch.zeros(
+                #             param_tensor.shape[-1], device="cuda"
+                #         )
 
                 self.gaussians.optimizer.step()
                 self.gaussians.optimizer.zero_grad(set_to_none=True)

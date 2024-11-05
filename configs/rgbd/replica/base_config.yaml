@@ -9,7 +9,8 @@ Results:
 
 Dataset:
   sensor_type: 'depth'
-  pcd_downsample: 64
+  # pcd_downsample: 64
+  pcd_downsample: 16
   pcd_downsample_init: 32
   adaptive_pointsize: True
   point_size: 0.05
@@ -80,7 +81,7 @@ opt_params:
   densify_grad_threshold: 0.0002
 
 model_params:
-  sh_degree: 0
+  sh_degree: 3
   source_path: ""
   model_path: ""
   resolution: -1
