@@ -14,10 +14,11 @@ from utils.multiprocessing_utils import clone_obj
 from utils.pose_utils import update_pose
 from utils.slam_utils import get_loss_tracking, get_median_depth
 
-'''
+"""
     Macros
-'''
+"""
 TIMING = 0
+
 
 class FrontEnd(mp.Process):
     def __init__(self, config):
@@ -168,7 +169,6 @@ class FrontEnd(mp.Process):
         #     }
         # )
 
-
         # pose_optimizer = torch.optim.Adam(opt_params)
         for tracking_itr in range(self.tracking_itr_num):
 
@@ -178,7 +178,7 @@ class FrontEnd(mp.Process):
                 viewpoint, self.gaussians, self.pipeline_params, self.background
             )
 
-            if (TIMING):
+            if TIMING:
                 toc_loop.record()
                 torch.cuda.synchronize()
                 # print("Backend [Init Mapping]: ", tic_loop.elapsed_time(toc_loop))
@@ -207,9 +207,13 @@ class FrontEnd(mp.Process):
                     gui_utils.GaussianPacket(
                         current_frame=viewpoint,
                         gtcolor=viewpoint.original_image,
-                        gtdepth=viewpoint.depth
-                        if not self.monocular
-                        else np.zeros((viewpoint.image_height, viewpoint.image_width)),
+                        gtdepth=(
+                            viewpoint.depth
+                            if not self.monocular
+                            else np.zeros(
+                                (viewpoint.image_height, viewpoint.image_width)
+                            )
+                        ),
                     )
                 )
             if converged:
@@ -217,9 +221,9 @@ class FrontEnd(mp.Process):
 
         self.median_depth = get_median_depth(depth, opacity)
 
-        if (TIMING):
-            print ("[Frontend] [tot_forward]: ", tot_forward)
-            print ("[Frontend] [tot_bckward]: ", tot_bckward)
+        if TIMING:
+            print("[Frontend] [tot_forward]: ", tot_forward)
+            print("[Frontend] [tot_bckward]: ", tot_bckward)
 
         return render_pkg
 
@@ -372,7 +376,7 @@ class FrontEnd(mp.Process):
 
             if self.frontend_queue.empty():
                 if cur_frame_idx >= len(self.dataset):
-                # if cur_frame_idx >= 100:
+                    # if cur_frame_idx >= 15:
                     if self.save_results:
                         eval_ate(
                             self.cameras,
@@ -399,7 +403,7 @@ class FrontEnd(mp.Process):
                     time.sleep(0.01)
                     continue
 
-                print ("cur_frame_idx_front: ", cur_frame_idx)
+                print("cur_frame_idx_front: ", cur_frame_idx)
                 tic.record()
 
                 viewpoint = Camera.init_from_dataset(
@@ -407,10 +411,10 @@ class FrontEnd(mp.Process):
                 )
                 viewpoint.compute_grad_mask(self.config)
 
-                if (TIMING):
+                if TIMING:
                     toc.record()
                     torch.cuda.synchronize()
-                    print ("[Frontend] [Compute grad mask]: ", tic.elapsed_time(toc))
+                    print("[Frontend] [Compute grad mask]: ", tic.elapsed_time(toc))
 
                 self.cameras[cur_frame_idx] = viewpoint
 
@@ -427,11 +431,10 @@ class FrontEnd(mp.Process):
                 # Tracking
                 render_pkg = self.tracking(cur_frame_idx, viewpoint)
 
-                if (TIMING):
+                if TIMING:
                     toc.record()
                     torch.cuda.synchronize()
-                    print ("[Frontend] [Tracking]: ", tic.elapsed_time(toc))
-
+                    print("[Frontend] [Tracking]: ", tic.elapsed_time(toc))
 
                 current_window_dict = {}
                 current_window_dict[self.current_window[0]] = self.current_window[1:]
@@ -461,11 +464,10 @@ class FrontEnd(mp.Process):
                     self.occ_aware_visibility,
                 )
 
-                if (TIMING):
+                if TIMING:
                     toc.record()
                     torch.cuda.synchronize()
-                    print ("[Frontend] [Keyframe logic]: ", tic.elapsed_time(toc))
-
+                    print("[Frontend] [Keyframe logic]: ", tic.elapsed_time(toc))
 
                 if len(self.current_window) < self.window_size:
                     union = torch.logical_or(
@@ -480,11 +482,10 @@ class FrontEnd(mp.Process):
                         and point_ratio < self.config["Training"]["kf_overlap"]
                     )
 
-                if (TIMING):
+                if TIMING:
                     toc.record()
                     torch.cuda.synchronize()
-                    print ("[Frontend] [Visibility]: ", tic.elapsed_time(toc))
-
+                    print("[Frontend] [Visibility]: ", tic.elapsed_time(toc))
 
                 if self.single_thread:
                     create_kf = check_time and create_kf
@@ -529,10 +530,10 @@ class FrontEnd(mp.Process):
                         monocular=self.monocular,
                     )
 
-                if (TIMING):
+                if TIMING:
                     toc.record()
                     torch.cuda.synchronize()
-                    print ("[Frontend] [Duration]: ", tic.elapsed_time(toc))
+                    print("[Frontend] [Duration]: ", tic.elapsed_time(toc))
 
                 toc.record()
                 torch.cuda.synchronize()

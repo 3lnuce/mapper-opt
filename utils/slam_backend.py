@@ -4,6 +4,8 @@ import time
 
 import matplotlib
 import matplotlib.pyplot as plt
+
+import numpy as np
 import open3d as o3d
 
 import torch
@@ -25,6 +27,8 @@ TIMING = 1
 FREEZE_GS = 1
 LOG_ERROR = 0
 LOG_ERROR_INIT = 0
+
+PARTIAL_RENDERING = 0
 
 
 class BackEnd(mp.Process):
@@ -214,7 +218,8 @@ class BackEnd(mp.Process):
                 viewpoint,
                 self.gaussians,
                 self.pipeline_params,
-                self.background,  # , render_info="######"
+                self.background,
+                render_info="initialization",
             )
 
             (
@@ -369,11 +374,18 @@ class BackEnd(mp.Process):
 
             keyframes_opt = []
 
-            partial_iter = 30
-            if iter_idx >= partial_iter:
-                self.gaussians.is_active[:] = 1
-            if iter_idx >= 50:
-                continue
+            if PARTIAL_RENDERING:
+                partial_iter = 30
+                if iter_idx >= partial_iter:
+                    self.gaussians.is_active[:] = 1
+                if iter_idx >= 50:
+                    continue
+            else:
+                partial_iter = 0
+                if iter_idx >= partial_iter:
+                    self.gaussians.is_active[:] = 1
+                # if iter_idx >= 50:
+                #     continue
 
             if prune:
                 self.gaussians.is_active[:] = 1
@@ -470,8 +482,10 @@ class BackEnd(mp.Process):
                 )
 
                 # if local_loss <= 1e-6:
-                if cam_idx >= 2:
-                    skip_cam.append(cam_idx)
+
+                if PARTIAL_RENDERING:
+                    if cam_idx >= 2:
+                        skip_cam.append(cam_idx)
 
                 loss_mapping += local_loss
                 # loss_mapping += get_loss_mapping(
@@ -714,14 +728,15 @@ class BackEnd(mp.Process):
                         viewspace_point_tensor_acm[idx], visibility_filter_acm[idx]
                     )
 
-                # update_gaussian = (
-                #     self.iteration_count % self.gaussian_update_every
-                #     == self.gaussian_update_offset
-                # )
-
-                update_gaussian = False
-                if iter_idx == partial_iter:
-                    update_gaussian = True
+                if PARTIAL_RENDERING:
+                    update_gaussian = False
+                    if iter_idx == partial_iter:
+                        update_gaussian = True
+                else:
+                    update_gaussian = (
+                        self.iteration_count % self.gaussian_update_every
+                        == self.gaussian_update_offset
+                    )
 
                 print("Update gaussian: ", update_gaussian)
 
@@ -734,13 +749,14 @@ class BackEnd(mp.Process):
                     )
                     gaussian_split = True
 
-                ## Opacity reset
-                # if (self.iteration_count % self.gaussian_reset) == 0 and (
-                #     not update_gaussian
-                # ):
-                #     Log("Resetting the opacity of non-visible Gaussians")
-                #     self.gaussians.reset_opacity_nonvisible(visibility_filter_acm)
-                #     gaussian_split = True
+                if not PARTIAL_RENDERING:
+                    # Opacity reset
+                    if (self.iteration_count % self.gaussian_reset) == 0 and (
+                        not update_gaussian
+                    ):
+                        Log("Resetting the opacity of non-visible Gaussians")
+                        self.gaussians.reset_opacity_nonvisible(visibility_filter_acm)
+                        gaussian_split = True
 
                 # param names: xyz, f_dc, f_rest, opacity, scaling, rotation
                 for param in self.gaussians.optimizer.param_groups:
@@ -753,12 +769,30 @@ class BackEnd(mp.Process):
                         param_tensor.grad[mask] = torch.zeros(
                             param_tensor.shape[-1], device="cuda"
                         )
+                        # temp = param_tensor.detach().cpu().numpy()
+                        # temp_grad = param_tensor.grad.detach().cpu().numpy()
+                        # # print("save: ", param["name"])
+                        # np.savez_compressed(param["name"] + ".npz", tensor=temp)
+                        # np.savez_compressed(
+                        #     param["name"] + "_grad.npz", tensor=temp_grad
+                        # )
 
                 self.gaussians.optimizer.step()
                 self.gaussians.optimizer.zero_grad(set_to_none=True)
                 self.gaussians.update_learning_rate(self.iteration_count)
                 self.keyframe_optimizers.step()
                 self.keyframe_optimizers.zero_grad(set_to_none=True)
+
+                # for param in self.gaussians.optimizer.param_groups:
+                #     # param_tensor = param["params"][0]
+                #     # if param_tensor.grad is not None:
+                #     if param["name"] = "scaling":
+
+                # filter_scale = (torch.abs(grad_scales) > 1e-5).any(dim=1)
+                # filter_rotation = (torch.abs(grad_rotations) > 1e-5).any(dim=1)
+                # filter_opacity = (torch.abs(grad_opacities) > 1e-5).any(dim=1)
+                # filter_fdc = (torch.abs(grad_cov3Ds_precomp) > 1e-3).any(dim=1)
+                # row_indices = filter_scale & filter_rotation & filter_opacity  # & filter_fdc
 
                 # Pose update
                 # for cam_idx in range(min(frames_to_optimize, len(current_window))):
