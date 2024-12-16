@@ -17,6 +17,7 @@ import torch
 from plyfile import PlyData, PlyElement
 from simple_knn._C import distCUDA2
 from torch import nn
+import torch.nn.functional as F
 
 from gaussian_splatting.utils.general_utils import (
     build_rotation,
@@ -33,9 +34,11 @@ from gaussian_splatting.utils.system_utils import mkdir_p
 '''
     Macros:
         CLEANUP: cleanup old flags
+                 only render new gaussians
         PROJECT: project to compute insertion mask
+                 only insert new gaussians
 '''
-CLEANUP = 1
+CLEANUP = 0
 PROJECT = 1
 
 class GaussianModel:
@@ -55,6 +58,8 @@ class GaussianModel:
         self.unique_kfIDs = torch.empty(0).int()
         self.n_obs = torch.empty(0).int()
         self.is_active = torch.empty(0, device="cuda").int()
+        self.grads_mask = torch.empty(0, device="cuda").int()
+        self.freeze_mask = torch.empty(0, device="cuda").bool()
 
         self.optimizer = None
 
@@ -72,6 +77,8 @@ class GaussianModel:
         self.ply_input = None
 
         self.isotropic = False
+
+        self.num_new_inserted = 0
 
     def build_covariance_from_scaling_rotation(
         self, scaling, scaling_modifier, rotation
@@ -112,7 +119,7 @@ class GaussianModel:
         if self.active_sh_degree < self.max_sh_degree:
             self.active_sh_degree += 1
 
-    def compute_insertion_mask(self, new_xyz, last_viewport):
+    def compute_insertion_mask_simple(self, new_xyz, last_viewport):
         # print ("new_xyz before: ", new_xyz.shape)
         # o3d.create_from_rgbd_image takes extrinsic but applies inverse
         # points projected from cam to world are then multiplied with the inv mat
@@ -128,8 +135,9 @@ class GaussianModel:
 
         coord = np.stack((u, v), axis=1)
 
-        mask =  (coord[:, 0] >= 0) & (coord[:, 0] <= last_viewport.image_width) & \
-                (coord[:, 1] >= 0) & (coord[:, 1] <= last_viewport.image_height)
+        offset = 0
+        mask =  (coord[:, 0] >= 0+offset) & (coord[:, 0] <= last_viewport.image_width - offset) & \
+                (coord[:, 1] >= 0+offset) & (coord[:, 1] <= last_viewport.image_height - offset)
 
         mask = ~mask
 
@@ -137,10 +145,113 @@ class GaussianModel:
         if (mask.sum() <= 10):
             mask[-11 : -1] = 1
 
+        self.num_new_inserted = mask.sum()
+
         # print ("shape: ", mask.shape)
         # print ("sum mask", mask.sum())
         # print ("new_xyz shape after: ", new_xyz[mask].shape)
+        print ("inserted, %d, new_total, %d, scene_total, %d" % (mask.sum(), new_xyz.shape[0], self._xyz.shape[0]))
         return mask
+
+    def compute_insertion_mask(self, new_xyz, viewport, rgbd, downsample_factor):
+        # print ("new_xyz before: ", new_xyz.shape)
+        # o3d.create_from_rgbd_image takes extrinsic but applies inverse
+        # points projected from cam to world are then multiplied with the inv mat
+        extrinsic = getWorld2View2(viewport.R, viewport.T).cpu().numpy()
+
+        # homo coords
+        # print (self._xyz)
+        # print (self._xyz.detach().cpu().numpy())
+        old_xyz = np.concatenate((self._xyz.detach().cpu().numpy(), np.ones((self._xyz.shape[0], 1))), axis=1)
+
+
+        out = np.dot(extrinsic, old_xyz.T).T
+
+        u = (((out[:, 0] * viewport.fx) / out[:, 2]) + viewport.cx + 0.5).astype(int)
+        v = (((out[:, 1] * viewport.fy) / out[:, 2]) + viewport.cy + 0.5).astype(int)
+
+        print (u)
+        print (v)
+
+        valid_indices = (u >= 0) & (u < viewport.image_width) & (v >= 0) & (v < viewport.image_height)
+
+        # x_grid, y_grid = np.meshgrid(np.arange(rgbd.image_width), np.arange(rgbd.image_height))
+
+        # mask = ((x_grid.unsqueeze(0) >= (u.unsqueeze(-1) - 5)) &
+        #         (x_grid.unsqueeze(0) <= (u.unsqueeze(-1) + 5)) &
+        #         (y_grid.unsqueeze(0) >= (v.unsqueeze(-1) - 5)) &
+        #         (y_grid.unsqueeze(0) <= (v.unsqueeze(-1) + 5))).any(dim=1, keepdims=True)
+
+        # rgbd = rgbd * mask.float()
+
+        # coord = np.stack((u, v), axis=1)
+
+        # mask = torch.zeros(viewport.image_width, viewport.image_height).bool()
+        mask = torch.zeros((viewport.image_height, viewport.image_width), dtype=torch.float32)
+        print ("num valid indices: ", len(valid_indices))
+        mask[v[valid_indices], u[valid_indices]] = 1
+        print (mask)
+        print (torch.sum(mask))
+
+        mask = mask.unsqueeze(0).unsqueeze(0)
+        dilation_size = 15
+        kernel_size = (dilation_size, dilation_size)
+        padding = dilation_size // 2
+        
+        conv = torch.nn.Conv2d(1, 1, kernel_size=kernel_size, padding=padding, bias=False)
+        conv.weight.data.fill_(1)
+
+        mask = conv(mask)
+        # mask = F.max_pool2d(mask, kernel_size, stride=1, padding=dilation_size //2 )#dilation=dilation_size)
+        mask = mask.squeeze(0).squeeze(0).bool()
+        print ("after")
+        print (mask)
+        print (torch.sum(mask))
+
+        ''''''''''''''''''''''''''''''''''''''''''
+
+        # mask = ~mask
+        depth_array = np.asarray(rgbd.depth)
+        print ("shape: ", depth_array.shape)
+        depth_array[mask] = 0
+        filtered_depth = o3d.geometry.Image(depth_array)
+        rgbd.depth = filtered_depth
+
+        W2C = getWorld2View2(viewport.R, viewport.T).cpu().numpy()
+        pcd_tmp = o3d.geometry.PointCloud.create_from_rgbd_image(
+            rgbd,
+            o3d.camera.PinholeCameraIntrinsic(
+                viewport.image_width,
+                viewport.image_height,
+                viewport.fx,
+                viewport.fy,
+                viewport.cx,
+                viewport.cy,
+            ),
+            extrinsic=W2C,
+            project_valid_depth_only=True,
+        )
+        pcd_tmp = pcd_tmp.random_down_sample(1.0 / downsample_factor)
+        new_xyz = np.asarray(pcd_tmp.points)
+        new_rgb = np.asarray(pcd_tmp.colors)
+
+
+        # TODO: check which pixel is empty
+        # offset = 0
+        # mask =  (coord[:, 0] >= 0+offset) & (coord[:, 0] <= last_viewport.image_width - offset) & \
+        #         (coord[:, 1] >= 0+offset) & (coord[:, 1] <= last_viewport.image_height - offset)
+
+        # mask = ~mask
+
+        # TODO: temporarily fixing the issue with too few points added
+        # if (mask.sum() <= 10):
+        #     mask[-11 : -1] = 1
+
+        # print ("shape: ", mask.shape)
+        # print ("sum mask", mask.sum())
+        # print ("new_xyz shape after: ", new_xyz[mask].shape)
+        print ("inserted, %d, scene_total, %d" % (new_xyz.shape[0], self._xyz.shape[0]))
+        return new_xyz, new_rgb
 
     def create_pcd_from_image(self, cam_info, init=False, scale=2.0, depthmap=None, last_viewport=None):
         cam = cam_info
@@ -204,9 +315,12 @@ class GaussianModel:
         new_rgb = np.asarray(pcd_tmp.colors)
 
         if last_viewport is not None and PROJECT:
-            mask = self.compute_insertion_mask(new_xyz, last_viewport)
+            mask = self.compute_insertion_mask_simple(new_xyz, last_viewport)
             new_xyz = new_xyz[mask]
             new_rgb = new_rgb[mask]
+
+        # if last_viewport is not None and PROJECT:
+        #     new_xyz, new_rgb = self.compute_insertion_mask(new_xyz, cam, rgbd, downsample_factor)
 
         pcd = BasicPointCloud(
             points=new_xyz, colors=new_rgb, normals=np.zeros((new_xyz.shape[0], 3))
@@ -265,12 +379,22 @@ class GaussianModel:
         new_unique_kfIDs = torch.ones((new_xyz.shape[0])).int() * kf_id
         new_n_obs = torch.zeros((new_xyz.shape[0])).int()
         new_is_active = torch.ones(new_xyz.shape[0], device="cuda").int()
+        new_grads_mask = torch.ones(new_xyz.shape[0], device="cuda").int()
+        new_freeze_mask = torch.zeros(new_xyz.shape[0], device="cuda").bool()
 
         # cleanup old flags
-        if CLEANUP:
-            self.is_active[:] = 0
-            self.is_active.int()
+        # if CLEANUP:
+        #     self.is_active[:] = 0
+        #     self.is_active.int()
+        #     self.freeze_mask[:] = False
+        #     self.freeze_mask.bool()
 
+        self.is_active[self.is_active != 0] += 1
+        self.is_active[self.is_active > 5] = 0
+
+        # self.is_active[:] = 0
+        # self.is_active.int()
+ 
         self.densification_postfix(
             new_xyz,
             new_features_dc,
@@ -281,6 +405,8 @@ class GaussianModel:
             new_kf_ids=new_unique_kfIDs,
             new_n_obs=new_n_obs,
             new_is_active=new_is_active,
+            new_grads_mask=new_grads_mask,
+            new_freeze_mask=new_freeze_mask,
         )
 
     def extend_from_pcd_seq(
@@ -339,6 +465,7 @@ class GaussianModel:
             max_steps=training_args.position_lr_max_steps,
         )
 
+        # self.spatial_lr_scale = 6
         self.lr_init = training_args.position_lr_init * self.spatial_lr_scale
         self.lr_final = training_args.position_lr_final * self.spatial_lr_scale
         self.lr_delay_mult = training_args.position_lr_delay_mult
@@ -357,6 +484,13 @@ class GaussianModel:
                     max_steps=self.max_steps,
                 )
 
+                # print ("iteration: ", iteration)
+                # print ("lr: ", lr)
+                # print ("lr_init: ", self.lr_init)
+                # print ("lr_final: ", self.lr_final)
+                # print ("lr_delay_mult: ", self.lr_delay_mult)
+                # print ("max_steps: ", self.max_steps)
+
                 param_group["lr"] = lr
                 return lr
 
@@ -374,8 +508,9 @@ class GaussianModel:
             l.append("rot_{}".format(i))
         return l
 
-    def save_ply(self, path):
-        mkdir_p(os.path.dirname(path))
+    def save_ply(self, path, is_streaming=False):
+        if (not is_streaming):
+            mkdir_p(os.path.dirname(path))
 
         xyz = self._xyz.detach().cpu().numpy()
         normals = np.zeros_like(xyz)
@@ -387,6 +522,7 @@ class GaussianModel:
             .cpu()
             .numpy()
         )
+        print ("f_dc: ", f_dc.shape)
         f_rest = (
             self._features_rest.detach()
             .transpose(1, 2)
@@ -395,6 +531,11 @@ class GaussianModel:
             .cpu()
             .numpy()
         )
+        print ("f_rest: ", f_rest.shape)
+        # if (f_rest.shape[1] == 0):
+        #     f_rest = np.zeros((f_dc.shape[0], 45))
+        # print ("f_rest: ", f_rest.shape)
+
         opacities = self._opacity.detach().cpu().numpy()
         scale = self._scaling.detach().cpu().numpy()
         rotation = self._rotation.detach().cpu().numpy()
@@ -406,7 +547,12 @@ class GaussianModel:
         attributes = np.concatenate(
             (xyz, normals, f_dc, f_rest, opacities, scale, rotation), axis=1
         )
+        print ("attributes: ", attributes.shape)
+        if (is_streaming):
+            return attributes
+
         elements[:] = list(map(tuple, attributes))
+        print ("elements: ", elements.shape)
         el = PlyElement.describe(elements, "vertex")
         PlyData([el]).write(path)
 
@@ -554,6 +700,7 @@ class GaussianModel:
         return optimizable_tensors
 
     def prune_points(self, mask):
+        print ("+++++++++++++++++++++++++++++++++ pruning points !!!!!\n")
         valid_points_mask = ~mask
         optimizable_tensors = self._prune_optimizer(valid_points_mask)
 
@@ -571,6 +718,8 @@ class GaussianModel:
         self.unique_kfIDs = self.unique_kfIDs[valid_points_mask.cpu()]
         self.n_obs = self.n_obs[valid_points_mask.cpu()]
         self.is_active = self.is_active[valid_points_mask]
+        self.grads_mask = self.grads_mask[valid_points_mask]
+        self.freeze_mask = self.freeze_mask[valid_points_mask]
 
     def cat_tensors_to_optimizer(self, tensors_dict):
         optimizable_tensors = {}
@@ -617,6 +766,8 @@ class GaussianModel:
         new_kf_ids=None,
         new_n_obs=None,
         new_is_active=None,
+        new_grads_mask=None,
+        new_freeze_mask=None,
     ):
         d = {
             "xyz": new_xyz,
@@ -644,6 +795,10 @@ class GaussianModel:
             self.n_obs = torch.cat((self.n_obs, new_n_obs)).int()
         if new_is_active is not None:
             self.is_active = torch.cat((self.is_active, new_is_active)).int()
+        if new_grads_mask is not None:
+            self.grads_mask = torch.cat((self.grads_mask, new_grads_mask)).int()
+        if new_freeze_mask is not None:
+            self.freeze_mask = torch.cat((self.freeze_mask, new_freeze_mask)).bool()
 
     def densify_and_split(self, grads, grad_threshold, scene_extent, N=2):
         n_init_points = self.get_xyz.shape[0]
@@ -675,6 +830,10 @@ class GaussianModel:
         new_kf_id = self.unique_kfIDs[selected_pts_mask.cpu()].repeat(N)
         new_n_obs = self.n_obs[selected_pts_mask.cpu()].repeat(N)
         new_is_active = self.is_active[selected_pts_mask].repeat(N)
+        new_is_active[:] = 1
+        new_grads_mask = self.grads_mask[selected_pts_mask].repeat(N)
+        new_grads_mask[:] = 1
+        new_freeze_mask = self.freeze_mask[selected_pts_mask].repeat(N)
 
         self.densification_postfix(
             new_xyz,
@@ -686,6 +845,8 @@ class GaussianModel:
             new_kf_ids=new_kf_id,
             new_n_obs=new_n_obs,
             new_is_active=new_is_active,
+            new_grads_mask=new_grads_mask,
+            new_freeze_mask=new_freeze_mask,
         )
 
         prune_filter = torch.cat(
@@ -718,6 +879,10 @@ class GaussianModel:
         new_kf_id = self.unique_kfIDs[selected_pts_mask.cpu()]
         new_n_obs = self.n_obs[selected_pts_mask.cpu()]
         new_is_active = self.is_active[selected_pts_mask]
+        new_is_active[:] = 1
+        new_grads_mask = self.grads_mask[selected_pts_mask]
+        new_grads_mask[:] = 1
+        new_freeze_mask = self.freeze_mask[selected_pts_mask]
 
         self.densification_postfix(
             new_xyz,
@@ -729,9 +894,12 @@ class GaussianModel:
             new_kf_ids=new_kf_id,
             new_n_obs=new_n_obs,
             new_is_active=new_is_active,
+            new_grads_mask=new_grads_mask,
+            new_freeze_mask=new_freeze_mask,
         )
 
     def densify_and_prune(self, max_grad, min_opacity, extent, max_screen_size):
+        # pass
         grads = self.xyz_gradient_accum / self.denom
         grads[grads.isnan()] = 0.0
 
@@ -739,13 +907,13 @@ class GaussianModel:
         self.densify_and_split(grads, max_grad, extent)
 
         prune_mask = (self.get_opacity < min_opacity).squeeze()
-        if max_screen_size:
-            big_points_vs = self.max_radii2D > max_screen_size
-            big_points_ws = self.get_scaling.max(dim=1).values > 0.1 * extent
+        # if max_screen_size:
+        #     big_points_vs = self.max_radii2D > max_screen_size
+        #     big_points_ws = self.get_scaling.max(dim=1).values > 0.1 * extent
 
-            prune_mask = torch.logical_or(
-                torch.logical_or(prune_mask, big_points_vs), big_points_ws
-            )
+        #     prune_mask = torch.logical_or(
+        #         torch.logical_or(prune_mask, big_points_vs), big_points_ws
+        #     )
         self.prune_points(prune_mask)
 
     def add_densification_stats(self, viewspace_point_tensor, update_filter):

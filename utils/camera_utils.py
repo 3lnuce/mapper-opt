@@ -4,6 +4,7 @@ from torch import nn
 from gaussian_splatting.utils.graphics_utils import getProjectionMatrix2, getWorld2View2
 from utils.slam_utils import image_gradient, image_gradient_mask
 
+import numpy as np
 
 class Camera(nn.Module):
     def __init__(
@@ -65,6 +66,8 @@ class Camera(nn.Module):
         self.const_world_view_transform = None
         self.const_full_proj_transform = None
         self.const_camera_center = None
+
+        self.tile_list = torch.zeros(3225, device="cuda").int()
 
     @staticmethod
     def init_from_dataset(dataset, idx, projection_matrix):

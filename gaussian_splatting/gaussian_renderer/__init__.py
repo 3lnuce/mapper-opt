@@ -21,7 +21,7 @@ from diff_gaussian_rasterization import (
 from gaussian_splatting.scene.gaussian_model import GaussianModel
 from gaussian_splatting.utils.sh_utils import eval_sh
 
-PRECOMPUTE = 0
+PRECOMPUTE = 1
 
 def render(
     viewpoint_camera,
@@ -103,7 +103,8 @@ def render(
     tanfovy = math.tan(viewpoint_camera.FoVy * 0.5)
 
     # Set up rasterization configuration
-    if PRECOMPUTE:
+    # if PRECOMPUTE:
+    if 0:
         raster_settings = GaussianRasterizationSettings(
             image_height=int(viewpoint_camera.image_height),
             image_width=int(viewpoint_camera.image_width),
@@ -235,7 +236,9 @@ def fast_render(
     scaling_modifier=1.0,
     override_color=None,
     mask=None,
-    render_info=""
+    render_info="",
+    iter_num=0,
+    render_partial=True
 ):
     """
     Render the scene.
@@ -338,6 +341,105 @@ def fast_render(
     else:
         colors_precomp = override_color
 
+    # '''
+    #     MODE1: 1st iter, all points to compute error map
+    #     MODE2: 2nd iter, all points + active tiles flag, saves computem returs active points flag
+    #     MODE3: 3rd iter+, active points flag only
+    # '''
+    # if (iter_num < 2):
+    #     if (iter_num == 0):
+    #         gs2tile=True
+    #         tile2gs=False
+    #         MODE = 0
+    #     elif (iter_num == 1):
+    #         # use tile_active to control partial rendering
+    #         gs2tile=False
+    #         tile2gs=True
+    #         MODE = 1
+
+
+    #     print ("before mask: ", torch.sum(pc.freeze_mask))
+    #     print ("before tile: ", torch.sum(viewpoint_camera.tile_list))
+    #     print ("before gs: ", torch.sum(pc.is_active))
+    #     rendered_image, radii, depth, opacity, n_touched, gs_active, tile_active, freeze_mask = rasterizer(
+    #         means3D=means3D,
+    #         means2D=means2D,
+    #         shs=shs,
+    #         colors_precomp=colors_precomp,
+    #         opacities=opacity,
+    #         scales=scales,
+    #         rotations=rotations,
+    #         cov3D_precomp=cov3D_precomp,
+    #         theta=viewpoint_camera.cam_rot_delta,
+    #         rho=viewpoint_camera.cam_trans_delta,
+    #         is_active=pc.is_active,
+    #         tile_herr=viewpoint_camera.tile_list,
+    #         gs2tile=gs2tile,
+    #         tile2gs=tile2gs,
+    #         freeze_mask=pc.freeze_mask,
+    #         # mode=MODE,
+    #     )
+
+
+    #     print ("after mask: ", torch.sum(freeze_mask))
+    #     print ("after tile: ", torch.sum(viewpoint_camera.tile_list))
+    #     print ("after gs: ", torch.sum(pc.is_active))
+
+    # else:
+    #     # use gs_active to control partial rendering
+    #     mask = pc.is_active.bool()
+    #     # gs2tile=False
+    #     # tile2gs=False
+    #     MODE = 2
+
+    #     # print ("before mask: ", torch.sum(pc.freeze_mask))
+    #     print ("before tile: ", torch.sum(viewpoint_camera.tile_list))
+    #     print ("before gs: ", torch.sum(pc.is_active))
+
+    #     rendered_image, radii, depth, opacity, n_touched, gs_active, tile_active, freeze_mask = rasterizer(
+    #         means3D=means3D[mask],
+    #         means2D=means2D[mask],
+    #         shs=shs[mask],
+    #         colors_precomp=colors_precomp[mask] if colors_precomp is not None else None,
+    #         opacities=opacity[mask],
+    #         scales=scales[mask],
+    #         rotations=rotations[mask],
+    #         cov3D_precomp=cov3D_precomp[mask] if cov3D_precomp is not None else None,
+    #         theta=viewpoint_camera.cam_rot_delta,
+    #         rho=viewpoint_camera.cam_trans_delta,
+    #         is_active=pc.is_active[mask],
+    #         tile_herr=viewpoint_camera.tile_list,
+    #         freeze_mask=pc.freeze_mask[mask],
+    #     )
+
+    #     print ("after mask: ", torch.sum(freeze_mask))
+    #     # pc.freeze_mask = ~pc.freeze_mask & pc.is_active.bool() 
+    #     # print ("after mask: ", torch.sum(pc.freeze_mask))
+    #     print ("after tile: ", torch.sum(viewpoint_camera.tile_list))
+    #     print ("after gs: ", torch.sum(pc.is_active))
+
+    #     radii_all = torch.zeros((means3D.shape[0]), device="cuda").int()
+    #     n_touched_all = torch.zeros((means3D.shape[0]), device="cuda").int()
+    #     freeze_mask_all = torch.zeros((means3D.shape[0]), device="cuda").bool()
+
+    #     radii_all[mask] = radii
+    #     n_touched_all[mask] = n_touched
+    #     freeze_mask_all[mask] = freeze_mask
+
+    #     radii = radii_all
+    #     n_touched = n_touched_all
+    #     freeze_mask = freeze_mask_all
+
+    #     print ("before active and: ", torch.sum(pc.is_active))
+    #     pc.is_active = pc.is_active & freeze_mask
+    #     print ("after active and: ", torch.sum(pc.is_active))
+
+    ''''''''''''''''''''''''
+    ''''''''''''''''''''''''
+    # print ("debug input: ", pc.is_active)
+    # print ("debug input: ", torch.sum(pc.is_active))
+    # print ("debug input: ", torch.ones(means3D.shape[0], device="cuda").int())
+    # print ("debug input: ", torch.sum(torch.ones(means3D.shape[0], device="cuda").int()))
     # Rasterize visible Gaussians to image, obtain their radii (on screen).
     if mask is not None:
         rendered_image, radii, depth, opacity, n_touched = rasterizer(
@@ -351,7 +453,18 @@ def fast_render(
             cov3D_precomp=cov3D_precomp[mask] if cov3D_precomp is not None else None,
             theta=viewpoint_camera.cam_rot_delta,
             rho=viewpoint_camera.cam_trans_delta,
+            is_active=pc.is_active[mask] if render_partial else torch.ones(means3D.shape[0], device="cuda").int(),
+            tile_herr=viewpoint_camera.tile_list,
         )
+
+        radii_all = torch.zeros((means3D.shape[0]), device="cuda").int()
+        n_touched_all = torch.zeros((means3D.shape[0]), device="cuda").int()
+
+        radii_all[mask] = radii
+        n_touched_all[mask] = n_touched
+
+        radii = radii_all
+        n_touched = n_touched_all
     else:
         rendered_image, radii, depth, opacity, n_touched = rasterizer(
             means3D=means3D,
@@ -364,7 +477,8 @@ def fast_render(
             cov3D_precomp=cov3D_precomp,
             theta=viewpoint_camera.cam_rot_delta,
             rho=viewpoint_camera.cam_trans_delta,
-            is_active=pc.is_active
+            is_active=pc.is_active if render_partial else torch.ones(means3D.shape[0], device="cuda").int(),
+            tile_herr=viewpoint_camera.tile_list,
         )
 
     # Those Gaussians that were frustum culled or had a radius of 0 were not visible.
@@ -377,4 +491,5 @@ def fast_render(
         "depth": depth,
         "opacity": opacity,
         "n_touched": n_touched,
+        # "freeze_mask": freeze_mask,
     }

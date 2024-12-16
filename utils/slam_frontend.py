@@ -173,11 +173,12 @@ class FrontEnd(mp.Process):
 
         # pose_optimizer = torch.optim.Adam(opt_params)
         for tracking_itr in range(self.tracking_itr_num):
+            # print ("tracking iters: ", tracking_itr)
 
             tic_loop.record()
 
             render_pkg = render(
-                viewpoint, self.gaussians, self.pipeline_params, self.background
+                viewpoint, self.gaussians, self.pipeline_params, self.background, render_info="tracking"
             )
 
             if (TIMING):
@@ -374,7 +375,7 @@ class FrontEnd(mp.Process):
 
             if self.frontend_queue.empty():
                 if cur_frame_idx >= len(self.dataset):
-                # if cur_frame_idx >= 100:
+                # if cur_frame_idx >= 21:
                     if self.save_results:
                         eval_ate(
                             self.cameras,
@@ -401,7 +402,7 @@ class FrontEnd(mp.Process):
                     time.sleep(0.01)
                     continue
 
-                print ("cur_frame_idx_front: ", cur_frame_idx)
+                # print ("cur_frame_idx_front: ", cur_frame_idx)
                 tic.record()
 
                 viewpoint = Camera.init_from_dataset(
@@ -490,6 +491,9 @@ class FrontEnd(mp.Process):
 
                 if self.single_thread:
                     create_kf = check_time and create_kf
+
+                # if (cur_frame_idx == 5):
+                    # create_kf = True
                 if create_kf:
                     self.current_window, removed = self.add_to_window(
                         cur_frame_idx,

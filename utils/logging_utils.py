@@ -16,3 +16,4 @@ def get_style(tag):
 def Log(*args, tag="MonoGS"):
     style = get_style(tag)
     rich.print(f"[{style}]{tag}:[/{style}]", *args)
+    # return
