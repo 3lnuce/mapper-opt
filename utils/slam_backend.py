@@ -19,6 +19,7 @@ from utils.logging_utils import Log
 from utils.multiprocessing_utils import clone_obj
 from utils.pose_utils import update_pose
 from utils.slam_utils import get_loss_mapping
+from utils.networking import Networking
 
 """
     Macros
@@ -29,6 +30,7 @@ LOG_ERROR = 0
 LOG_ERROR_INIT = 0
 
 PARTIAL_RENDERING = 0
+STREAMING = 0
 
 
 class BackEnd(mp.Process):
@@ -57,6 +59,9 @@ class BackEnd(mp.Process):
         self.keyframe_optimizers = None
 
         self.save_dir = None
+
+        if (STREAMING): self.sender = Networking()
+
 
     def set_hyperparams(self):
         self.save_results = self.config["Results"]["save_results"]
@@ -1023,6 +1028,10 @@ class BackEnd(mp.Process):
                         print("[Backend] [Mapping]: ", tic.elapsed_time(toc))
 
                     self.map(self.current_window, prune=True)
+
+                    if (STREAMING):
+                        data_to_sent = self.gaussians.save_ply("", is_streaming=True)
+                        self.sender.send(should_send=True, tensors=data_to_sent)
 
                     if TIMING:
                         toc.record()

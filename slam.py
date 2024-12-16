@@ -18,10 +18,8 @@ from utils.dataset import load_dataset
 from utils.eval_utils import eval_ate, eval_rendering, save_gaussians
 from utils.logging_utils import Log
 from utils.multiprocessing_utils import FakeQueue
-
-from utils.slam_backend import BackEnd
-
-# from utils.slam_backend_baseline import BackEnd
+from utils.slam_backend import BackEnd as BackEnd
+from utils.slam_backend_baseline import BackEnd as BackEndBaseline
 from utils.slam_frontend import FrontEnd
 
 
@@ -73,7 +71,10 @@ class SLAM:
         self.config["Training"]["monocular"] = self.monocular
 
         self.frontend = FrontEnd(self.config)
-        self.backend = BackEnd(self.config)
+        if self.config['baseline']:
+            self.backend = BackEndBaseline(self.config)
+        else:
+            self.backend = BackEnd(self.config)
 
         self.frontend.dataset = self.dataset
         self.frontend.background = self.background
@@ -207,6 +208,7 @@ if __name__ == "__main__":
     parser = ArgumentParser(description="Training script parameters")
     parser.add_argument("--config", type=str)
     parser.add_argument("--eval", action="store_true")
+    parser.add_argument("--baseline", action="store_true")
 
     args = parser.parse_args(sys.argv[1:])
 
@@ -217,6 +219,11 @@ if __name__ == "__main__":
 
     config = load_config(args.config)
     save_dir = None
+
+    if args.baseline:
+        config['baseline'] = True
+    else:
+        config['baseline'] = False
 
     if args.eval:
         Log("Running MonoGS in Evaluation Mode")

@@ -143,8 +143,8 @@ class GaussianModel:
         mask = ~mask
 
         # TODO: temporarily fixing the issue with too few points added
-        if mask.sum() <= 10:
-            mask[-11:-1] = 1
+        if (mask.sum() <= 10):
+            mask[-11 : -1] = 1
 
         # print ("shape: ", mask.shape)
         # print ("sum mask", mask.sum())
@@ -535,8 +535,9 @@ class GaussianModel:
             l.append("rot_{}".format(i))
         return l
 
-    def save_ply(self, path):
-        mkdir_p(os.path.dirname(path))
+    def save_ply(self, path, is_streaming=False):
+        if (not is_streaming):
+            mkdir_p(os.path.dirname(path))
 
         xyz = self._xyz.detach().cpu().numpy()
         normals = np.zeros_like(xyz)
@@ -567,6 +568,8 @@ class GaussianModel:
         attributes = np.concatenate(
             (xyz, normals, f_dc, f_rest, opacities, scale, rotation), axis=1
         )
+        if (is_streaming):
+            return attributes
         elements[:] = list(map(tuple, attributes))
         el = PlyElement.describe(elements, "vertex")
         PlyData([el]).write(path)
